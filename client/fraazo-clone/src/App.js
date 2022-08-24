@@ -2,6 +2,7 @@ import './App.css';
 import Navbar from './Component/Navbar';
 import Footer from './Component/Footer';
 import DownloadApp from './Component/DownloadApp';
+// import Home from "./SamComponents/SamHome"
 
 function App() {
   return (
