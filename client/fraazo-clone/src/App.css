@@ -25,6 +25,13 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.swiper-pagination {
+  position: inherit !important;
+  padding-top: 30px;
+}
+.swiper-pagination-bullet{
+  background: #49c19f !important;
+}
 
 .App-link {
   color: #61dafb;
