@@ -1,7 +1,7 @@
 const {Schema,model} = require("mongoose");
 
 
-const CartSchema = Schema({
+const OrderSchema = Schema({
     name:String,
     src:String,
     price:Number,
@@ -9,13 +9,14 @@ const CartSchema = Schema({
     user:{
        required:true,
        type:String,
+       
     }
 },{
     versionKey:false
 }
 )
 
-const CartModel = model("cart",CartSchema);
+const OrderModel = model("orders",OrderSchema);
 
-module.exports = CartModel;
+module.exports = OrderModel;
    
