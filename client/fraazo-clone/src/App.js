@@ -1,7 +1,8 @@
 import './App.css';
 import Navbar from './Component/Navbar';
 import Footer from './Component/Footer';
-import { Menu } from '@chakra-ui/react';
+import { ProductDetails } from './Store/Products/ProductDetails';
+//import { Menu } from '@chakra-ui/react';
 import MenuPage from './Store/Products/MenuPage';
 //import DownloadApp from './Component/DownloadApp';
 // import Home from "./SamComponents/SamHome"
@@ -12,6 +13,7 @@ function App() {
      <Navbar/>
      {/* <DownloadApp/> */}
      <MenuPage />
+     {/* <ProductDetails /> */}
      <Footer/>
     </div>
   );
