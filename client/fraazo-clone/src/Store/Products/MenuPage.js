@@ -17,7 +17,7 @@ const MenuPage = () => {
 
   useEffect(() => {
     const getData = async () => {
-      let res = await fetch("https://serene-hollows-15248.herokuapp.com/products/");
+      let res = await fetch("https://serene-hollows-15248.herokuapp.com/products/all");
       let data = await res.json();
       //console.log(data.message)
       setProduct(data.data);
