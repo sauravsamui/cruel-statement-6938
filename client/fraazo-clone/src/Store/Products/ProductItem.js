@@ -31,7 +31,7 @@ const ProductItem = (props) => {
               marginTop: "5px",
             }}
           >
-            {props.quantity}
+            1 qty
           </div>
           <div style={{ fontWeight: "500" }}>₹ {props.price}</div>
         </div>

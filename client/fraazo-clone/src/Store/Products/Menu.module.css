@@ -77,3 +77,48 @@
     margin-right:5px;
     margin-left:10px
 }
+
+.PDcontainer {
+    padding-top: 120px;
+    display: flex;
+}
+
+.imgDiv {
+    width: 40vw;
+    height: 65vh;
+}
+.imgDiv > img {
+    width: 60%;
+    height: 90%;
+    margin-left: 70px;
+}
+
+.desDiv1 > div {
+    margin-top: 3vh;
+}
+
+.desDiv1 > h3 {
+    font-size:x-large;
+    margin-top: 3vh;
+}
+.desDiv2 {
+    width: 43vw;
+    height: 25vh;
+    border-radius: 9px;
+    background-color: rgb(225, 222, 222);
+}
+.desDiv2 > p{
+    padding-left: 1vw;
+    padding-top: 3vh;
+    font-size: small;
+    color: rgb(101, 97, 97);
+}
+.benefits {
+    margin-top: 4vh;
+    border-top: 1px solid rgb(225, 222, 222);
+}
+.benefits > h2 {
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    font-weight: 520;
+}
