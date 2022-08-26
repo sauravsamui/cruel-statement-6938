@@ -1,0 +1,24 @@
+.ccl{
+    font-weight: 500;
+    font-size: 22px;
+    padding: 10px;
+    
+}
+.ccl>span{
+    color: orangered;
+}
+.checkcartcar{
+    padding: 15px;
+    
+}
+.ccc{
+    width: 60%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+@media all and (min-width:401px) and (max-width:720px){
+    .ccc{
+        width: 90%;
+        margin: auto;
+    }
+}

@@ -1,0 +1,80 @@
+.coupmain{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border:3px dashed orangered;
+    background-color: rgb(255,251,249);
+    border-radius: 20px;
+    padding: 2px 6px;
+    padding-right: 15px;
+
+}
+.coupmain:hover{
+    cursor: pointer;
+}
+.main{
+    /* width: 30%; */
+    padding: 20px;
+}
+.coupflex{
+    display: flex;
+    justify-content: space-between;
+}
+.subcoup{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    
+}
+.subcoup>img{
+    width: 30px;
+    height: 30px;
+}
+.cbc{
+    width: 35%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.bold{
+    font-weight: 500;
+}
+.billbtn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(71,190,155);
+    padding: 5px 15px;
+    margin: auto;
+    width: 90%;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+.billbtn p{
+    color: white;
+}
+.sml{
+    font-size: 13px;
+}
+.billbtn>div{
+    line-height: 5px;
+}
+.billbtn{
+    cursor: pointer;
+}
+.bilbold{
+    font-size: 30px;
+    font-weight: 550;
+}
+.spm{
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background-color: rgb(223, 219, 219);
+
+}
+
+@media all and (min-width:401px) and (max-width:720px){
+    .cbc{
+        width: 90%;
+        margin: auto;
+    }
+}

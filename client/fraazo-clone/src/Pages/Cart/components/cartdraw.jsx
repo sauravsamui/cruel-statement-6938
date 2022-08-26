@@ -1,23 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import Item from './item'
+import Item from './item.jsx'
 import style from "./cartdraw.module.css"
 
 const Cartdraw = ({flag,setflag,data,setdata,totalp,settotalp}) => {
     
-   
-    
-    
-    // let sum=0;
-    // for(let i=0;i<data.length;i++){
-    //     sum=sum+(+data[i].price*data[i].c)
-    // }
-    // const [totalp, settotalp] = useState(sum)
-    // // let x=sum
-    // localStorage.setItem("tot",sum)
-    // useEffect(()=>{
-    //     x=sum
-    //     console.log(x)
-    // },[sum])
     
     
 
@@ -26,8 +12,11 @@ const Cartdraw = ({flag,setflag,data,setdata,totalp,settotalp}) => {
     <div className={style.cdf}>
         <div className={style.mcd}>
             <div>
-            
+            <div className={style.txtflx}>
                 <h1 className={style.ic}>My Cart ({data.length} items)</h1>
+                <h3 onClick={()=>setflag(!flag)}>X</h3>
+            </div>
+                
             
                 {
                     data.map((e)=>(
