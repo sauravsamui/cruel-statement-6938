@@ -66,7 +66,6 @@ const ProductItem = (props) => {
           ) : (
             <div
               onClick={() => {
-                //createCart(data);
                 setLoader(true);
                 setAddedToCart(true);
               }}
