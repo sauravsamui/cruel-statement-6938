@@ -1,6 +1,6 @@
 import React from 'react'
-import Fruits from "../SamAssets/Fruits.webp"
-import Vegetables from "../SamAssets/Vegetables.webp"
+import Fruits from "../../HomePageAssets/Fruits.webp"
+import Vegetables from "../../HomePageAssets/Vegetables.webp"
 import styles from "./CenterImages.module.css"
 import { Link } from "react-router-dom"
 
