@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import HomeLogo from "../assets/homeLogo.svg";
 import {
@@ -14,9 +14,7 @@ import {
 // import CartComponent from "./CartComponents/CartComponent";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { useState } from "react";
-import axios from "axios";
-import { useEffect } from "react";
+const [cartFlag,setCartFlag] = useState(false);
 import SearchBox from "./SearchBox";
 
 const InnerDivFlex = styled.div`

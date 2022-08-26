@@ -1,18 +1,19 @@
+
+
+
+import Fruits from "./Fruits"
+import BestDeals from "./BestDeals"
+import Vegetables from './Vegetables';
+import CenterImages from "./CenterImages"
 import {
   Box,
-  Container,
   Flex,
   Image,
-  Heading,
-  Text,
-  Stack,
-  Divider,
 
 } from "@chakra-ui/react";
-import React, { useEffect } from "react";
-import sideOne from "../SamAssets/sideOne.png";
-import sideTwo from "../SamAssets/sideTwo.png";
-import sideThree from "../SamAssets/sideThree.png";
+import sideOne from "../../HomePageAssets/sideOne.png"
+import sideTwo from "../../HomePageAssets/sideTwo.png";
+import sideThree from "../../HomePageAssets/sideThree.png";
 import ImageSlider from "./ImageSlider";
 const sliderImg = [
   { img: "https://imageprod.fraazo.com/fraazo-prod/web_ban/4923.png", id: 3763 },
@@ -22,10 +23,10 @@ const sliderImg = [
   { img: "https://imageprod.fraazo.com/fraazo-prod/web_ban/2562.png", id: 3768 },
 ]
 
-const Home = () => {
-
-
+function SamHome() {
   return (
+        <div>
+
     <Box>
       <Box p={"0 60px"}>
         <Flex gap={7}>
@@ -48,7 +49,14 @@ const Home = () => {
         </Flex>
       </Box>
     </Box>
-  )
+       
+        <BestDeals />
+        <CenterImages />
+        <Fruits />
+        <Vegetables />
+     
+        </div>
+  );
 }
 
-export default Home
+export default SamHome;

@@ -5,14 +5,6 @@ const ProductItem = (props) => {
   const [addedToCart, setAddedToCart] = useState(false);
   const [loader, setLoader] = useState(false);
 
-  // const data = {
-  //   name: props.name,
-  //   qty: props.quantity,
-  //   image: props.src,
-  //   price: props.price,
-  //   quantity: 1,
-  // };
-  //console.log(data);
 
   return (
     <div className={styles.product_each_items}>
