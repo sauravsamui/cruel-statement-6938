@@ -6,7 +6,7 @@ const Item = ({ e,totalp,data,setdata,settotalp }) => {
 
  
   
-  const [a, seta] = useState(1);
+  const [a, seta] = useState(e.c);
   let removeelement=()=>{
 
   }
@@ -60,7 +60,6 @@ const Item = ({ e,totalp,data,setdata,settotalp }) => {
                   settotalp(sum)
                   setdata(data)
                 
-                  localStorage.setItem("tot",sum)
                   
                 }}
               >
