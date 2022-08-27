@@ -1,0 +1,48 @@
+#con{
+    display: flex;
+    margin-top: 100px;
+    /* width: 95%;
+    margin: auto;
+   
+    justify-content: space-between; */
+}
+/* #img1{
+    border: 1px solid black;
+} */
+#img2{
+    width:50%
+}
+
+#loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+#leftDiv{
+    display:block;
+    
+    width: 30%;
+  
+}
+#innerLeftDiv{
+    padding-top: 10px;
+    /* border: 1px solid green; */
+    display: block;
+    text-align: center;
+    background-color: whitesmoke;
+    padding-bottom: 5px;
+}
+#detailsDiv{
+    
+     background-color: whitesmoke;
+     
+}
+#detailsDiv>div{
+   cursor: pointer;
+    width:100%;
+    text-align: left;
+    /* border: 1px solid blue; */
+    padding: 10px 0 10px 5px;
+}
+

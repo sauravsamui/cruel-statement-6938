@@ -1,21 +1,20 @@
 import React, { useState } from "react";
 import styles from "./Menu.module.css";
-
+import {Link} from "react-router-dom"
 const ProductItem = (props) => {
   const [addedToCart, setAddedToCart] = useState(false);
   const [loader, setLoader] = useState(false);
-
+  
 
   return (
+    
+    
     <div className={styles.product_each_items}>
-      <img style={{ width: "100" }} src={props.src} alt="product_image" 
-      onClick={() => {
-        console.log({...props})
-      }}
-      />
-      <div>{props.name}</div>
-      <div className={styles.product_each_items_priceButton}>
-        <div>
+      <Link to={`/productsdetails/${props._id}`}><img style={{ width: "100" }} src={props.src} alt="product_image" 
+      /></Link>
+      <Link to={`/productsdetails/${props._id}`}> <div>{props.name}</div></Link>
+     <div className={styles.product_each_items_priceButton}>
+     <Link to={`/productsdetails/${props._id}`}><div>
           <div
             style={{
               fontSize: "13px",
@@ -23,10 +22,10 @@ const ProductItem = (props) => {
               marginTop: "5px",
             }}
           >
-            1 qty
+           { `${props.quantity} qty`}
           </div>
           <div style={{ fontWeight: "500" }}>₹ {props.price}</div>
-        </div>
+        </div></Link>
         <div>
           {addedToCart ? (
             <div

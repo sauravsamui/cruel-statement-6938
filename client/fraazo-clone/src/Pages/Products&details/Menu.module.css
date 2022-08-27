@@ -79,10 +79,17 @@
 }
 
 .PDcontainer {
-    padding-top: 120px;
+    /* padding-top: 50px; */
     display: flex;
+    margin-top: 120px;
+   
 }
-
+#loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
 .imgDiv {
     width: 40vw;
     height: 65vh;

@@ -3,25 +3,18 @@ import { ADD_TO_CART_ERROR, ADD_TO_CART_LOADING, ADD_TO_CART_SUCCESS, GET_ITEM_C
 
 
 
-export const getItemApi=()=>(dispatch)=>{
+export const getItemApi=(id)=>(dispatch)=>{
     dispatch({type:GET_ITEM_CART_LOADING})
 
-    axios.get("http://localhost:8080/cartItem")
+    axios.get(`https://serene-hollows-15248.herokuapp.com/products/one/${id}`)//userId
     .then((res)=>(dispatch({type:GET_ITEM_CART_SUCCESS,payload:res.data})))
     .catch((r)=>(dispatch({type:GET_ITEM_CART_ERROR})))
 } 
 
-export const addCartApi=(item,s)=>(dispatch)=>{
-     dispatch({type:ADD_TO_CART_LOADING})
-        axios.post("http://localhost:8080/cartItem",{
-            productName:item.Brand_Name,
-            Image:item.Image,
-            price:item.Price,
-            size:s,
-            color:item.color,
-            quantity:1,
-            id:item.id
-         }).then((res)=>(dispatch({type:ADD_TO_CART_SUCCESS,payload:res.data})))
+export const addCartApi=(user,id)=>(dispatch)=>{
+     dispatch({type:ADD_TO_CART_LOADING});
+        axios.post(`https://serene-hollows-15248.herokuapp.com/products/one`)
+        .then((res)=>(dispatch({type:ADD_TO_CART_SUCCESS,payload:res.data})))
          .catch((r)=>(dispatch({type:ADD_TO_CART_ERROR})))
      
 }
@@ -46,7 +39,10 @@ export const updateCartApi=(id,quantity,size)=>(dispatch)=>{
 
 export const getproductdetailsApi=(id)=>(dispatch)=>{
    dispatch({type:GET_PRODUCT_DETAILS_LOADING})
-   axios.get(` http://localhost:8080/Products/${id}`)
-      .then((res) => (dispatch({type:GET_PRODUCT_DETAILS_SUCCESS,payload:res.data})))
+  
+      axios.get(`https://serene-hollows-15248.herokuapp.com/products/one/${id}`)
+      .then((res) => (dispatch({type:GET_PRODUCT_DETAILS_SUCCESS,payload:res.data.data})))
       .catch((r)=>(dispatch({type:GET_PRODUCT_DETAILS_ERROR})))
+ 
+  
 }
