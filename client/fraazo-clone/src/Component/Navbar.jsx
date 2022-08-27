@@ -133,17 +133,22 @@ const locationSvg = (
   </svg>
 );
 const Navbar = () => {
-  const { onOpen } = useDisclosure();
-  const [cartflag,setcartflag] = useState(false);
   const navigate = useNavigate();
-  const { isAuth: loggedIn } = useSelector((state) => state.auth);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isAuth: loggedIn, userData } = useSelector((state) => state.auth);
+  const [cartflag, setcartflag] = useState(false)
+  const {cartData} = useSelector((state)=>state.cart);
+  
+
   var UserStoredDataFraazo = JSON.parse(localStorage.getItem('UserStoredDataFraazo')) || {};
   var toggleLogin = Object.keys(UserStoredDataFraazo).length;
   var userName = "Login";
   if(toggleLogin!==0){
     userName=UserStoredDataFraazo.newSavedNo.firstname
   }
-  const {cartData} = useSelector((state)=>state.cart);
+
+
+
   const handleLoginAccount = () => {
    let loginStatus = "true";
     if (loginStatus == "true") {

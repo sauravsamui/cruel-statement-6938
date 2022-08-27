@@ -19,7 +19,7 @@ const sliderImg = [
   { img: "https://imageprod.fraazo.com/fraazo-prod/web_ban/2562.png", id: 3768 },
 ];
 const ImageSlider = () => {
-  const [imges, setImages] = useState(sliderImg);
+  const [images, setImages] = useState(sliderImg);
 
   return (
     <Box>
@@ -38,7 +38,7 @@ const ImageSlider = () => {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
-        {imges.map((item, index) => (
+        {images.map((item, index) => (
           <SwiperSlide key={item.id}>
             <Image src={item.img} height="auto" width="1000px" />
           </SwiperSlide>
