@@ -6,6 +6,7 @@ import axios from "axios"
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import {Link} from "react-router-dom"
 function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (
@@ -83,6 +84,7 @@ const BestDeals = () => {
             <div className={styles.cardContainer} style={{ width: "90%", margin: "auto", marginTop: "25px" }}>
                 <Slider {...settings}>
                     {comboVeggies.map((item) => (
+                        <Link to={`/productsdetails/${item._id}`}>
                         <div key={item._id} className={styles.card}>
                             <div className={styles.cardTop}>
                                 <img style={{ backgroundColor: "rgb(249,249,249)"}} src={item.src} alt={item.name} />
@@ -107,6 +109,7 @@ const BestDeals = () => {
                                 </div>
                             </div>
                         </div>
+                        </Link>
                     ))}
                 </Slider>
             </div>
