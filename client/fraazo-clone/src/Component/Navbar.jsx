@@ -141,6 +141,10 @@ const Navbar = () => {
   const handleLoginAccount = () => {
     // let loginStatus = localStorage.getItem("isAuth");
     // console.log("loginStatus:", loginStatus);
+    // if (loginStatus == "true") {
+    //   navigate("/myaccount/myorders");
+    // } else {
+      console.log('login part')
    let loginStatus = "true";
     if (loginStatus == "true") {
       navigate("/profile/order");
