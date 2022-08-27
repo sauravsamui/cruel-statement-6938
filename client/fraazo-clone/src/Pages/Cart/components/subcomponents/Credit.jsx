@@ -1,10 +1,23 @@
 import { Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure } from '@chakra-ui/react'
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { removeAllCartApi } from '../../../../Store/Cart/cart.actions'
 import style from "./credit.module.css"
 
 const Credit = () => {
+
     const { isOpen, onOpen, onClose } = useDisclosure()
+    const dispatch = useDispatch();
+    let handleOrder=()=>{
+      let UserStoredDataFraazo = JSON.parse(localStorage.getItem('UserStoredDataFraazo')) || {}
+      let loggedInAlready = Object.keys(UserStoredDataFraazo).length;
+      let user = 123456789123;
+      if(loggedInAlready){
+          user = UserStoredDataFraazo.newSavedNo._id
+      }
+      dispatch(removeAllCartApi(user))
+    }
   return (
     <div className={style.creditmain}>
         
@@ -46,7 +59,10 @@ const Credit = () => {
           </ModalBody>
 
           <ModalFooter>
-            <Link to={"/"}><Button colorScheme='blue' mr={3} onClick={onClose}>Close
+            <Link to={"/"}><Button colorScheme='blue' mr={3} onClick={()=>{
+              onClose();
+               handleOrder();
+              }}>Close
              
             </Button></Link>
            

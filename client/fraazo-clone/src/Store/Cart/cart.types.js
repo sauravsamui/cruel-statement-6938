@@ -17,4 +17,9 @@ export const UPDATE_CART_ERROR = "updatecart/error";
 
 export const GET_PRODUCT_DETAILS_LOADING = "getproductdetails/loading";
 export const GET_PRODUCT_DETAILS_SUCCESS = "getproductdetails/success";
-export const GET_PRODUCT_DETAILS_ERROR = "getproductdetails/error"
+export const GET_PRODUCT_DETAILS_ERROR = "getproductdetails/error";
+
+
+export const REMOVE_ALL_FROM_CART_LOADING = "removeallfromcart/loading";
+export const REMOVE_ALL_FROM_CART_SUCCESS = "removeallfromcart/success";
+export const REMOVE_ALL_FROM_CART_ERROR = "removeallfromcart/error";

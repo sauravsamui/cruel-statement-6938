@@ -1,8 +1,8 @@
-import { LOGIN_ERROR, LOGIN_LOADING, LOGIN_SUCCESS, LOGOUT, SIGNUP_ERROR, SIGNUP_LOADING, SIGNUP_SUCCESS } from "./auth.types"
+import { LOGOUT, SIGNUP_SUCCESS } from "./auth.types"
 
         let UserStoredDataFraazo = JSON.parse(localStorage.getItem('UserStoredDataFraazo')) || {}
         var loggedInAlready = Object.keys(UserStoredDataFraazo).length;
-        console.log(loggedInAlready)
+       
 
 let initialState ={
     signup:{

@@ -1,39 +1,35 @@
 import React, { useState } from "react";
-import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { removeCartApi, updateCartApi } from "../../../Store/Cart/cart.actions";
+
 import style from "./item.module.css";
-const Item = ({ e,totalp,data,setdata,settotalp }) => {
- 
+const Item = ({ e }) => {
+ const dispatch = useDispatch()
 
  
   
-  const [a, seta] = useState(e.c);
+  const [a, seta] = useState(e.payload.quantity);
   let removeelement=(id)=>{
-    let x=data.filter((e)=>{return e.id!=id});
-    console.log(x)
-    setdata(x)
-    let sum=0;
-    for(let i=0;i<x.length;i++){
-      sum=sum+(+x[i].price*x[i].c)
-    }
-    settotalp(sum)
-    console.log(sum)
+
+    dispatch(removeCartApi(id));
+    
 
   }
 
   return (
     <div>
       {
-        <div key={e.id} className={style.itemmain}>
+        <div key={e._id} className={style.itemmain}>
           <div className={style.smainitem}>
-            <img src={e.src} alt="" />
+            <img src={e.payload.src} alt="" />
             <div className={style.itmnqp}>
-              <p className={style.txtname}>{e.name}</p>
-              <p  className={style.txtquant}>{e.quant}</p>
-              <p  className={style.txtprice}><i class="fa-solid fa-indian-rupee-sign"></i> {e.price}</p>
+              <p className={style.txtname}>{e.payload.name}</p>
+              <p  className={style.txtquant}>{e.payload.quantity} qty</p>
+              <p  className={style.txtprice}><i class="fa-solid fa-indian-rupee-sign"></i> {e.payload.price}</p>
             </div>
           </div>
           <div className={style.qcar}>
-            <p className={style.remtxt} onClick={()=>removeelement(e.id)}>Remove</p>
+            <p className={style.remtxt} onClick={()=>removeelement(e._id)}>Remove</p>
             <div className={style.quantcarr}>
               <div
                 className={style.decs}
@@ -41,18 +37,9 @@ const Item = ({ e,totalp,data,setdata,settotalp }) => {
                 onClick={() => {
                   
                   
-                  {a>1?e.c = e.c - 1 :e.c=e.c}
-                  seta(e.c)
-                  let sum=0;
-                  for(let i=0;i<data.length;i++){
-                      sum=sum+(+data[i].price*data[i].c)
-                  }
-                  settotalp(sum)
-                  setdata(data)
-                  console.log(e.c)
-                  console.log(data)
-                 
-                }}
+                  {a>1?e.payload.quantity = e.payload.quantity - 1 :e.payload.quantity=e.payload.quantity}
+                  seta(e.payload.quantity);
+                  dispatch(updateCartApi(e._id,e.payload.quantity)) }}
               >
                 -
               </div>
@@ -60,19 +47,9 @@ const Item = ({ e,totalp,data,setdata,settotalp }) => {
               <div
                 className={style.incs}
                 onClick={() => {
-                  {a>=1?e.c = e.c + 1 :e.c=e.c}
-                  seta(e.c);
-                  let sum=0;
-                  for(let i=0;i<data.length;i++){
-                      sum=sum+(+data[i].price*data[i].c)
-                  }
-                  settotalp(sum)
-                  setdata(data)
-                  console.log(e.c)
-                  console.log(data)
-                  
-                  
-                }}
+                  {a>=1?e.payload.quantity = e.payload.quantity + 1 :e.payload.quantity=e.payload.quantity}
+                  seta(e.payload.quantity);
+                  dispatch(updateCartApi(e._id,e.payload.quantity)) }}
               >
                 +
               </div>

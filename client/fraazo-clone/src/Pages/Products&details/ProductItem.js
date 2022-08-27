@@ -1,10 +1,29 @@
 import React, { useState } from "react";
 import styles from "./Menu.module.css";
 import {Link} from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux";
+import { addCartApi } from "../../Store/Cart/cart.actions";
 const ProductItem = (props) => {
   const [addedToCart, setAddedToCart] = useState(false);
   const [loader, setLoader] = useState(false);
-  
+  const {isAuth} = useSelector((state)=>state.auth);
+  const dispatch = useDispatch();
+  let handleAddtocart=(id)=>{
+    if(isAuth){
+        let UserStoredDataFraazo = JSON.parse(localStorage.getItem('UserStoredDataFraazo')) || {}
+        let loggedInAlready = Object.keys(UserStoredDataFraazo).length;
+        let user = 123456789123;
+        if(loggedInAlready){
+            user = UserStoredDataFraazo.newSavedNo._id
+        }
+      dispatch(addCartApi(user,id))
+      setLoader(true);
+      setAddedToCart(true);
+    }else{
+        alert(`Please Login!`)  
+    }
+}
+
 
   return (
     
@@ -61,8 +80,7 @@ const ProductItem = (props) => {
           ) : (
             <div
               onClick={() => {
-                setLoader(true);
-                setAddedToCart(true);
+                handleAddtocart(props._id)
               }}
               className="group w-20 h-[32px] cursor-pointer rounded-3xl flex justify-center items-center gap-1 text-[13px] text-[#4FBB90] border border-[#4FBB90] hover:bg-[#4FBB90] hover:text-white"
             >

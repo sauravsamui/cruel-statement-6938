@@ -133,15 +133,9 @@ const locationSvg = (
   </svg>
 );
 const Navbar = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [isAuth, setIsAuth] = useState(false)
-  const { data: cartData } = useSelector((state) => state.cart);
+  const { onOpen } = useDisclosure();
+  const [cartflag,setcartflag] = useState(false);
   const navigate = useNavigate();
-<<<<<<< HEAD
-  const { isAuth: loggedIn, userData } = useSelector((state) => state.auth);
-  const [cartflag, setcartflag] = useState(false)
-
-=======
   const { isAuth: loggedIn } = useSelector((state) => state.auth);
   var UserStoredDataFraazo = JSON.parse(localStorage.getItem('UserStoredDataFraazo')) || {};
   var toggleLogin = Object.keys(UserStoredDataFraazo).length;
@@ -149,14 +143,8 @@ const Navbar = () => {
   if(toggleLogin!==0){
     userName=UserStoredDataFraazo.newSavedNo.firstname
   }
->>>>>>> main
+  const {cartData} = useSelector((state)=>state.cart);
   const handleLoginAccount = () => {
-    // let loginStatus = localStorage.getItem("isAuth");
-    // console.log("loginStatus:", loginStatus);
-    // if (loginStatus == "true") {
-    //   navigate("/myaccount/myorders");
-    // } else {
-      console.log('login part')
    let loginStatus = "true";
     if (loginStatus == "true") {
       navigate("/profile/order");
@@ -240,7 +228,7 @@ const Navbar = () => {
               fontSize={"10px"}
               color={"white"}
             >
-              {cartData?.length}
+              {cartData.length}
             </Flex>
           </Button>
           <Button

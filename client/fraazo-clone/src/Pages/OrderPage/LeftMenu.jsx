@@ -1,10 +1,10 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { logout } from "../../Store/auth/auth.action";
 import styles from "./order.module.css";
 
 const LeftMenu = () => {
-  const { signup } = useSelector((state) => state.auth)
+  
   var UserStoredDataFraazo = JSON.parse(localStorage.getItem('UserStoredDataFraazo')) || {};
   const dispatch = useDispatch();
   // console.log(signup.UserStoredDataFraazo.newSavedNo.mobile)

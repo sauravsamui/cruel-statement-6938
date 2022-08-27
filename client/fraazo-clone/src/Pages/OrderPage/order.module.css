@@ -1,16 +1,18 @@
 #con{
     display: flex;
     margin-top: 100px;
+    
     /* width: 95%;
     margin: auto;
    
     justify-content: space-between; */
 }
-/* #img1{
-    border: 1px solid black;
-} */
+#img1{
+    margin: auto;
+}
 #img2{
-    width:50%
+    width:50%;
+    margin: auto;
 }
 
 #loading{
