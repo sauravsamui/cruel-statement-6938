@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useState, useEffect } from "react"
 import axios from "axios"
-import {NavLink} from "react-router-dom"
+import { NavLink,Link } from "react-router-dom"
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -67,7 +67,7 @@ const Fruits = () => {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1
         }
       },
@@ -82,23 +82,24 @@ const Fruits = () => {
   };
   let freshfruits = products.filter((el) => { return el.category === "FreshFruits" })
   return (
-    <div className = {styles.fruitsMainContainer}>
+    <div className={styles.fruitsMainContainer}>
       <div className={styles.sideHeading}>
         <p style={{ fontSize: "30px", fontWeight: "300" }}>FRUITS</p>
-        <NavLink to ="/products">
-        <p className = {styles.viewall}>(View All)</p>
+        <NavLink to="/products">
+          <p className={styles.viewall}>(View All)</p>
         </NavLink>
       </div>
       <hr style={{ width: "90%", margin: "auto" }} />
       <div style={{ width: "90%", margin: "auto", marginTop: "25px" }}>
         <Slider {...settings}>
           {freshfruits.map((item) => (
+            <Link to={`/productsdetails/${item._id}`}>
             <div key={item._id} className={styles.card}>
               <div className={styles.cardTop}>
                 <img style={{ backgroundColor: "rgb(249,249,249)" }} src={item.src} alt={item.name} />
               </div>
               <div className={styles.cardBottom}>
-                <p style={{ marginLeft: "5px",fontSize:"14px",color:"#1a201e" }}>{item.name}</p>
+                <p style={{ marginLeft: "5px", fontSize: "14px", color: "#1a201e" }}>{item.name}</p>
                 <div style={{ marginTop: "10px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                   <div>
                     <div style={{ display: "flex", marginLeft: "5px" }}>
@@ -106,7 +107,7 @@ const Fruits = () => {
                     </div>
                     <p style={{ marginLeft: "5px", fontWeight: "500", color: "#000" }}>₹ {item.price}</p>
                   </div>
-                  <div className = {styles.btnContainer} style={{ width: "120px", display: "flex" }}>
+                  <div className={styles.btnContainer} style={{ width: "120px", display: "flex" }}>
                     <div className={styles.btnAdd}>
                       <div className={styles.cartBtn}>
                         <BsFillCartPlusFill />
@@ -117,6 +118,7 @@ const Fruits = () => {
                 </div>
               </div>
             </div>
+            </Link>
           ))}
         </Slider>
       </div>

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import HomeLogo from "../assets/homeLogo.svg";
 import {
@@ -6,15 +6,14 @@ import {
   Button,
   Flex,
   Image,
-  Input,
-  Tag,
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
-// import CartComponent from "./CartComponents/CartComponent";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+
 import SearchBox from "./SearchBox";
+import { Cart } from "../Pages/Cart/cart";
 
 const InnerDivFlex = styled.div`
   color: #333333;
@@ -134,23 +133,42 @@ const locationSvg = (
   </svg>
 );
 const Navbar = () => {
-  const [cartFlag,setCartFlag] = useState(false);
+  
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [isAuth, setIsAuth] = useState(false)
   const { data: cartData } = useSelector((state) => state.cart);
   const navigate = useNavigate();
+
   const { isAuth: loggedIn, userData } = useSelector((state) => state.auth);
+  const [cartflag, setcartflag] = useState(false)
+
+
+  
+  var UserStoredDataFraazo = JSON.parse(localStorage.getItem('UserStoredDataFraazo')) || {};
+  var toggleLogin = Object.keys(UserStoredDataFraazo).length;
+  var userName = "Login";
+  if(toggleLogin!==0){
+    userName=UserStoredDataFraazo.newSavedNo.firstname
+  }
 
   const handleLoginAccount = () => {
-    let loginStatus = localStorage.getItem("isAuth");
+    // let loginStatus = localStorage.getItem("isAuth");
     // console.log("loginStatus:", loginStatus);
+    // if (loginStatus == "true") {
+    //   navigate("/myaccount/myorders");
+    // } else {
+      console.log('login part')
+   let loginStatus = "true";
     if (loginStatus == "true") {
-      navigate("/myaccount/myorders");
+      navigate("/profile/order");
     } else {
       navigate("/login");
     }
   };
 
   return (
+    <>
+    {cartflag?<Cart cartflag={cartflag} setcartflag={setcartflag}/>:""}
     <Box
       boxShadow={"base"}
       zIndex={"sticky"}
@@ -206,9 +224,9 @@ const Navbar = () => {
               color={"#999"}
               _hover={{ color: "black" }}
             >
-              <Box w={"15px"}> {cartIcon}</Box>
+              <Box w={"15px"} onClick={()=>setcartflag(!cartflag)}> {cartIcon}</Box>
 
-              <Text fontSize={"13px"}>Cart</Text>
+              <Text fontSize={"13px"} onClick={()=>setcartflag(!cartflag)}>Cart</Text>
             </Flex>
             <Flex
               minW={4}
@@ -254,7 +272,8 @@ const Navbar = () => {
               <Box w={"14px"}> {userIcon}</Box>
 
               <Text fontSize={"13px"}>
-                {loggedIn ? userData?.firstname : "Login"}
+                {loggedIn ? userName : "Login"}
+                {/* {userName} */}
               </Text>
             </Flex>
           </Button>
@@ -262,6 +281,7 @@ const Navbar = () => {
         </Flex>
       </Flex>
     </Box>
+    </>
   );
 };
 

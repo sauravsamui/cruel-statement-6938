@@ -6,7 +6,7 @@ import axios from "axios"
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import {NavLink} from "react-router-dom"
+import {NavLink, Link} from "react-router-dom"
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -69,6 +69,13 @@ const Vegetables = () => {
       {
         breakpoint: 480,
         settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 320,
+        settings: {
           slidesToShow: 1,
           slidesToScroll: 1
         }
@@ -88,6 +95,7 @@ const Vegetables = () => {
       <div style={{ width: "90%", margin: "auto", marginTop: "25px" }}>
         <Slider {...settings}>
           {dailyveggies.map((item) => (
+            <Link to={`/productsdetails/${item._id}`}>
             <div key={item._id} className={styles.card}>
               <div className={styles.cardTop}>
                 <img style={{ backgroundColor: "rgb(249,249,249)" }} src={item.src} alt={item.name} />
@@ -112,6 +120,7 @@ const Vegetables = () => {
                 </div>
               </div>
             </div>
+            </Link>
           ))}
         </Slider>
       </div>

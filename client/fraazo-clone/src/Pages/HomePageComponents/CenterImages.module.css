@@ -20,7 +20,7 @@
 
 @media only screen and (max-width:600px)and (min-width:400px){
     .centerImagesContainer{
-        width:100%;
+        width:95%;
         margin:none;
         display:grid;
         grid-template-columns:repeat(1,100%);

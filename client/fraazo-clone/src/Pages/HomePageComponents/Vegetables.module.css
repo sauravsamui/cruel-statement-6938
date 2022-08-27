@@ -1,147 +1,117 @@
-/* .card{
-    width:250px;
-    height:350px;
-    margin-left:20px;
-    margin-right:20px;
-    box-sizing: border-box;
-    padding-left:10px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 1px;
-    
+.card{
+  width:250px;
+   height:350px;
+   margin-left:10px;
+   margin-right:10px;
+   box-sizing: border-box;
+   padding-left:10px;
+   
 }
-.card:hover{
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  cursor:pointer;
-  border-radius: 10px;
-}
-.sideHeading{
-    display:flex;
-    align-items:center;
-    text-align:center;
-    padding-left:5%;
-    padding-right:5%;
-    margin-left:15px;
-}
+
+
 .cardTop img{
-    width:100%;
-    height:100%;
+   width:95%;
+   height:100%;
 }
 .cardTop{
-    width:250px;
-    height:250px;
+   width:250px;
+   height:250px;
 }
-
-
-
-.slick-slide > div {
-  margin: 0 20px;
-}
-.slick-list {
-  margin: 0 10px;
-}
-	
-
-.btnd {
-    box-sizing: border-box;
-    position: absolute;
-    height: 35px;
-    width: 35px;
-    margin-top: 510px;
-    background-color: #ffffff;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+ .cardBottom{
+   margin-top:10px;
+   height:100px; 
+ }
+ .sideHeading {
+   display: flex;
+   align-items: center;
+   text-align: center;
+   padding-left: 5%;
+   padding-right: 5%;
+ }
+ .btnAdd :hover {
+   cursor: pointer;
+ 
+ }
+ .btnContainer :hover{
+   background-color:rgb(126, 205, 173); ;
+   color:white;
+ }
+ 
+ .btnAdd {
+   color: rgb(126, 205, 173);
+   font-size: 12px;
+   width: 80px;
+   height: 30px;
+   display: flex;
+   align-items: center;
+   border: 1px solid green;
+   border-radius: 15px;
+   margin-left: 20px;
+   justify-content: space-around;
+ }
+ 
+ .cartBtn {
+   color: rgb(126, 205, 173);
+   font-size: 15px;
+ }
+ 
+ .card:hover {
+   cursor: pointer;
+   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+   border-radius: 10px;
+ }
+ 
+ .container {
+   width: 90%;
+   display: grid;
+   grid-template-columns: repeat(5, 250px);
+   grid-template-rows: auto;
+   height: auto;
+   grid-gap: 20px;
+   margin: auto;
+   margin-top: 30px;
+ }
+ 
+ .heading {
+   font-size: 30px;
+   font-weight: 300;
+ 
+ }
+ 
+ /* .itemsContainer {
+   width: 100%;
+   height: 350px;
+ }
+ 
+ .itemCard {
+ 
+   width: 250px;
+   height: 350px;
+   margin-left: 20px;
+ }
+ 
+ .imageDownSide {
+   height: 100px;
+ } */
+ .viewall{
+   color: #fd7e14;
+   margin-left: 10px
+ }
+ .viewall:hover {
+   cursor:pointer;
+   color:rgb(126, 205, 173)
+ }
+ @media only screen and (max-width: 600px)and (min-width:400px){
+  .card{
+    width:200px;
+    height:300px;
   }
-  
-  .btnd > svg {
-    height: 32px;
-    width: 32px;
+  .cardTop img{
+    width:180px;
+    height:200px;
   }
-  .btn-left12 {
-    left: 40px;
-    top: 43%;
-    transform: translateX(0, 100%);
+  .cardTop{
+    height:200px;
   }
-  .btn-right12 {
-    right: 40px;
-    top: 43%;
-    transform: translateX(0, 100%);
-  }
-  .cardBottom{
-    height:100px; 
-  } */
-  .sideHeading{
-    display:flex;
-    align-items:center;
-    text-align:center;
-    padding-left:5%;
-    padding-right:5%;
-}
-.body{
-    font-family: sans-serif!important
-}
-.container{
-    width:90%;
-    display:grid;
-    grid-template-columns: repeat(5, 250px);
-    grid-template-rows: auto;
-    height:auto;
-    grid-gap:20px;
-    margin:auto;
-    margin-top:30px;
-}
-.heading{
-    font-size : 30px;
-    font-weight:300;
-
-}
-.itemsContainer{
-    width:100%;
-    height:350px;
-}
-
-.itemCard{
-
-    width:250px;
-    height:350px;
-    margin-left:20px;
-}
-.imageDownSide{
-
-    height:100px;
-}
-.card:hover{
-    cursor:pointer;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-    border-radius:10px;
-}
-.btnContainer :hover{
-  background-color:rgb(126, 205, 173); ;
-  color:white;
-}
-.cartBtn {
-  color: rgb(126, 205, 173);
-  font-size: 15px;
-}
-.btnAdd {
-  color: rgb(126, 205, 173);
-  font-size: 12px;
-  width: 80px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  border: 1px solid green;
-  border-radius: 15px;
-  margin-left: 20px;
-  justify-content: space-around;
-}
-.viewall{
-  color: #fd7e14;
-  margin-left: 10px
-}
-.viewall:hover {
-  cursor:pointer;
-  color:rgb(126, 205, 173)
-}
+ }
+ 

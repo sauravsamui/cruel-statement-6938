@@ -25,37 +25,36 @@ const sliderImg = [
 
 function SamHome() {
   return (
-        <div>
-
-    <Box mt = "120px">
-      <Box p={"0 60px"}>
-        <Flex gap={7}>
-          <Box w="65%" color="white">
-            <ImageSlider key={sliderImg.id} />
-          </Box>
-          <Box w="33%">
-            <Flex flexDir={"column"} gap={4}>
-              <Box>
-                <Image w={"100%"} maxH={"111px"} src={sideOne} />
-              </Box>
-              <Box>
-                <Image w={"100%"} maxH={"111px"} src={sideTwo} />
-              </Box>
-              <Box>
-                <Image w={"100%"} maxH={"111px"} src={sideThree} />
-              </Box>
-            </Flex>
-          </Box>
-        </Flex>
+    <div style={{marginTop:'120px'}}>
+      <Box>
+        <Box p={"0 60px"}>
+          <Flex gap={7}>
+            <Box w="65%" color="white">
+              <ImageSlider key={sliderImg.id} />
+            </Box>
+            <Box w="33%">
+              <Flex flexDir={"column"} gap={4}>
+                <Box>
+                  <Image w={"100%"} maxH={"111px"} src={sideOne} />
+                </Box>
+                <Box>
+                  <Image w={"100%"} maxH={"111px"} src={sideTwo} />
+                </Box>
+                <Box>
+                  <Image w={"100%"} maxH={"111px"} src={sideThree} />
+                </Box>
+              </Flex>
+            </Box>
+          </Flex>
+        </Box>
       </Box>
-    </Box>
-       
-        <BestDeals />
-        <CenterImages />
-        <Fruits />
-        <Vegetables />
-     
-        </div>
+
+      <BestDeals />
+      <CenterImages />
+      <Fruits />
+      <Vegetables />
+
+    </div>
   );
 }
 

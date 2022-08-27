@@ -69,10 +69,17 @@ const BestDeals = () => {
             {
                 breakpoint: 480,
                 settings: {
-                    slidesToShow: 1,
+                    slidesToShow: 2,
                     slidesToScroll: 1
                 }
-            }
+            },
+            {
+                breakpoint: 320,
+                settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1
+                }
+              }
         ]
     };
     return (
@@ -81,7 +88,7 @@ const BestDeals = () => {
                 <h2 className={styles.heading}>BEST DEALS</h2>
             </div>
             <hr style={{ width: "90%", margin: "auto" }} />
-            <div className={styles.cardContainer} style={{ width: "90%", margin: "auto", marginTop: "25px" }}>
+            <div  style={{ width: "90%", margin: "auto", marginTop: "25px" }}>
                 <Slider {...settings}>
                     {comboVeggies.map((item) => (
                         <Link to={`/productsdetails/${item._id}`}>

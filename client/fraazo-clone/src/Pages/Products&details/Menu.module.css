@@ -79,10 +79,17 @@
 }
 
 .PDcontainer {
-    padding-top: 120px;
+    /* padding-top: 50px; */
     display: flex;
+    margin-top: 120px;
+   
 }
-
+#loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
 .imgDiv {
     width: 40vw;
     height: 65vh;
@@ -107,18 +114,8 @@
     border-radius: 9px;
     background-color: rgb(225, 222, 222);
 }
-.desDiv2 > p{
-    padding-left: 1vw;
-    padding-top: 3vh;
-    font-size: small;
-    color: rgb(101, 97, 97);
-}
 .benefits {
     margin-top: 4vh;
-    border-top: 1px solid rgb(225, 222, 222);
+    border-top: 1px solid rgb(229, 227, 227);
 }
-.benefits > h2 {
-    margin-top: 1vh;
-    margin-bottom: 1vh;
-    font-weight: 520;
-}
+

@@ -1,11 +1,85 @@
 .addflx{
     display: flex;
-    gap: 50px;
+    gap: 30px;
+    margin-top: 20px;
+    
     
 }
 .cac{
     width: 60%;
+    padding: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 .addflx>div{
     width: 50%;
+}
+.calarge{
+    font-size: 30px;
+    font-weight: 600;
+}
+.cadt{
+    color: gray;
+}
+.cadt>span{
+    font-weight: 600;
+    color: black;
+}
+.cadt>i{
+    color: rgb(71,190,155);
+}
+.cadtflx{
+    display: flex;
+    margin-top: 20px;
+    gap:6%;
+}
+.chng{
+    font-weight: 600;
+    color: rgb(71,190,155);
+}
+.chng:hover{
+    cursor: pointer;
+}
+.newadd{
+    line-height: 40px;
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+   
+}
+.newadd>img{
+    width: 80px;
+}
+.caadd{
+    line-height: 30px;
+    border: 1px solid rgb(71,190,155);
+    border-radius: 10px;
+    padding: 10px 15px 15px 20px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+.graysmall{
+    font-family: 14px;
+    color: gray;
+}
+.boldsmall{
+    font-weight: 600;
+    color: black;
+}
+
+@media all and (min-width:401px) and (max-width:760px){
+    .addflx{
+        flex-direction: column;
+        margin: auto;
+    }
+    .cac{
+        width: 90%;
+        margin: auto;
+    }
+    .addflx>div{
+        width: 90%;
+        margin: auto;
+    }
 }

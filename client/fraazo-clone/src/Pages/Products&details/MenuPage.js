@@ -10,53 +10,90 @@ import { MinusIcon, AddIcon } from "@chakra-ui/icons";
 import { Box } from "@chakra-ui/react";
 import { useEffect } from "react";
 import ProductItem from "./ProductItem";
-
+import {useDispatch, useSelector} from "react-redux"
+import { showProducts } from "../../Store/Products/products.action";
 const MenuPage = () => {
   const [type, setType] = useState("exoticfruits");
-  const [product, setProduct] = useState([]);
+
+  const dispatch = useDispatch();
+  const {data,loading,error} = useSelector((state)=>state.product);
+
+let getData =()=>{
+  dispatch(showProducts());
+}
 
   useEffect(() => {
-    const getData = async () => {
-      let res = await fetch("https://serene-hollows-15248.herokuapp.com/products/all");
-      let data = await res.json();
-      //console.log(data.message)
-      setProduct(data.data);
-    };
     getData();
   }, [setType]);
 
   // FRUITS
-  let exoticfruits = product.filter((el) => {
+  let exoticfruits = data.filter((el) => {
     // return el.category === "fruits" && el.subcategory === "exotic";
     return el.category === "ExoticFruits";
   });
 
-  let freshfruits = product.filter((el) => {
+  let freshfruits = data.filter((el) => {
     return el.category === "FreshFruits";
   });
 
-  let fruitscombos = product.filter((el) => {
+  let fruitscombos = data.filter((el) => {
     return el.category === "ComboFruits";
   });
 
 
   //Vegetables
-  let dailyveggies = product.filter((el) => {
+  let dailyveggies = data.filter((el) => {
     return el.category === "DailyVeges";
   });
-  let herbsLeafes = product.filter((el) => {
+  let herbsLeafes = data.filter((el) => {
     return el.category === "HerbsVeges";
   });
-  let exoticVegetables = product.filter((el) => {
+  let exoticVegetables = data.filter((el) => {
     return el.category === "ExoticVeges";
   });
-  let cutpeeledsprouts = product.filter((el) => {
+  let cutpeeledsprouts = data.filter((el) => {
     return el.category === "CutsVeges";
   });
-  let vegetableCombo = product.filter((el) => {
+  let vegetableCombo = data.filter((el) => {
     return el.category === "ComboVeges";
   });
-
+  if(loading){
+    return (
+        <div id={styles.loading} className='container'>
+     <div className="spinner-grow text-primary" role="status">
+   <span className="sr-only">Loading...</span>
+ </div>
+ <div className="spinner-grow text-secondary" role="status">
+   <span className="sr-only">Loading...</span>
+ </div>
+ <div className="spinner-grow text-success" role="status">
+   <span className="sr-only">Loading...</span>
+ </div>
+ <div className="spinner-grow text-danger" role="status">
+   <span className="sr-only">Loading...</span>
+ </div>
+ <div className="spinner-grow text-warning" role="status">
+   <span className="sr-only">Loading...</span>
+ </div>
+ <div className="spinner-grow text-info" role="status">
+   <span className="sr-only">Loading...</span>
+ </div>
+ <div className="spinner-grow text-light" role="status">
+   <span className="sr-only">Loading...</span>
+ </div>
+ <div className="spinner-grow text-dark" role="status">
+   <span className="sr-only">Loading...</span>
+ </div>
+ </div>
+    )
+  }
+  else if(error){
+    return (
+  <div className='container'>
+ 
+   <h2  className="h2">Something went wrong.....</h2>
+    </div>
+    )}
   return (
     <div className={styles.menu_page_container}>
       <div className={styles.menu_page_left_container}>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Item from './item.jsx'
 import style from "./cartdraw.module.css"
 
-const Cartdraw = ({flag,setflag,data,setdata,totalp,settotalp}) => {
+const Cartdraw = ({cartflag,setcartflag,data,setdata,totalp,settotalp}) => {
     
     
     
@@ -14,7 +14,7 @@ const Cartdraw = ({flag,setflag,data,setdata,totalp,settotalp}) => {
             <div>
             <div className={style.txtflx}>
                 <h1 className={style.ic}>My Cart ({data.length} items)</h1>
-                <h3 onClick={()=>setflag(!flag)}>X</h3>
+                <h3 onClick={()=>setcartflag(!cartflag)}>X</h3>
             </div>
                 
             

@@ -1,0 +1,102 @@
+.csflx{
+    display: flex;
+   gap: 10px;
+   /* padding: 15px; */
+   justify-content: center;
+}
+.csflx>div{
+    padding: 20px 10px 50px 10px;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+.csmain{
+    width: 65%;
+}
+.cssubmain{
+    width: 95%;
+    margin: auto;
+}
+.csed{
+    line-height: 40px;
+    width: 30%;
+    background-color: rgb(228, 225, 225);
+}
+.edgray{
+    color: rgb(83, 81, 81)
+}
+.cssyd{
+    width: 70%;
+    /* border: 1px solid black; */
+}
+.csflx h2{
+    font-size: 24px;
+    font-weight: 600;
+}
+.csdtdiv{
+    display: flex;
+    gap: 10px;
+    line-height: 40px;
+    align-items: center;
+    justify-content: center;
+}
+.edttxt{
+    font-weight: 600;
+    color: rgb(71,190,155);;
+}
+.edttxt:hover{
+    cursor: pointer;
+}
+.date{
+    color: rgb(85, 84, 84);
+}
+.csgrid{
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+}
+.csgrid>div{
+    text-align: center;
+    padding: 3px 3px;
+    background-color: rgb(241, 240, 240);
+    color: rgb(58, 57, 57);
+    border-radius: 15px;
+    border: 1px solid gray;
+    font-size: 14px;
+    
+}
+.csgrid>div:hover{
+    cursor: pointer;
+    background-color: gray;
+    color: black;
+}
+.cssubmain>h1{
+    font-size: 30px;
+    font-weight: 600;
+}
+.cssubmain{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    padding: 15px;
+}
+
+@media all and (min-width:401px) and (max-width:760px){
+    .csmain{
+        width: 95%;
+        margin: auto;
+    }
+    .csdtdiv{
+        flex-direction: column;
+    }
+    .csgrid{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .csflx{
+        flex-direction: column;
+    }
+    .csflx>div{
+        margin: auto;
+        width: 95%;
+    }
+}

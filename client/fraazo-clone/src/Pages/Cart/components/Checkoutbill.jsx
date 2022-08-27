@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import style from "./checkoutbill.module.css"
 
-const Checkoutbill = ({data,totalp,settotalp,txt,showadd,showslot,showpay}) => {
+const Checkoutbill = ({cart,data,totalp,settotalp,txt,showadd,showslot,showpay}) => {
   // let total=JSON.parse(localStorage.getItem("tot"))
   // let total=0;
   // for(let i=0;i<data.length;i++){
@@ -21,7 +21,7 @@ const Checkoutbill = ({data,totalp,settotalp,txt,showadd,showslot,showpay}) => {
     <div className={style.cbc}>
         <div>
             <div className={style.main}>
-                <div className={style.coupmain} >
+                <div className={cart?style.coupmain:style.coupmainhide} >
                   <div className={style.subcoup}>
                     <img src="https://webasset.fraazo.com/production/applycoupon.29436044b77d6c30ae44.png" alt="" />
                     <p>Apply Coupon/Referral</p>
