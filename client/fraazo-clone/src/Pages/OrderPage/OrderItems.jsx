@@ -9,15 +9,22 @@ const OrderItems = () => {
     let id =2; //need to get from local storage;
     const dispatch = useDispatch()
     const {getOrder:{loading,error},data} = useSelector((state)=>state.order)
+    const {isAuth} = useSelector((state)=>state.auth);
     
-    
-    useEffect(() => {
-    
-    dispatch(getOrderApi(id))
-      return () => {
+  //   useEffect(() => {
+  //     if(isAuth){
+  //       let UserStoredDataFraazo = JSON.parse(localStorage.getItem('UserStoredDataFraazo')) || {}
+  //       let loggedInAlready = Object.keys(UserStoredDataFraazo).length;
+  //       let user = 123456789123;
+  //       if(loggedInAlready){
+  //           user = UserStoredDataFraazo.newSavedNo._id
+  //       }
+  //   dispatch(getOrderApi(user))
+  // }
+  //     return () => {
        
-      }
-    }, [id])//id of user
+  //     }
+  //   }, [])//id of user
     
     let  total1 = data.reduce((acu,el)=>(Number(acu)+(Number(el.price) * Number(el.quantity))),0)
     
@@ -71,7 +78,7 @@ const OrderItems = () => {
          />
  
       <p className='h3'>Empty cart</p>
-      <Link to={"/"} class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true">Primary link</Link>
+      <Link to={"/"} class="btn btn-primary btn-lg " role="button" aria-disabled="true">Go to Home</Link>
       
        </div>
     )

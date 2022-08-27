@@ -5,12 +5,16 @@ import Checkoutbill from './Checkoutbill'
 import Checkpay from './Checkpay'
 import Checkslot from './Checkslot'
 import style from "./checkoutpage.module.css"
+import { useDispatch, useSelector } from 'react-redux'
+
 
 const Checkoutpage = () => {
+    const {cartData: data } = useSelector((state) => state.cart);
     const [cart, setcart] = useState(true)
     const [add, setadd] = useState(false)
     const [slot, setslot] = useState(false)
     const [pay, setpay] = useState(false)
+
     let showcart=()=>{
         setcart(true)
         setadd(false)
@@ -39,17 +43,9 @@ const Checkoutpage = () => {
         
     }
 
-    let arr=[
-        {id:1,src:"https://imageprod.fraazo.com/fraazo-prod/products/product_images/000/000/231/original/data?width=256&height=256&format=webp",name:"Sun Melon",quant:"1pc",price:31,c:1},
-        {id:2,src:"https://imagemaster.fraazo.com/fraazo-master/products/FBAN14.png?width=256&height=256&format=webphttps://imagemaster.fraazo.com/fraazo-master/products/FBAN14.png?width=256&height=256&format=webp",name:"Robusta Banana",quant:"1kg",price:42,c:1},  
-       
-      ]
-    const [data, setdata] = useState(arr)
-    let sum=0;
-    for(let i=0;i<data.length;i++){
-        sum=sum+(+data[i].price*data[i].c)
-    }
-    const [totalp, settotalp] = useState(sum)
+
+  
+  
 
   return (
     <div>
@@ -79,14 +75,14 @@ const Checkoutpage = () => {
         </div>
         <div className={style.botcheck}>
 
-            {cart?<Checkcart data={data} setdata={setdata} totalp={totalp} settotalp={settotalp}/>:""}
+            {cart?<Checkcart  />:""}
             {add?<Checkaddress/>:""}
             {slot?<Checkslot/>:""}
             {pay?<Checkpay/>:""}
-            {cart?<Checkoutbill cart={cart} data={data} totalp={totalp} settotalp={settotalp} txt={"SELECT ADDRESS"}  showadd={showadd}  showslot={showslot}  showpay={showpay} />:""}
-            {add?<Checkoutbill data={data} totalp={totalp} settotalp={settotalp} txt={"SELECT DELIVERY SLOT"} showadd={showadd}  showslot={showslot}  showpay={showpay} />:""}
-            {slot?<Checkoutbill data={data} totalp={totalp} settotalp={settotalp} txt={"PLACE ORDER"} showadd={showadd}  showslot={showslot}  showpay={showpay} />:""}
-            {pay?<Checkoutbill data={data} totalp={totalp} settotalp={settotalp} />:""}
+            {cart?<Checkoutbill cart={cart} txt={"SELECT ADDRESS"}  showadd={showadd}  showslot={showslot}  showpay={showpay} />:""}
+            {add?<Checkoutbill   txt={"SELECT DELIVERY SLOT"} showadd={showadd}  showslot={showslot}  showpay={showpay} />:""}
+            {slot?<Checkoutbill   txt={"PLACE ORDER"} showadd={showadd}  showslot={showslot}  showpay={showpay} />:""}
+            {pay?<Checkoutbill   />:""}
 
         </div>
         

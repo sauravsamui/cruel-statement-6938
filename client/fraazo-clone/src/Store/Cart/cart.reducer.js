@@ -1,4 +1,4 @@
-import { ADD_TO_CART_ERROR, ADD_TO_CART_LOADING, ADD_TO_CART_SUCCESS, GET_ITEM_CART_ERROR, GET_ITEM_CART_LOADING, GET_ITEM_CART_SUCCESS, GET_PRODUCT_DETAILS_ERROR, GET_PRODUCT_DETAILS_LOADING, GET_PRODUCT_DETAILS_SUCCESS, REMOVE_FROM_CART_ERROR, REMOVE_FROM_CART_LOADING, REMOVE_FROM_CART_SUCCESS, UPDATE_CART_ERROR, UPDATE_CART_LOADING, UPDATE_CART_SUCCESS } from "./cart.types"
+import { ADD_TO_CART_ERROR, ADD_TO_CART_LOADING, ADD_TO_CART_SUCCESS, GET_ITEM_CART_ERROR, GET_ITEM_CART_LOADING, GET_ITEM_CART_SUCCESS, GET_PRODUCT_DETAILS_ERROR, GET_PRODUCT_DETAILS_LOADING, GET_PRODUCT_DETAILS_SUCCESS, REMOVE_ALL_FROM_CART_ERROR, REMOVE_ALL_FROM_CART_LOADING, REMOVE_ALL_FROM_CART_SUCCESS, REMOVE_FROM_CART_ERROR, REMOVE_FROM_CART_LOADING, REMOVE_FROM_CART_SUCCESS, UPDATE_CART_ERROR, UPDATE_CART_LOADING, UPDATE_CART_SUCCESS } from "./cart.types"
 
 let initialState={
    getItemCart:{
@@ -6,6 +6,10 @@ let initialState={
     error:false
    },
    removeItemCart:{
+    loading:false,
+    error:false
+   },
+   removeAllItemCart:{
     loading:false,
     error:false
    },
@@ -80,7 +84,7 @@ export const cartReducer = (state=initialState,{type,payload})=>{
              }}
         }
         case REMOVE_FROM_CART_SUCCESS:{
-          let new1 = state.cartData.filter((el)=>(el.id!=payload))
+          let new1 = state.cartData.filter((el)=>(el._id!=payload));
           return {...state,removeItemCart:{
             ...state.removeItemCart,loading:false,error:false
            },cartData:new1}
@@ -97,9 +101,8 @@ export const cartReducer = (state=initialState,{type,payload})=>{
         }
         case UPDATE_CART_SUCCESS:{
           let new1 = state.cartData.reduce((acu,el)=>{
-            if(el.id===payload.id){
-              el.quantity= payload.quantity;
-              el.size=payload.size
+            if(el._id===payload.id){
+              el.payload.quantity= payload.quantity;
             }
             acu.push(el)
             return acu
@@ -111,6 +114,21 @@ export const cartReducer = (state=initialState,{type,payload})=>{
         case UPDATE_CART_ERROR:{
           return {...state,updateItemCart:{
             ...state.updateItemCart,loading:false,error:true
+          }}
+        }
+        case REMOVE_ALL_FROM_CART_LOADING:{
+          return {...state,removeAllItemCart:{
+            ...state.removeAllItemCart,loading:true,error:false
+          }}
+        }
+        case REMOVE_ALL_FROM_CART_SUCCESS:{
+          return {...state,removeAllItemCart:{
+            ...state.removeAllItemCart,loading:false,error:false
+          },cartData:[]}
+        }
+        case REMOVE_ALL_FROM_CART_ERROR:{
+          return {...state,removeAllItemCart:{
+            ...state.removeAllItemCart,loading:false,error:false
           }}
         }
         default:{

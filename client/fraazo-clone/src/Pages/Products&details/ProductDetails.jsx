@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 import { useDispatch, useSelector } from "react-redux";
 import { addCartApi, getproductdetailsApi } from "../../Store/Cart/cart.actions";
-// import style from "../OrderPage/order.module.css"
 export const ProductDetails = () => {
   const {id} = useParams();
 
@@ -13,7 +12,7 @@ export const ProductDetails = () => {
     const dispatch = useDispatch();
     const {getProductDetails:{loading,error},detailsData:data} = useSelector((state)=>state.cart);
     const {isAuth} = useSelector((state)=>state.auth);
-    
+   
     
 useEffect(() => {
     dispatch(getproductdetailsApi(id));
@@ -26,8 +25,12 @@ useEffect(() => {
 
 let handleAddtocart=()=>{
     if(isAuth){
-    let UserStoredDataFraazo = JSON.parse(localStorage.getItem('UserStoredDataFraazo'));
-    let user="";
+        let UserStoredDataFraazo = JSON.parse(localStorage.getItem('UserStoredDataFraazo')) || {}
+        let loggedInAlready = Object.keys(UserStoredDataFraazo).length;
+        let user = 123456789123;
+        if(loggedInAlready){
+            user = UserStoredDataFraazo.newSavedNo._id
+        }
       dispatch(addCartApi(user,id))
       setLoader(true);
       setAddedToCart(true);
@@ -145,7 +148,7 @@ if(loading){
                        </svg>
                    ) : (
                        <div
-                           onClick={()=>handleAddtocart}
+                           onClick={()=>{handleAddtocart()}}
                            className="group w-20 h-[32px] cursor-pointer rounded-3xl flex justify-center items-center gap-1 text-[13px] text-[#4FBB90] border border-[#4FBB90] hover:bg-[#4FBB90] hover:text-white"
                        >
                            <svg

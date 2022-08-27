@@ -1,5 +1,4 @@
 
-import axios from "axios";
 import { LOGOUT, SIGNUP_SUCCESS } from "./auth.types";
 
 export const signupApi = ()=>(dispatch)=>{

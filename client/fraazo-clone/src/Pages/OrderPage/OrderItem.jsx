@@ -2,24 +2,25 @@
 import styles from "./cart.module.css";
 
 const OrderItem = ({ item }) => {
+  console.log(item)
     return (
       <>
         
          
           <div key={item._id} id={styles.leftDivTwo} className="col">
           
-          <img id={styles.imgPrd} class="img-fluid img-thumbnail" src={item.src} alt="cart" />
+          <img id={styles.imgPrd} className="img-fluid img-thumbnail" src={item.payload.src} alt="cart" />
         
           <div className={styles.itemDiv}>
          
             <div className={styles.itemDetails}>
-              <p  class="h6">{`₹${item.price}`}</p>
-              <p  class="h6">{item.name}</p>
-              <div  class="h6">
+              <p  className="h6">{`₹${item.payload.price}`}</p>
+              <p  className="h6">{item.payload.name}</p>
+              <div  className="h6">
                   Qty:
                   <span
                    
-                  >{ ` ${item.quantity}`}
+                  >{ ` ${item.payload.quantity}`}
                   </span>
               </div>
             </div>

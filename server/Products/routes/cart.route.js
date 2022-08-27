@@ -10,7 +10,7 @@ const cartRoute = Router();
 // to add item to cart
 cartRoute.post("/post",async(req,res)=>{
     let {user,id}=req.query;
-   
+   console.log(user,id);
     let payload = await ProductModel.findbyId({_id:id},{_id:0,benefits:0,description:0,category:0})
     
         payload = {

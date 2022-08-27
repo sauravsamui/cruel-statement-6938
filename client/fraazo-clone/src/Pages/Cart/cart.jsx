@@ -1,25 +1,93 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getCartItemApi } from '../../Store/Cart/cart.actions'
 import Cartdraw from './components/cartdraw'
 import Checkoutpage from './components/Checkoutpage'
 
 export const Cart = ({cartflag,setcartflag}) => {
-    
-  const arr=[
-    {id:1,src:"https://imageprod.fraazo.com/fraazo-prod/products/product_images/000/000/231/original/data?width=256&height=256&format=webp",name:"Sun Melon",quant:"1pc",price:31,c:1},
-    {id:2,src:"https://imagemaster.fraazo.com/fraazo-master/products/FBAN14.png?width=256&height=256&format=webphttps://imagemaster.fraazo.com/fraazo-master/products/FBAN14.png?width=256&height=256&format=webp",name:"Robusta Banana",quant:"1kg",price:42,c:1},  
-   
-  ]
-  // localStorage.setItem("arr",JSON.stringify(arr))
-  const [data, setdata] = useState(arr)
-  
-  let sum=0;
-  for(let i=0;i<data.length;i++){
-    sum=sum+(+arr[i].price*arr[i].c)
+  let UserStoredDataFraazo = JSON.parse(localStorage.getItem('UserStoredDataFraazo')) || {}
+  let loggedInAlready = Object.keys(UserStoredDataFraazo).length;
+  let user = 123456789123;
+  if(loggedInAlready){
+      user = UserStoredDataFraazo.newSavedNo._id
   }
-  const [totalp, settotalp] = useState(sum)
+    const dispatch = useDispatch();
+   const {cartData} = useSelector((state)=>state.cart);
+  // const arr=[
+  //   {id:1,src:"https://imageprod.fraazo.com/fraazo-prod/products/product_images/000/000/231/original/data?width=256&height=256&format=webp",name:"Sun Melon",quant:"1pc",price:31,c:1},
+  //   {id:2,src:"https://imagemaster.fraazo.com/fraazo-master/products/FBAN14.png?width=256&height=256&format=webphttps://imagemaster.fraazo.com/fraazo-master/products/FBAN14.png?width=256&height=256&format=webp",name:"Robusta Banana",quant:"1kg",price:42,c:1},  
+   
+  // ]
+  //console.log(cartData);
+  // localStorage.setItem("arr",JSON.stringify(arr))
+  const [data, setdata] = useState();
+  
+useEffect(() => {
+  dispatch(getCartItemApi(user));
+
+  return () => {
+    
+  }
+}, [user])
+
+
+  let sum=0;
+  for(let i=0;i<cartData.length;i++){
+    sum=sum+(+cartData[i].payload.price*cartData[i].payload.quantity)
+  }
+  // const [totalp, settotalp] = useState(sum)
+  
+//   if(getItemCart.loading){
+    
+//     return (
+        
+        
+//     <div className='container'>
+//      <div className="spinner-grow text-primary" role="status">
+//    <span className="sr-only"></span>
+//  </div>
+//  <div className="spinner-grow text-secondary" role="status">
+//    <span className="sr-only"></span>
+//  </div>
+//  <div className="spinner-grow text-success" role="status">
+//    <span className="sr-only"></span>
+//  </div>
+//  <div className="spinner-grow text-danger" role="status">
+//    <span className="sr-only"></span>
+//  </div>
+//  <div className="spinner-grow text-warning" role="status">
+//    <span className="sr-only"></span>
+//  </div>
+//  <div className="spinner-grow text-info" role="status">
+//    <span className="sr-only"></span>
+//  </div>
+//  <div className="spinner-grow text-light" role="status">
+//    <span className="sr-only"></span>
+//  </div>
+//  <div className="spinner-grow text-dark" role="status">
+//    <span className="sr-only"></span>
+//  </div>
+//  </div>
+
+      
+
+//     )
+//   }
+//   else if(getItemCart.error){
+//     return (
+        
+//       <div style={{alignItems:"center"}} className='container'>
+ 
+//       <h2  className="h2">Something went wrong.....</h2>
+//     </div>
+   
+//     )
+  
+//   }
   return (
-    <div>
-        {cartflag?<Cartdraw cartflag={cartflag} setcartflag={setcartflag} data={data} setdata={setdata} totalp={totalp} settotalp={settotalp}/>:""}
+    <div> 
+   
+        {cartflag?<Cartdraw cartflag={cartflag} setcartflag={setcartflag} setdata={setdata} />:""}
         {/* <Checkoutpage data={data} setdata={setdata} totalp={totalp} settotalp={settotalp}/> */}
     </div>
   )

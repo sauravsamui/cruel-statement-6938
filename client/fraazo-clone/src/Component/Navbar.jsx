@@ -133,17 +133,13 @@ const locationSvg = (
   </svg>
 );
 const Navbar = () => {
-  
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [isAuth, setIsAuth] = useState(false)
-  const { data: cartData } = useSelector((state) => state.cart);
   const navigate = useNavigate();
-
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const { isAuth: loggedIn, userData } = useSelector((state) => state.auth);
   const [cartflag, setcartflag] = useState(false)
-
-
+  const {cartData} = useSelector((state)=>state.cart);
   
+
   var UserStoredDataFraazo = JSON.parse(localStorage.getItem('UserStoredDataFraazo')) || {};
   var toggleLogin = Object.keys(UserStoredDataFraazo).length;
   var userName = "Login";
@@ -151,13 +147,9 @@ const Navbar = () => {
     userName=UserStoredDataFraazo.newSavedNo.firstname
   }
 
+
+
   const handleLoginAccount = () => {
-    // let loginStatus = localStorage.getItem("isAuth");
-    // console.log("loginStatus:", loginStatus);
-    // if (loginStatus == "true") {
-    //   navigate("/myaccount/myorders");
-    // } else {
-      console.log('login part')
    let loginStatus = "true";
     if (loginStatus == "true") {
       navigate("/profile/order");
@@ -241,7 +233,7 @@ const Navbar = () => {
               fontSize={"10px"}
               color={"white"}
             >
-              {cartData?.length}
+              {cartData.length}
             </Flex>
           </Button>
           <Button

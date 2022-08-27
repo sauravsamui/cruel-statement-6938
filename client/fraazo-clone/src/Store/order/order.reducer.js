@@ -1,14 +1,11 @@
-import { GETORDER_ERROR, GETORDER_LOADING, GETORDER_SUCCESS, POSTORDER_ERROR, POSTORDER_LOADING, POSTORDER_SUCCESS } from "./order.type"
+import { GETORDER_ERROR, GETORDER_LOADING, GETORDER_SUCCESS } from "./order.type"
 
 let initialState ={
     getOrder:{
        loading:false,
        error:false,
     },
-    postOrder:{
-        loading:false,
-        error:false,
-    },
+    
     data:[]
 }
 
@@ -29,22 +26,6 @@ export const orderReducer = (state=initialState,{type,payload})=>{
             return {...state,getOrder:{
                 ...state.getOrder,loading:false,error:true
             }};
-        }
-        
-        case POSTORDER_LOADING:{
-            return {...state,postOrder:{
-                ...state.postOrder,loading:true,error:false
-            }}
-        }
-        case POSTORDER_SUCCESS:{
-            return {...state,postOrder:{
-                ...state.postOrder,loading:false,error:false
-            }}
-        }
-        case POSTORDER_ERROR:{
-            return {...state,postOrder:{
-                ...state.postOrder,loading:false,error:true
-            }}
         }
 
         default:{
