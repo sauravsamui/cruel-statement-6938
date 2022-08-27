@@ -13,7 +13,7 @@ export const ProductDetails = () => {
     const dispatch = useDispatch();
     const {getProductDetails:{loading,error},detailsData:data} = useSelector((state)=>state.cart);
     const {isAuth} = useSelector((state)=>state.auth);
-    
+    console.log(isAuth)
     
 useEffect(() => {
     dispatch(getproductdetailsApi(id));
@@ -27,7 +27,7 @@ useEffect(() => {
 let handleAddtocart=()=>{
     if(isAuth){
     let UserStoredDataFraazo = JSON.parse(localStorage.getItem('UserStoredDataFraazo'));
-    let user="";
+    let user=UserStoredDataFraazo.newSavedNo._id;
       dispatch(addCartApi(user,id))
       setLoader(true);
       setAddedToCart(true);

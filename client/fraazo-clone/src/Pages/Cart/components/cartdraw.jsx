@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Item from './item.jsx'
 import style from "./cartdraw.module.css"
+import { Link } from 'react-router-dom'
 
 const Cartdraw = ({cartflag,setcartflag,data,setdata,totalp,settotalp}) => {
     
@@ -32,13 +33,15 @@ const Cartdraw = ({cartflag,setcartflag,data,setdata,totalp,settotalp}) => {
                     <p className={style.txtorange}><i class="fa-solid fa-indian-rupee-sign"></i> {totalp}</p>
                 </div>
                 <div>
-                    <button className={style.cdbtn}>Checkout</button>
+                    <Link to={"/checkoutpage"}><button className={style.cdbtn}>Checkout</button></Link>
                 </div>
             </div>
             
             
         </div>
     </div>
+    
+    
   )
 }
 

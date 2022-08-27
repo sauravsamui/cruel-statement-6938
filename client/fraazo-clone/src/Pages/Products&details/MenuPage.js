@@ -59,6 +59,7 @@ let getData =()=>{
   });
   if(loading){
     return (
+      
         <div id={styles.loading} className='container'>
      <div className="spinner-grow text-primary" role="status">
    <span className="sr-only">Loading...</span>

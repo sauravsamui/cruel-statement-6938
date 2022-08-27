@@ -1,27 +1,4 @@
-import './App.css';
-import {useState} from "react"
-import Navbar from './Component/Navbar';
-import Footer from './Component/Footer';
-<<<<<<< HEAD
-import { ProductDetails } from './Store/Products/ProductDetails';
-//import { Menu } from '@chakra-ui/react';
-import MenuPage from './Store/Products/MenuPage';
-import Checkoutpage from './Pages/Cart/components/Checkoutpage';
-//import DownloadApp from './Component/DownloadApp';
-// import Home from "./SamComponents/SamHome"
 
-function App() {
-  
-  
-  return (
-    <div className="App">
-     <Navbar/>
-     {/* <DownloadApp/> */}
-     {/* <MenuPage /> */}
-     <Checkoutpage />
-     {/* <ProductDetails /> */}
-     <Footer/>
-=======
 import DownloadApp from './Component/DownloadApp';
 import Login from './Pages/Auth/Login';
 import NumberVerify from './Pages/Auth/NumberVerify';
@@ -33,6 +10,8 @@ import MenuPage from './Pages/Products&details/MenuPage';
 import Order from './Pages/OrderPage/Order';
 import RequireAuth from './RequireAuth/RequireAuth';
 import { useSelector } from 'react-redux';
+import Navbar from './Component/Navbar';
+import Footer from './Component/Footer';
 
 
 function App() {
@@ -60,7 +39,7 @@ function App() {
       </Routes>
       <DownloadApp />
       <Footer />
->>>>>>> main
+
     </div>
   );
 }
