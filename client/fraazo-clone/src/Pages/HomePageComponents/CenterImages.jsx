@@ -2,17 +2,17 @@ import React from 'react'
 import Fruits from "../../HomePageAssets/Fruits.webp"
 import Vegetables from "../../HomePageAssets/Vegetables.webp"
 import styles from "./CenterImages.module.css"
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 const CenterImages = () => {
     return (
         <div className={styles.centerImagesContainer} >
-            <Link to={`/products/fruits`}>
+            <NavLink to= "/products">
                 <img className={styles.centerFruit} src={Fruits} alt="fruits" />
-            </Link>
-            <Link to={`/products/vegetables`}>
+            </NavLink>
+            <NavLink to= "products">
                 <img className={styles.centerVegetables} src={Vegetables} alt="vegetables" />
-            </Link>
+            </NavLink>
 
         </div>
     )

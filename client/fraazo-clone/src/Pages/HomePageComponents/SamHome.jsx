@@ -27,7 +27,7 @@ function SamHome() {
   return (
         <div>
 
-    <Box>
+    <Box mt = "120px">
       <Box p={"0 60px"}>
         <Flex gap={7}>
           <Box w="65%" color="white">

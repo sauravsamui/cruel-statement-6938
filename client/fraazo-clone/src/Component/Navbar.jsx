@@ -14,7 +14,6 @@ import {
 // import CartComponent from "./CartComponents/CartComponent";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-const [cartFlag,setCartFlag] = useState(false);
 import SearchBox from "./SearchBox";
 
 const InnerDivFlex = styled.div`
@@ -135,6 +134,7 @@ const locationSvg = (
   </svg>
 );
 const Navbar = () => {
+  const [cartFlag,setCartFlag] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { data: cartData } = useSelector((state) => state.cart);
   const navigate = useNavigate();

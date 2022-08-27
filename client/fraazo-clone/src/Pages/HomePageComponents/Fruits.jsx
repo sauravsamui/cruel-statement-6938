@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useState, useEffect } from "react"
 import axios from "axios"
+import {NavLink} from "react-router-dom"
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -41,7 +42,7 @@ const Fruits = () => {
     infinite: false,
     speed: 500,
     slidesToShow: 5,
-    slidesToScroll: 1,
+    slidesToScroll: 3,
     initialSlide: 0,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
@@ -81,10 +82,12 @@ const Fruits = () => {
   };
   let freshfruits = products.filter((el) => { return el.category === "FreshFruits" })
   return (
-    <div style={{ marginTop: "100px" }}>
+    <div className = {styles.fruitsMainContainer}>
       <div className={styles.sideHeading}>
         <p style={{ fontSize: "30px", fontWeight: "300" }}>FRUITS</p>
-        <p style={{ color: "#fd7e14", cursor: "pointer", marginLeft: "10px" }}>(View All)</p>
+        <NavLink to ="/products">
+        <p className = {styles.viewall}>(View All)</p>
+        </NavLink>
       </div>
       <hr style={{ width: "90%", margin: "auto" }} />
       <div style={{ width: "90%", margin: "auto", marginTop: "25px" }}>
@@ -95,15 +98,15 @@ const Fruits = () => {
                 <img style={{ backgroundColor: "rgb(249,249,249)" }} src={item.src} alt={item.name} />
               </div>
               <div className={styles.cardBottom}>
-                <p style={{ marginLeft: "5px", fontSize: "14px", fontWeight: "400" }}>{item.name}</p>
+                <p style={{ marginLeft: "5px",fontSize:"14px",color:"#1a201e" }}>{item.name}</p>
                 <div style={{ marginTop: "10px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                   <div>
                     <div style={{ display: "flex", marginLeft: "5px" }}>
-                      <p>{item.quantity}</p>
+                      <p style={{ color: "#222", fontSize: "13px" }}>{item.quantity} qty</p>
                     </div>
-                    <p style={{ marginLeft: "5px" }}>₹ {item.price}</p>
+                    <p style={{ marginLeft: "5px", fontWeight: "500", color: "#000" }}>₹ {item.price}</p>
                   </div>
-                  <div style={{ width: "120px", display: "flex" }}>
+                  <div className = {styles.btnContainer} style={{ width: "120px", display: "flex" }}>
                     <div className={styles.btnAdd}>
                       <div className={styles.cartBtn}>
                         <BsFillCartPlusFill />
