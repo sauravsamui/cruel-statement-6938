@@ -1,0 +1,31 @@
+.centerImagesContainer{
+    display:flex;
+    flex-direction: row;
+    width:50%;
+    height:300px;
+    margin:auto;
+    margin-top:100px;
+    justify-content: space-around;
+}
+
+.centerFruit{
+    width:100%;
+    height:100%;
+    
+}
+.centerVegetables{
+    width:100%;
+    height:100%;
+}
+
+@media only screen and (max-width:480px){
+    .centerImagesContainer{
+        width:100%;
+        margin:none;
+        display:grid;
+        grid-template-columns:repeat(1,100%);
+        border:1px solid red;
+    }
+
+   
+}

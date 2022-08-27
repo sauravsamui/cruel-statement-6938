@@ -1,0 +1,11 @@
+.addflx{
+    display: flex;
+    gap: 50px;
+    
+}
+.cac{
+    width: 60%;
+}
+.addflx>div{
+    width: 50%;
+}

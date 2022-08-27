@@ -7,6 +7,7 @@ const ProductsSchema = Schema({
     price:Number,
     category:String,
     description:String,
+    quantity:Number,
     benefits:String,
     info:String
 },{

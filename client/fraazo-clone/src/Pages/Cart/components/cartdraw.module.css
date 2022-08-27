@@ -1,0 +1,76 @@
+.mcd{
+    width: 35%;
+    margin-left: 65%;
+    position: absolute;
+    z-index: 999;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: scroll;
+    background-color: white;
+   
+}
+.mcd>div{
+    width: 96%;
+}
+.ic{
+    padding: 20px 0px 20px 20px;
+    font-weight: 550;
+    font-size: 24px;
+}
+.opct{
+    opacity: 0.6;
+}
+.nopct{
+    width: 65% ;
+}
+
+.cdbotm{
+    display: flex;
+    align-items: center;
+  gap: 40%;
+    /* justify-content: space-between; */
+    padding: 10px 0px 10px 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    width: 100%;
+    /* margin-top: 40px; */
+    
+    /* width: 30%; */
+}
+.cdbtn{
+    padding: 10px 60px 10px 35px ;
+    font-size: 19px;
+    color: white;
+    background-color:rgb(71,190,155);
+    border: none;
+    border-radius: 15px;
+}
+.cdbtn:hover{
+    cursor: pointer;
+}
+.txtorange{
+    color: orangered;
+    margin-top: -15px;
+}
+.txtflx{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.txtflx>h3{
+    cursor: pointer;
+}
+
+@media all and (min-width:401px) and (max-width:920px){
+    .mcd{
+        width: 90%;
+        margin-left: 10%;
+        z-index: 1000;
+        background-color: white;
+    }
+    .cdbotm{
+        gap: 10%;
+    }
+}

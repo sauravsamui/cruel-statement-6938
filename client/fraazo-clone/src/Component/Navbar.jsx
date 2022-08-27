@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import styled from "styled-components";
 import HomeLogo from "../assets/homeLogo.svg";
 import {
@@ -6,17 +6,13 @@ import {
   Button,
   Flex,
   Image,
-  Input,
-  Tag,
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
 // import CartComponent from "./CartComponents/CartComponent";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { useState } from "react";
-import axios from "axios";
-import { useEffect } from "react";
+
 import SearchBox from "./SearchBox";
 
 const InnerDivFlex = styled.div`
@@ -149,8 +145,12 @@ const Navbar = () => {
     //   navigate("/myaccount/myorders");
     // } else {
       console.log('login part')
+   let loginStatus = "true";
+    if (loginStatus == "true") {
+      navigate("/profile/order");
+    } else {
       navigate("/login");
-    // }
+    }
   };
 
   return (
