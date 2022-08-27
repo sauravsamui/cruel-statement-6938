@@ -17,6 +17,7 @@ function App() {
   return (
     <div className="App">
      <Navbar/>
+     <Login/>
      <Routes>
       
         <Route path='/' element={<SamHome/>}/>
@@ -26,9 +27,8 @@ function App() {
         <Route path='/checkoutPage' element={<Checkoutpage/>}/>
         <Route path='/profile/order' element={<Order/>}/>
      </Routes>
-     {/* <DownloadApp/> */}
-
-     {/* <Footer/> */}
+     <DownloadApp/>
+     <Footer/>
     </div>
   );
 }

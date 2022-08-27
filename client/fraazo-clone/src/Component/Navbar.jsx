@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import HomeLogo from "../assets/homeLogo.svg";
 import {
@@ -9,7 +9,6 @@ import {
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
-// import CartComponent from "./CartComponents/CartComponent";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -134,6 +133,7 @@ const locationSvg = (
 );
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [isAuth, setIsAuth] = useState(false)
   const { data: cartData } = useSelector((state) => state.cart);
   const navigate = useNavigate();
   const { isAuth: loggedIn, userData } = useSelector((state) => state.auth);

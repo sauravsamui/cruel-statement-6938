@@ -3,11 +3,8 @@ const connection = require("./db");
 const cors = require("cors");
 const cartRoute = require("./routes/cart.route");
 const productsRoute = require("./routes/products.routes");
-<<<<<<< HEAD
 const routes = require('./routes/routes');
-=======
 const  orderRoute  = require("./routes/orders.route");
->>>>>>> main
 
 const app = express();
 require("dotenv").config()
