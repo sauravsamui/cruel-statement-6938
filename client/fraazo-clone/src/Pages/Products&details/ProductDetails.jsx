@@ -1,6 +1,7 @@
 import styles from "./Menu.module.css";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 import { useDispatch, useSelector } from "react-redux";
 import { getproductdetailsApi } from "../../Store/Cart/cart.actions";
 // import style from "../OrderPage/order.module.css"
@@ -152,10 +153,34 @@ if(loading){
                </div>
            </div>
            <div className={styles.benefits}>
-               <h2>Benefits</h2>
+               {/* <h2>Benefits</h2>
                <div className={styles.desDiv2}> 
                <p>{data.benefits}</p>  
-               </div>
+               </div> */}
+
+                <Tabs colorScheme="green">
+                    <TabList>
+                        <Tab>Description</Tab>
+                        <Tab>Benefits</Tab>
+                        <Tab>Info</Tab>
+                    </TabList>
+                <div className={styles.desDiv2}>
+                    <TabPanels>
+                        <TabPanel fontSize={"15"} color={"gray"}>
+                        {data.description}
+                        </TabPanel>
+                        <TabPanel fontSize={"15"} color={"gray"}>
+                        <p>{data.benefits}</p>
+                        </TabPanel>
+                        <TabPanel fontSize={"15"} color={"gray"}>
+                        <p>{data.info}</p>
+                        </TabPanel>
+                    </TabPanels>
+                </div>
+                </Tabs>
+
+
+
            </div>
        </div>
    </div> 

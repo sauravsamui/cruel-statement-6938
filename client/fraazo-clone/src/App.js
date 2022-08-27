@@ -28,7 +28,7 @@ function App() {
      </Routes>
      {/* <DownloadApp/> */}
 
-     {/* <Footer/> */}
+     <Footer/>
     </div>
   );
 }
