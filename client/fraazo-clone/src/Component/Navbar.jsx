@@ -18,6 +18,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
 import SearchBox from "./SearchBox";
+import { Cart } from "../Pages/Cart/cart";
 
 const InnerDivFlex = styled.div`
   color: #333333;
@@ -141,6 +142,7 @@ const Navbar = () => {
   const { data: cartData } = useSelector((state) => state.cart);
   const navigate = useNavigate();
   const { isAuth: loggedIn, userData } = useSelector((state) => state.auth);
+  const [cartflag, setcartflag] = useState(false)
 
   const handleLoginAccount = () => {
     let loginStatus = localStorage.getItem("isAuth");
@@ -153,6 +155,8 @@ const Navbar = () => {
   };
 
   return (
+    <>
+    {cartflag?<Cart cartflag={cartflag} setcartflag={setcartflag}/>:""}
     <Box
       boxShadow={"base"}
       zIndex={"sticky"}
@@ -208,9 +212,9 @@ const Navbar = () => {
               color={"#999"}
               _hover={{ color: "black" }}
             >
-              <Box w={"15px"}> {cartIcon}</Box>
+              <Box w={"15px"} onClick={()=>setcartflag(!cartflag)}> {cartIcon}</Box>
 
-              <Text fontSize={"13px"}>Cart</Text>
+              <Text fontSize={"13px"} onClick={()=>setcartflag(!cartflag)}>Cart</Text>
             </Flex>
             <Flex
               minW={4}
@@ -264,6 +268,7 @@ const Navbar = () => {
         </Flex>
       </Flex>
     </Box>
+    </>
   );
 };
 

@@ -2,7 +2,7 @@
     width: 35%;
     margin-left: 65%;
     position: absolute;
-    z-index: 999;
+    z-index: 9999;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     height: 100vh;
     display: flex;
@@ -10,10 +10,12 @@
     justify-content: space-between;
     overflow: scroll;
     background-color: white;
+    margin-top: -120px;
+    position: fixed;
    
 }
 .mcd>div{
-    width: 96%;
+    /* width: 96%; */
 }
 .ic{
     padding: 20px 0px 20px 20px;
@@ -52,12 +54,13 @@
 }
 .txtorange{
     color: orangered;
-    margin-top: -15px;
+    /* margin-top: -15px; */
 }
 .txtflx{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px;
 }
 .txtflx>h3{
     cursor: pointer;
@@ -67,7 +70,7 @@
     .mcd{
         width: 90%;
         margin-left: 10%;
-        z-index: 1000;
+        z-index: 9999;
         background-color: white;
     }
     .cdbotm{
