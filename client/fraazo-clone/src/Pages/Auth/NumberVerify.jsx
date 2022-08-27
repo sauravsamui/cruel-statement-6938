@@ -15,7 +15,7 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import loginSuccess from "../assets/loginSuccess.png";
+import loginSuccess from "../../assets/loginSuccess.png";
 const GetOTP = styled.div`
     background-color: #43c6ac;
     color: white;

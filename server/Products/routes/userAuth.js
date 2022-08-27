@@ -15,17 +15,8 @@ const userMobileVerify = async (req, res) => {
     if (existData === null) {
         const MobileNumber = new mobileModel({ mobile });
         var newSavedNo = await MobileNumber.save()
-        // await MobileNumber.save((err, data) => {
-        //     if (err) {
-        //         return res.status(500).json({ message: "Error occured in storing Mobile Number", err })
-        //     } else {
         var otp = Math.floor((Math.random() * 1000000) + 1);
         var TempData = { newSavedNo, otp, message: "OTP Created Successfully !!" }
-        //         return res.send(TempData);
-        //     }
-        // });
-        // var otp = Math.floor((Math.random() * 1000000) + 1);
-        // var TempData = { data, otp, message: "OTP Created Successfully !!" }
         res.send(TempData);
     }
 }
@@ -109,10 +100,7 @@ const userRegistration = async (req, res) => {
 //LOGIN
 
 ///////////////////   POST request sample for LOGIN   ///////////////// 
-// {
-//     "email": "arsh@gmail.com",
-//     "password":"arsh"
-// }
+
 
 const userLogin = async (req, res) => {
     const { email, password } = req.body;
@@ -124,9 +112,7 @@ const userLogin = async (req, res) => {
         if (PasswordVarification) {
             const token = jwt.sign({ id: validation._id, email: validation.email, role: validation.role }, "arshad", { expiresIn: "1h" });
             const ResponseToFrontEnd = { token, email, role: validation.role }
-            // localStorage.setItem("UserToken", JSON.stringify(ResponseToFrontEnd))
-
-            // await userDetails.findOneAndUpdate({email},{token})
+          
             return res.status(200).json({ ResponseToFrontEnd, message: "Account Verified" })
         } else {
             return res.status(422).json({ message: "Verification Failed" })

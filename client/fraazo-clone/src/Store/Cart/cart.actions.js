@@ -3,46 +3,54 @@ import { ADD_TO_CART_ERROR, ADD_TO_CART_LOADING, ADD_TO_CART_SUCCESS, GET_ITEM_C
 
 
 
-export const getItemApi=(id)=>(dispatch)=>{
+export const getCartItemApi=(id)=>(dispatch)=>{
     dispatch({type:GET_ITEM_CART_LOADING})
-
-    axios.get(`https://serene-hollows-15248.herokuapp.com/products/one/${id}`)//userId
-    .then((res)=>(dispatch({type:GET_ITEM_CART_SUCCESS,payload:res.data})))
+    
+    axios.get(`https://serene-hollows-15248.herokuapp.com/carts/get/${id}`)//userId
+    .then((res)=>(dispatch({type:GET_ITEM_CART_SUCCESS,payload:res.data.data})))
     .catch((r)=>(dispatch({type:GET_ITEM_CART_ERROR})))
 } 
 
 export const addCartApi=(user,id)=>(dispatch)=>{
+   //user id and product id
      dispatch({type:ADD_TO_CART_LOADING});
-        axios.post(`https://serene-hollows-15248.herokuapp.com/products/one`)
-        .then((res)=>(dispatch({type:ADD_TO_CART_SUCCESS,payload:res.data})))
+        axios.post(`https://serene-hollows-15248.herokuapp.com/carts/post?user=${user}&id=${id}`)
+        .then((res)=>(dispatch({type:ADD_TO_CART_SUCCESS,payload:res.data.data})))
          .catch((r)=>(dispatch({type:ADD_TO_CART_ERROR})))
      
 }
 
 export const removeCartApi=(id)=>(dispatch)=>{
    dispatch({type:REMOVE_FROM_CART_LOADING})
-
-   axios.delete(`http://localhost:8080/cartItem/${id}`)
+  //cart item's id
+   axios.delete(`https://serene-hollows-15248.herokuapp.com/carts/deleteone/${id}`)
    .then((res)=>(dispatch({type:REMOVE_FROM_CART_SUCCESS,payload:id})))
    .catch((r)=>(dispatch({type:REMOVE_FROM_CART_ERROR})))
 }
 
-export const updateCartApi=(id,quantity,size)=>(dispatch)=>{
+export const updateCartApi=(id,quantity)=>(dispatch)=>{
    dispatch({type:UPDATE_CART_LOADING})
-
-   axios.patch(`http://localhost:8080/cartItem/${id}`,{
+// cart item's id
+   axios.patch(`https://serene-hollows-15248.herokuapp.com/carts/patch/${id}`,{  
       quantity:quantity,
-      size:size
-   }).then((res)=>(dispatch({type:UPDATE_CART_SUCCESS,payload:{id,quantity,size}})))
+   }).then((res)=>(dispatch({type:UPDATE_CART_SUCCESS,payload:{id,quantity}})))
    .catch((r)=>(dispatch({type:UPDATE_CART_ERROR})))
 }
 
 export const getproductdetailsApi=(id)=>(dispatch)=>{
    dispatch({type:GET_PRODUCT_DETAILS_LOADING})
   
-      axios.get(`https://serene-hollows-15248.herokuapp.com/products/one/${id}`)
+      axios.get(`https://serene-hollows-15248.herokuapp.com/products/one/${id}`) //userId
       .then((res) => (dispatch({type:GET_PRODUCT_DETAILS_SUCCESS,payload:res.data.data})))
       .catch((r)=>(dispatch({type:GET_PRODUCT_DETAILS_ERROR})))
  
   
+}
+
+export const removeAllCartApi=(id)=>(dispatch)=>{
+   dispatch({type:REMOVE_FROM_CART_LOADING})
+
+   axios.delete(`https://serene-hollows-15248.herokuapp.com/carts/deletemany/${id}`) //userId
+   .then((res)=>(dispatch({type:REMOVE_FROM_CART_SUCCESS,payload:id})))
+   .catch((r)=>(dispatch({type:REMOVE_FROM_CART_ERROR})))
 }
