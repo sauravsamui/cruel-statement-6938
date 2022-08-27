@@ -136,8 +136,13 @@ const Navbar = () => {
   const [isAuth, setIsAuth] = useState(false)
   const { data: cartData } = useSelector((state) => state.cart);
   const navigate = useNavigate();
-  const { isAuth: loggedIn, userData } = useSelector((state) => state.auth);
-
+  const { isAuth: loggedIn } = useSelector((state) => state.auth);
+  var UserStoredDataFraazo = JSON.parse(localStorage.getItem('UserStoredDataFraazo')) || {};
+  var toggleLogin = Object.keys(UserStoredDataFraazo).length;
+  var userName = "Login";
+  if(toggleLogin!==0){
+    userName=UserStoredDataFraazo.newSavedNo.firstname
+  }
   const handleLoginAccount = () => {
     // let loginStatus = localStorage.getItem("isAuth");
     // console.log("loginStatus:", loginStatus);
@@ -257,7 +262,8 @@ const Navbar = () => {
               <Box w={"14px"}> {userIcon}</Box>
 
               <Text fontSize={"13px"}>
-                {loggedIn ? userData?.firstname : "Login"}
+                {loggedIn ? userName : "Login"}
+                {/* {userName} */}
               </Text>
             </Flex>
           </Button>

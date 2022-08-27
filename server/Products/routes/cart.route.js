@@ -1,5 +1,6 @@
 const {Router} = require("express");
 const CartModel = require("../model/cart.model");
+const OrderModel = require("../model/orders.model");
 const ProductModel = require("../model/products.model");
 
 
@@ -9,27 +10,35 @@ const cartRoute = Router();
 // to add item to cart
 cartRoute.post("/post",async(req,res)=>{
     let {user,id}=req.query;
+   
     let payload = await ProductModel.findbyId({_id:id},{_id:0,benefits:0,description:0,category:0})
-     payload = {
-        ...payload,
-        user
-    }
+    
+        payload = {
+            ...payload,
+            user
+        }
+        let data = await CartModel.create(payload);
+     return res.send({message:"got it ",data});
+   
     // let f = await CartModel.find().populate("user");
-    let data = await CartModel.create(body);
-     res.send({message:"got it",data});
+    
 });
 
 // to get the cart items of user based on user id
 cartRoute.get("/get/:id", async (req, res) => {
-    const user = req.params.id
-    const data = await CartModel.find({user})
-    res.send({message:"cart items",data})
+    const user = req.params.id;
+    let data = [];
+    data = await CartModel.find({user})
+    if(data){
+       return res.send({message:"cart items",data})
+    }
+    res.send({message:"empty cart",data})
 });
 
 //to remove item from cart
 cartRoute.delete("/deleteone/:id", async (req, res) => {
     const id = req.params.id;
-    const data = await CartModel.deleteMany({_id:id});
+    const data = await CartModel.deleteOne({_id:id});
     res.send({message:"item deleted"});
 
 });

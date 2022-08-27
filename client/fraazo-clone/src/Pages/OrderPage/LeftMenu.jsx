@@ -1,18 +1,18 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../Store/auth/auth.action";
 import styles from "./order.module.css";
 
 const LeftMenu = () => {
   const { signup } = useSelector((state) => state.auth)
   var UserStoredDataFraazo = JSON.parse(localStorage.getItem('UserStoredDataFraazo')) || {};
+  const dispatch = useDispatch();
   // console.log(signup.UserStoredDataFraazo.newSavedNo.mobile)
   let mob = 6289568573; // need to get from local storage;
   if(UserStoredDataFraazo.newSavedNo.mobile){
     mob = UserStoredDataFraazo.newSavedNo.mobile;
   }
-  let handleLogout = () => {
-
-  }
+  
   return (
     <div id={styles.leftDiv} className="container">
       <div id={styles.innerLeftDiv} className="container">
@@ -31,7 +31,7 @@ const LeftMenu = () => {
         <div className="container-sm"><p className="h6">My Credits</p></div>
         <div className="container-sm"><p className="h6">Invite a Friend</p></div>
         <div className="container-sm"><p className="h6">Help & Support</p></div>
-        <div className="container-sm" onClick={() => handleLogout}><p className="h6">Logout</p></div>
+        <div className="container-sm"><p className="h6"  onClick={() => dispatch(logout())}>Logout</p></div>
       </div>
     </div>
   );

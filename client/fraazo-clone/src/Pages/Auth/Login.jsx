@@ -20,7 +20,8 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import loginSuccess from "../assets/loginSuccess.png";
+import loginSuccess from "../../assets/loginSuccess.png";
+import { signupApi } from "../../Store/auth/auth.action";
 const GetOTP = styled.div`
   background-color: #43c6ac;
   color: white;
@@ -68,15 +69,16 @@ const Login = () => {
   const email = useRef(null);
   const [isAuth, setisAuth] = useState(false)
   const [title, setTitle] = useState();
-
+  const {iAuth} = useSelector((state)=>state.auth);
   var MobileN = ''
   const dispatch = useDispatch();
 
   const handleOTP = async () => {
     let x = Number(initialRef.current.value);
-    var obj = { mobile: x }
-    await axios.post('https://serene-hollows-15248.herokuapp.com/auth', obj).then((e) => {
+     var obj = { mobile: x }
+      await axios.post('https://serene-hollows-15248.herokuapp.com/auth', obj).then((e) => {
       localStorage.setItem('UserStoredDataFraazo', JSON.stringify(e.data))
+      dispatch(signupApi());
       OTP = e.data.otp;
       MobileN = e.data.newSavedNo.mobile;
       setmNumber(e.data.newSavedNo.mobile)

@@ -1,8 +1,9 @@
 import styles from "./Menu.module.css";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 import { useDispatch, useSelector } from "react-redux";
-import { getproductdetailsApi } from "../../Store/Cart/cart.actions";
+import { addCartApi, getproductdetailsApi } from "../../Store/Cart/cart.actions";
 // import style from "../OrderPage/order.module.css"
 export const ProductDetails = () => {
   const {id} = useParams();
@@ -11,7 +12,8 @@ export const ProductDetails = () => {
     const [loader, setLoader] = useState(false);
     const dispatch = useDispatch();
     const {getProductDetails:{loading,error},detailsData:data} = useSelector((state)=>state.cart);
-
+    const {isAuth} = useSelector((state)=>state.auth);
+    
     
 useEffect(() => {
     dispatch(getproductdetailsApi(id));
@@ -20,6 +22,19 @@ useEffect(() => {
     
   }
 },[id])
+
+
+let handleAddtocart=()=>{
+    if(isAuth){
+    let UserStoredDataFraazo = JSON.parse(localStorage.getItem('UserStoredDataFraazo'));
+    let user="";
+      dispatch(addCartApi(user,id))
+      setLoader(true);
+      setAddedToCart(true);
+    }else{
+        alert(`Please Login!`)  
+    }
+}
 
 if(loading){
     
@@ -95,7 +110,8 @@ if(loading){
                        <div
                            disable
                            className="group disabled:bg-opacity-40 hover:cursor-none w-20 h-[32px] cursor-pointer rounded-3xl flex justify-center items-center gap-1 text-[13px] text-[#4FBB90] border border-[#4FBB90] hover:bg-[#9de9cb] hover:text-white"
-                       >
+                           
+                      >
                            <svg
                                xmlns="http://www.w3.org/2000/svg"
                                className="h-3 fill-[#4FBB90] rotate-[360deg] duration-500 group-hover:fill-white"
@@ -107,6 +123,7 @@ if(loading){
                                style={{
                                    fontSize: "14px"
                                }}
+                               
                            >Added</p>
                        </div>
                    ) : loader ? (
@@ -128,10 +145,7 @@ if(loading){
                        </svg>
                    ) : (
                        <div
-                           onClick={() => {
-                               setLoader(true);
-                               setAddedToCart(true);
-                           }}
+                           onClick={()=>handleAddtocart}
                            className="group w-20 h-[32px] cursor-pointer rounded-3xl flex justify-center items-center gap-1 text-[13px] text-[#4FBB90] border border-[#4FBB90] hover:bg-[#4FBB90] hover:text-white"
                        >
                            <svg
@@ -152,10 +166,29 @@ if(loading){
                </div>
            </div>
            <div className={styles.benefits}>
-               <h2>Benefits</h2>
-               <div className={styles.desDiv2}> 
-               <p>{data.benefits}</p>  
-               </div>
+                <Tabs colorScheme="green">
+                    <TabList>
+                        <Tab>Description</Tab>
+                        <Tab>Benefits</Tab>
+                        <Tab>Info</Tab>
+                    </TabList>
+                <div className={styles.desDiv2}>
+                    <TabPanels>
+                        <TabPanel fontSize={"15"} color={"gray"}>
+                        {data.description}
+                        </TabPanel>
+                        <TabPanel fontSize={"15"} color={"gray"}>
+                        <p>{data.benefits}</p>
+                        </TabPanel>
+                        <TabPanel fontSize={"15"} color={"gray"}>
+                        <p>{data.info}</p>
+                        </TabPanel>
+                    </TabPanels>
+                </div>
+                </Tabs>
+
+
+
            </div>
        </div>
    </div> 
