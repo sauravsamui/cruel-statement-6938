@@ -2,12 +2,6 @@
 import axios from "axios";
 import { LOGIN_ERROR, LOGIN_LOADING, LOGIN_SUCCESS, LOGOUT, SIGNUP_ERROR, SIGNUP_LOADING, SIGNUP_SUCCESS } from "./auth.types";
 
-
-
-
-
-
-
 export const signupApi = (value)=>(dispatch)=>{
    let u = value.username
      dispatch({type:SIGNUP_LOADING,})

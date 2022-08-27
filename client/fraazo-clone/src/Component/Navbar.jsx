@@ -143,13 +143,14 @@ const Navbar = () => {
   const { isAuth: loggedIn, userData } = useSelector((state) => state.auth);
 
   const handleLoginAccount = () => {
-    let loginStatus = localStorage.getItem("isAuth");
+    // let loginStatus = localStorage.getItem("isAuth");
     // console.log("loginStatus:", loginStatus);
-    if (loginStatus == "true") {
-      navigate("/myaccount/myorders");
-    } else {
+    // if (loginStatus == "true") {
+    //   navigate("/myaccount/myorders");
+    // } else {
+      console.log('login part')
       navigate("/login");
-    }
+    // }
   };
 
   return (
