@@ -2,12 +2,17 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border:3px dashed orangered;
+    border:2px dashed orangered;
     background-color: rgb(255,251,249);
     border-radius: 20px;
-    padding: 2px 6px;
+    padding: 7px 10px;
     padding-right: 15px;
+    margin-bottom: 15px;
 
+
+}
+.coupmainhide{
+    display: none;
 }
 .coupmain:hover{
     cursor: pointer;
@@ -19,6 +24,7 @@
 .coupflex{
     display: flex;
     justify-content: space-between;
+    margin-top: 25px;
 }
 .subcoup{
     display: flex;
@@ -31,18 +37,19 @@
     height: 30px;
 }
 .cbc{
+    
     width: 35%;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .bold{
-    font-weight: 500;
+    font-weight: 600;
 }
 .billbtn{
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: rgb(71,190,155);
-    padding: 5px 15px;
+    padding: 7px 18px;
     margin: auto;
     width: 90%;
     border-radius: 20px;
@@ -55,7 +62,7 @@
     font-size: 13px;
 }
 .billbtn>div{
-    line-height: 5px;
+    line-height: 20px;
 }
 .billbtn{
     cursor: pointer;

@@ -13,6 +13,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import SearchBox from "./SearchBox";
+import { Cart } from "../Pages/Cart/cart";
 
 const InnerDivFlex = styled.div`
   color: #333333;
@@ -136,6 +137,11 @@ const Navbar = () => {
   const [isAuth, setIsAuth] = useState(false)
   const { data: cartData } = useSelector((state) => state.cart);
   const navigate = useNavigate();
+<<<<<<< HEAD
+  const { isAuth: loggedIn, userData } = useSelector((state) => state.auth);
+  const [cartflag, setcartflag] = useState(false)
+
+=======
   const { isAuth: loggedIn } = useSelector((state) => state.auth);
   var UserStoredDataFraazo = JSON.parse(localStorage.getItem('UserStoredDataFraazo')) || {};
   var toggleLogin = Object.keys(UserStoredDataFraazo).length;
@@ -143,6 +149,7 @@ const Navbar = () => {
   if(toggleLogin!==0){
     userName=UserStoredDataFraazo.newSavedNo.firstname
   }
+>>>>>>> main
   const handleLoginAccount = () => {
     // let loginStatus = localStorage.getItem("isAuth");
     // console.log("loginStatus:", loginStatus);
@@ -159,6 +166,8 @@ const Navbar = () => {
   };
 
   return (
+    <>
+    {cartflag?<Cart cartflag={cartflag} setcartflag={setcartflag}/>:""}
     <Box
       boxShadow={"base"}
       zIndex={"sticky"}
@@ -214,9 +223,9 @@ const Navbar = () => {
               color={"#999"}
               _hover={{ color: "black" }}
             >
-              <Box w={"15px"}> {cartIcon}</Box>
+              <Box w={"15px"} onClick={()=>setcartflag(!cartflag)}> {cartIcon}</Box>
 
-              <Text fontSize={"13px"}>Cart</Text>
+              <Text fontSize={"13px"} onClick={()=>setcartflag(!cartflag)}>Cart</Text>
             </Flex>
             <Flex
               minW={4}
@@ -271,6 +280,7 @@ const Navbar = () => {
         </Flex>
       </Flex>
     </Box>
+    </>
   );
 };
 

@@ -7,7 +7,16 @@ const Item = ({ e,totalp,data,setdata,settotalp }) => {
  
   
   const [a, seta] = useState(e.c);
-  let removeelement=()=>{
+  let removeelement=(id)=>{
+    let x=data.filter((e)=>{return e.id!=id});
+    console.log(x)
+    setdata(x)
+    let sum=0;
+    for(let i=0;i<x.length;i++){
+      sum=sum+(+x[i].price*x[i].c)
+    }
+    settotalp(sum)
+    console.log(sum)
 
   }
 
@@ -17,14 +26,14 @@ const Item = ({ e,totalp,data,setdata,settotalp }) => {
         <div key={e.id} className={style.itemmain}>
           <div className={style.smainitem}>
             <img src={e.src} alt="" />
-            <div>
+            <div className={style.itmnqp}>
               <p className={style.txtname}>{e.name}</p>
               <p  className={style.txtquant}>{e.quant}</p>
               <p  className={style.txtprice}><i class="fa-solid fa-indian-rupee-sign"></i> {e.price}</p>
             </div>
           </div>
-          <div>
-            <p className={style.remtxt} onClick={removeelement}>Remove</p>
+          <div className={style.qcar}>
+            <p className={style.remtxt} onClick={()=>removeelement(e.id)}>Remove</p>
             <div className={style.quantcarr}>
               <div
                 className={style.decs}
@@ -40,9 +49,9 @@ const Item = ({ e,totalp,data,setdata,settotalp }) => {
                   }
                   settotalp(sum)
                   setdata(data)
-                
-                  
-               
+                  console.log(e.c)
+                  console.log(data)
+                 
                 }}
               >
                 -
@@ -59,7 +68,9 @@ const Item = ({ e,totalp,data,setdata,settotalp }) => {
                   }
                   settotalp(sum)
                   setdata(data)
-                
+                  console.log(e.c)
+                  console.log(data)
+                  
                   
                 }}
               >

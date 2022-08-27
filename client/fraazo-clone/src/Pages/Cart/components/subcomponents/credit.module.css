@@ -1,0 +1,51 @@
+.creditmain{
+    padding: 0px 10px;
+    line-height: 30px;
+}
+.creditmain>div{
+    margin-top: 20px;
+}
+.creditmain p{
+    font-weight: 600;
+    font-size: 17px;
+}
+input{
+    border: none;
+    border-bottom: 1px solid gray;
+    outline: none;
+    font-size: 16px;
+}
+.expcvv{
+    display: flex;
+    gap: 20px;
+}
+.expcvv input{
+    width: 100px;
+}
+.exp{
+    display: flex;
+    gap: 10px;
+}
+
+
+.creditbtn{
+    margin-top: 50px;
+    padding: 10px 60px;
+    color: white;
+    font-weight: 600;
+    background-color: rgb(71,190,155);
+    border: none;
+    outline: none;
+    border-radius: 10px;
+}
+.creditbtn:hover{
+    cursor: pointer;
+}
+.modalimg{
+    margin: auto;
+    width: 50%;
+}
+.modaldiv{
+    text-align: center;
+    
+}
