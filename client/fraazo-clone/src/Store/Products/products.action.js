@@ -9,11 +9,9 @@ export const showProducts = (value)=>(dispatch) => {
   dispatch({ type: PRODUCTS_LOADING });
 
   return axios
-    .get(`http://localhost:8080/cart/items`,{
-      category: value
-    })
+    .get("https://serene-hollows-15248.herokuapp.com/products/all")
     .then((r) => {
-      dispatch({ type: PRODUCTS_SUCESS, payload: r.data });
+      dispatch({ type: PRODUCTS_SUCESS, payload: r.data.data });
     })
     .catch(() => {
       console.log("error")

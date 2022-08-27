@@ -1,0 +1,96 @@
+
+#rightInnerDiv{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+  
+    grid-gap: 10px;
+}
+@media all and (max-width:993px) {
+    #rightInnerDiv{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+  
+        grid-gap: 10px;
+    } 
+}
+@media all and (max-width:770px) {
+    #rightInnerDiv{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+       
+        grid-gap: 10px;
+    } 
+}
+#leftDivTwo{
+    /* border: 1px solid rgb(50, 17, 197); */
+    display: flex;
+    background-color: white;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;;
+    padding-bottom: 30px;
+}
+#imgPrd{
+    width: 50%;
+   
+}
+.itemDiv{
+    padding-left: 15px;
+}
+
+
+.price1{
+    font-weight: bolder;
+    letter-spacing: 1px;
+    margin-top: -5px;
+    text-align: left;
+}
+.name1{
+    font-size: medium;
+    font-weight: 350;
+    margin-top: 5px;
+    text-align: left;
+
+}
+
+.leftDivThree{
+   
+    width: 80%;
+    display: flex;
+   flex-direction: row-reverse;
+   padding: 30px;
+   margin-top: 10px;
+   background-color: white;
+   
+}
+
+
+
+
+
+
+
+.card{
+    margin-top: 10px;
+}
+.cardImg{
+    width: 190px;
+}
+.step{
+    font-size: small;
+    margin-top: 10px;
+    margin-left: -45px;
+    
+}
+#leftDivTwoUper{
+    margin-top: 10px;
+}
+
+.selectQuantity{
+    outline: none;
+    font-size: smaller;
+}
+
+.leftDiv{
+    width: 68%;
+    height: auto;
+}

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import HomeLogo from "../assets/homeLogo.svg";
 import {
@@ -6,15 +6,13 @@ import {
   Button,
   Flex,
   Image,
-  Input,
-  Tag,
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
 // import CartComponent from "./CartComponents/CartComponent";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-const [cartFlag,setCartFlag] = useState(false);
+
 import SearchBox from "./SearchBox";
 
 const InnerDivFlex = styled.div`
@@ -141,10 +139,11 @@ const Navbar = () => {
   const { isAuth: loggedIn, userData } = useSelector((state) => state.auth);
 
   const handleLoginAccount = () => {
-    let loginStatus = localStorage.getItem("isAuth");
+    // let loginStatus = localStorage.getItem("isAuth");
     // console.log("loginStatus:", loginStatus);
+   let loginStatus = "true";
     if (loginStatus == "true") {
-      navigate("/myaccount/myorders");
+      navigate("/profile/order");
     } else {
       navigate("/login");
     }

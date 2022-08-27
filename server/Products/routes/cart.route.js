@@ -5,9 +5,9 @@ const ProductModel = require("../model/products.model");
 
 
 const cartRoute = Router();
-//http://localhost:8080/cart/items?user=5443664636&id=3545345345
+//http://localhost:8080/cart/post?user=5443664636&id=3545345345
 // to add item to cart
-cartRoute.post("/post/:id",async(req,res)=>{
+cartRoute.post("/post",async(req,res)=>{
     let {user,id}=req.query;
     let payload = await ProductModel.findbyId({_id:id},{_id:0,benefits:0,description:0,category:0})
      payload = {
@@ -16,7 +16,7 @@ cartRoute.post("/post/:id",async(req,res)=>{
     }
     // let f = await CartModel.find().populate("user");
     let data = await CartModel.create(body);
-     res.send({message:"got it ",data});
+     res.send({message:"got it",data});
 });
 
 // to get the cart items of user based on user id
