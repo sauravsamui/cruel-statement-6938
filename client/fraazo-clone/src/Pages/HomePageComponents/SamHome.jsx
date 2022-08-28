@@ -26,8 +26,8 @@ const sliderImg = [
 
 function SamHome() {
   return (
-    <div style={{marginTop:'120px'}}>
-      <Box mt={"120px"}>
+    <div style={{marginTop:'80px'}}>
+      <Box mt={"80px"}>
         <Box p={"0 60px"}>
           <Flex gap={7}>
             <Box w="65%" color="white">

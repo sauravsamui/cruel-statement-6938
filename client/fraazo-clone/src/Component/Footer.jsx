@@ -169,7 +169,7 @@ const Footer = () => {
                       alignItems={"center"}
                     >
                       <Box>
-                        <Image src={emailIcon} />
+                        <Image  w ={"18px"} src={emailIcon} />
                       </Box>
                       <Box cursor={"pointer"}>support@fraazo.com</Box>
                     </Flex>
@@ -181,7 +181,7 @@ const Footer = () => {
                       alignItems={"center"}
                     >
                       <Box>
-                        <Image src={phoneIcon} />
+                        <Image  w ={"18px"} src={phoneIcon} />
                       </Box>
                       <Box cursor={"pointer"}>+91 9152291522</Box>
                     </Flex>

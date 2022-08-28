@@ -14,7 +14,6 @@ import androidStore from "../assets/AndroidStore.png";
 import appleStore from "../assets/appleStore.png";
 import googlePlay from "../assets/googlePlay.png";
 import mobileApp from "../assets/homepage/mobileApp.png";
-import { useRef } from "react";
 import { useState } from "react";
 import styled from "styled-components";
 
@@ -29,11 +28,9 @@ height:fit-content;
 .Part2ofDownload{
   margin-top:100px;
   text-align:left;
-  ${'' /* border:10px solid red; */}
   
 }
 @media all and (max-width:1050px) {
-${'' /* @media (max-width: 1050px) { */}
   grid-template-columns:1fr;
   .Part2ofDownload{
     margin-top:0px;
@@ -43,16 +40,50 @@ ${'' /* @media (max-width: 1050px) { */}
     padding:0px 0px 0px 100px;
   }
 }
-@media (max-width: 700px) {
+@media (max-width: 600px) {
   grid-template-columns:1fr;
   .MobileAppDownloadImage{
-    margin-bottom:40px;
-    height:60vh
+    margin-bottom:500px;
+    height:80vh;
+    width:90%;
+    margin-left:-40px;
   }
   .Part2ofDownload{
-    margin:0px;
+    margin-top:500px;
     padding:50px;
+    margin-left:-1px;
 
+  }
+}
+@media all and (max-width: 400px) {
+  grid-template-columns:repeat(1fr);
+  width:90%;
+  .MobileAppDownloadImage{
+    margin-bottom:500px;
+    height:150vh;
+    width:65%;
+    margin-right:100px;
+  }
+  .Part2ofDownload{
+    margin-top:500px;
+    font-size:14px;
+    padding:50px;
+    margin-left:-1px;
+
+  }
+  .available{
+  
+    height:80px;
+    width:75%;
+    font-size:14px;
+    
+  }
+  .availableOn{
+    font-size:16px;
+    width:120px;
+  }
+  .googleplay{
+    width:130px;
   }
 }
 `
@@ -94,7 +125,7 @@ const DownloadApp = () => {
           className='Part2ofDownload'
         >
           <Container
-            fontSize={"40px"}
+            fontSize={"35px"}
             lineHeight={"48px"}
             fontWeight={600}
             p={"0 0 18px 0"}
@@ -195,18 +226,18 @@ const DownloadApp = () => {
               </Box>
             </Button>
           </Flex>
-          <Flex p={"54px 0 20px 0"} alignItems={"center"} gap={3}>
-            <Box fontSize={"18px"} opacity={"0.6"}>
+          <Flex className ={"available"} p={"54px 0 20px 0"} alignItems={"center"} gap={3}>
+            <Box className ={"availableOn"} fontSize={"18px"} opacity={"0.6"}>
               Available on
             </Box>
             <Box>
               <a href="https://play.google.com/store/apps/details?id=com.fraazo.app" target="_blank" >
-                <Image src={googlePlay}></Image>
+                <Image className ={"googleplay"} src={googlePlay}></Image>
               </a>
             </Box>
             <Box>
               <a href="https://apps.apple.com/us/app/fraazo/id1243998420" target="_blank" >
-                <Image src={appleStore}></Image>
+                <Image className ={"googleplay"} src={appleStore}></Image>
               </a>
             </Box>
           </Flex>

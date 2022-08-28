@@ -91,20 +91,21 @@
     }
 
   }
-  
-  /* .itemsContainer {
-    width: 100%;
-    height: 350px;
+  @media only screen and (max-width:400px){
+    .card{
+      width:180px;
+      height:280px;
+      margin-left:-5px;
+    }
+    .cardTop img{
+      width:160px;
+      height:180px;
+    }
+    .cardTop{
+      height:180px;
+    }
+
   }
   
-  .itemCard {
-  
-    width: 250px;
-    height: 350px;
-    margin-left: 20px;
-  }
-  
-  .imageDownSide {
-    height: 100px;
-  } */
+
  
