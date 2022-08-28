@@ -8,6 +8,7 @@ export const Cart = ({cartflag,setcartflag}) => {
   
     const dispatch = useDispatch();
    const {cartData} = useSelector((state)=>state.cart);
+
    const { isAuth} = useSelector((state) => state.auth);
  
    useEffect(() => {
@@ -20,6 +21,13 @@ export const Cart = ({cartflag,setcartflag}) => {
       }
         dispatch(getCartItemApi(user));
     }
+
+  
+  const [data, setdata] = useState();
+  
+useEffect(() => {
+  dispatch(getCartItemApi(user));
+
 
   
     return () => {
