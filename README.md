@@ -78,7 +78,7 @@ VS Code
 
 ![Screenshot (631)](https://user-images.githubusercontent.com/101567122/187084675-04f143b9-1dcc-4457-aa1e-23c100299230.png)
 
-![Screenshot (632)](https://user-images.githubusercontent.com/101567122/187084737-b5813ea0-5994-4bb9-987c-2e70e9f68fb2.png)
+![Screenshot (640)](https://user-images.githubusercontent.com/101567122/187085031-9cca7e98-7a19-4c98-ae8a-6a5792a9ced5.png)
 
 
 - **Product-Details Page**
