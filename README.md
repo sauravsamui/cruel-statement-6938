@@ -2,7 +2,7 @@
 
 This collaborative project is a clone of the [Fraazo](https://fraazo.com/) website. We as a team of 5 members cloned this website within 5 days in Masai School, Bangalore.
 
-Fraazo! It is an online platform that allows customer to get farm fresh produce directly from farmers. with Fraazo you can get it delivered at your doorstep! 
+Fraazo- It is an online platform that allows customer to get farm fresh produce directly from farmers. with Fraazo you can get it delivered at your doorstep! 
 
 
 
