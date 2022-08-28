@@ -28,31 +28,30 @@ height:fit-content;
 }
 .Part2ofDownload{
   margin-top:100px;
-  text-align:left;
-  ${'' /* border:10px solid red; */}
-  
+  text-align:left; 
 }
 @media all and (max-width:1050px) {
-${'' /* @media (max-width: 1050px) { */}
   grid-template-columns:1fr;
+  height:200vh;
   .Part2ofDownload{
-    margin-top:0px;
     margin:auto;
     flex-direction:columns;
     align-content:center;
     padding:0px 0px 0px 100px;
+    margin-top:80vh;
   }
 }
 @media (max-width: 700px) {
   grid-template-columns:1fr;
+  height:170vh;
   .MobileAppDownloadImage{
-    margin-bottom:40px;
-    height:60vh
+    height:60vh;
+    width:50%;
   }
   .Part2ofDownload{
     margin:0px;
     padding:50px;
-
+    margin-top:50vh;
   }
 }
 `

@@ -169,7 +169,7 @@ const Footer = () => {
                       alignItems={"center"}
                     >
                       <Box>
-                        <Image src={emailIcon} />
+                        <Image height={'20px'} width={'20px'} src={emailIcon} />
                       </Box>
                       <Box cursor={"pointer"}>support@fraazo.com</Box>
                     </Flex>
@@ -181,7 +181,7 @@ const Footer = () => {
                       alignItems={"center"}
                     >
                       <Box>
-                        <Image src={phoneIcon} />
+                        <Image height={'20px'} width={'20px'} src={phoneIcon} />
                       </Box>
                       <Box cursor={"pointer"}>+91 9152291522</Box>
                     </Flex>
@@ -192,12 +192,12 @@ const Footer = () => {
                       <Flex alignContent={"center"} gap={"2"}>
                         <Box pt={2}>
                           <a href="https://play.google.com/store/apps/details?id=com.fraazo.app" target="_blank">
-                            <Image src={googlePlayFooter}></Image>
+                            <Image width={'100%'} src={googlePlayFooter} />
                           </a>
                         </Box>
                         <Box>
                           <a href="https://apps.apple.com/us/app/fraazo/id1243998420" target="_blank" >
-                            <Image src={appleStoreFooter}></Image>
+                            <Image width={'100%'} src={appleStoreFooter} />
                           </a>
                         </Box>
                       </Flex>

@@ -21,7 +21,6 @@ const SearchBar = styled.div`
   height: 50px;
   display: flex;
   align-items: center;
-  ${'' /* min-width: 575px; */}
   border-radius: 24px;
   background-color: #f9f9f9;
   border: 1px solid #ddd;
@@ -48,9 +47,16 @@ const SearchBar = styled.div`
     right: 22px;
     cursor: pointer;
   }
-  @media all and (min-width:0px) and (max-width:1100px) {
-    ${'' /* min-width: 405px; */}
+  @media all and (max-width:1000px) {
+    width: 40vw;
   }
+  @media all and (max-width:850px) {
+    width: 30vw;
+  }
+  @media all and (max-width:710px) {
+    width: 20vw;
+  }
+  
 `;
 const SearchIcon = (
   <svg

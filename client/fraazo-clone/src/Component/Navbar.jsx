@@ -101,6 +101,12 @@ const locationSvg = (
   </svg>
 );
 const MainNavContainer = styled.div`
+  .navLogoMain{
+    width:150px;
+  }
+  .locatPart{
+    cursor:pointer;
+  }
   .mainContainerForNav{
     padding:0px 35px 0px 35px;
   }
@@ -121,6 +127,25 @@ const MainNavContainer = styled.div`
     }
     .mainContainerForNav{
       padding:0px 15px 0px 15px;
+    }
+  }
+  @media all and (max-width:620px) {
+    .navLogoMain{
+      width:100px;
+      margin-right:-20px;
+    }
+    .navPart3{
+      gap:5px;
+    }
+    .mainContainerForNav{
+      padding:0px 10px 0px 10px;
+    }
+    .last3size{
+      fontSize:10px;
+    }
+    .locatPart{
+      cursor:pointer;
+      display:none;
     }
   }
 `
@@ -189,16 +214,16 @@ const Navbar = ({keys}) => {
           <Flex gap={10}>
             <InnerDivFlex>
               <Link to="/">
-                <Image src={HomeLogo} alt="logo" w={"150px"} />
+                <Image src={HomeLogo} alt="logo" className="navLogoMain"/>
               </Link>
             </InnerDivFlex>
             <Flex
+              className='locatPart'
               alignItems={"center"}
               gap={2}
               color={"#999"}
               _hover={{ color: "black" }}
               onClick={keys}
-              style={{ cursor: 'pointer' }}
             >
               <Box w={"12px"} h={"12px"} mt="-5px">
                 {" "}
@@ -259,7 +284,7 @@ const Navbar = ({keys}) => {
             >
               <Box w={"15px"}> {creditIcon}</Box>
 
-              <Text fontSize={"13px"}>Credits</Text>
+              <Text className="last3size" fontSize={"13px"}>Credits</Text>
             </Flex>
           </Button>
           <Button variant="unstyled" onClick={() => handleLoginAccount()}>

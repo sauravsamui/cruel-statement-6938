@@ -172,7 +172,7 @@ const SingleProduct = ({ item, onClose, setQuery }) => {
                 border={"1px solid #eee"}
                 rounded={"4px"}
               >
-                <Image src={item?.imgUrl} height={"100%"} />
+                <Image src={item?.imgUrl} height={"`100%"} />
               </Box>
             </Box>
 
