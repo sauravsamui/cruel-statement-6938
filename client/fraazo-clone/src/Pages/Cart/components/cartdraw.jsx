@@ -13,6 +13,8 @@ const navigate =useNavigate();
 
 let goCheckout=()=>{
    navigate("/checkoutpage");
+   setcartflag(false)
+   
 }
 
   return (
@@ -92,11 +94,11 @@ let goCheckout=()=>{
           <div>
             <p>{data.length} items</p>
             <p className={style.txtorange}>
-              <i class="fa-solid fa-indian-rupee-sign"></i> {sum}
+              <i className="fa-solid fa-indian-rupee-sign"></i> {sum}
             </p>
           </div>
           <div>
-            <button disabled={data.length==0} className={style.cdbtn} onClick={()=>{goCheckout()}}>Checkout</button>
+            <button  className={style.cdbtn} onClick={()=>{{data.length>0?goCheckout():setcartflag(false)}}}>Checkout</button>
           </div>
         </div>
       </div>

@@ -10,13 +10,11 @@
     justify-content: space-between;
     overflow: scroll;
     background-color: white;
-    margin-top: -120px;
+    margin-top: -90px;
     position: fixed;
    
 }
-.mcd>div{
-    /* width: 96%; */
-}
+
 .ic{
     padding: 20px 0px 20px 20px;
     font-weight: 550;

@@ -1,0 +1,34 @@
+.ddflx{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding: 15px;
+    align-items: center;
+}
+.ddflx>p{
+    color: gray;
+    font-size: 14px;
+}
+.ddflx>p:hover{
+    cursor: pointer;
+    color: teal;
+}
+
+.vrot>i{
+    transform: rotate(-180deg);
+    
+}
+.frot>i{
+    transform: rotate(-180deg);
+    
+}
+.ddmain{
+    margin-top: 90px;
+   /* position: top; */
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    width:100%;
+    /* position: fixed; */
+    /* top: 0; */
+    background-color: white;
+    z-index: 99999;
+}

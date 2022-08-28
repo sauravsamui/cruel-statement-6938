@@ -2,7 +2,8 @@ import React from 'react'
 import style from "./checkaddress.module.css"
 
 const Checkaddress = () => {
-  const obj={des:"Friend",fd:"C-210",ad:"Arun Patios, Kenchenahalli, Yelahanka",bld:"Arun Patios",htr:"Call",pc:"560064",ct:"Bangalore"}
+  let loc=JSON.parse(localStorage.getItem("fraazoUserLoc"))||"Powder Galli,Goregaon East, Mumbai, Maharashtra, 400063.";
+  const obj={des:"Home",fd:"C-210",ad:loc,bld:"GokulDham Society",htr:"Call",pc:"560064",ct:"Bangalore"}
   return (
     <div className={style.cac}>
       <div>
@@ -18,11 +19,11 @@ const Checkaddress = () => {
             <p className={style.graysmall}><i className="fa-solid fa-location-dot"></i> Other</p>
             <p  className={style.graysmall}><span className={style.boldsmall}>Flat Details: </span>{obj.fd}</p>
             <span className={style.boldsmall}>Address:</span>
-            <p className={style.graysmall}>{obj.ad}</p>
+            <p className={style.graysmall}>{obj.fd}, {obj.bld}, {obj.ad}</p>
             <p className={style.graysmall}><span className={style.boldsmall}>Building: </span>{obj.bld}</p>
             <p className={style.graysmall}><span className={style.boldsmall}>How to Reach: </span>{obj.htr}</p>
-            <p className={style.graysmall}><span className={style.boldsmall}>Pincode: {obj.pc}</span></p>
-            <p className={style.graysmall}><span className={style.boldsmall}>City: </span>{obj.ct}</p>
+            {/* <p className={style.graysmall}><span className={style.boldsmall}>Pincode: {obj.pc}</span></p> */}
+            {/* <p className={style.graysmall}><span className={style.boldsmall}>City: </span>{obj.ct}</p> */}
 
           </div>
           <div className={style.newadd}>

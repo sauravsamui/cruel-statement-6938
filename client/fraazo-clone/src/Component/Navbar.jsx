@@ -223,10 +223,11 @@ const Navbar = ({keys}) => {
                 gap={2}
                 color={"#999"}
                 _hover={{ color: "black" }}
+                onClick={()=>setcartflag(!cartflag)}
               >
-              <Box w={"15px"} onClick={()=>setcartflag(!cartflag)}> {cartIcon}</Box>
+              <Box w={"15px"} > {cartIcon}</Box>
 
-              <Text fontSize={"13px"} onClick={()=>setcartflag(!cartflag)}>Cart</Text>
+              <Text fontSize={"13px"} >Cart</Text>
             </Flex>
             <Flex
               minW={4}
