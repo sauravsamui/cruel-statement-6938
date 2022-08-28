@@ -13,14 +13,8 @@ export const Cart = ({cartflag,setcartflag}) => {
   }
     const dispatch = useDispatch();
    const {cartData} = useSelector((state)=>state.cart);
-  // const arr=[
-  //   {id:1,src:"https://imageprod.fraazo.com/fraazo-prod/products/product_images/000/000/231/original/data?width=256&height=256&format=webp",name:"Sun Melon",quant:"1pc",price:31,c:1},
-  //   {id:2,src:"https://imagemaster.fraazo.com/fraazo-master/products/FBAN14.png?width=256&height=256&format=webphttps://imagemaster.fraazo.com/fraazo-master/products/FBAN14.png?width=256&height=256&format=webp",name:"Robusta Banana",quant:"1kg",price:42,c:1},  
-   
-  // ]
-  //console.log(cartData);
-  // localStorage.setItem("arr",JSON.stringify(arr))
-  const [data, setdata] = useState();
+ 
+ 
   
 useEffect(() => {
   dispatch(getCartItemApi(user));
@@ -35,59 +29,11 @@ useEffect(() => {
   for(let i=0;i<cartData.length;i++){
     sum=sum+(+cartData[i].payload.price*cartData[i].payload.quantity)
   }
-  // const [totalp, settotalp] = useState(sum)
-  
-//   if(getItemCart.loading){
-    
-//     return (
-        
-        
-//     <div className='container'>
-//      <div className="spinner-grow text-primary" role="status">
-//    <span className="sr-only"></span>
-//  </div>
-//  <div className="spinner-grow text-secondary" role="status">
-//    <span className="sr-only"></span>
-//  </div>
-//  <div className="spinner-grow text-success" role="status">
-//    <span className="sr-only"></span>
-//  </div>
-//  <div className="spinner-grow text-danger" role="status">
-//    <span className="sr-only"></span>
-//  </div>
-//  <div className="spinner-grow text-warning" role="status">
-//    <span className="sr-only"></span>
-//  </div>
-//  <div className="spinner-grow text-info" role="status">
-//    <span className="sr-only"></span>
-//  </div>
-//  <div className="spinner-grow text-light" role="status">
-//    <span className="sr-only"></span>
-//  </div>
-//  <div className="spinner-grow text-dark" role="status">
-//    <span className="sr-only"></span>
-//  </div>
-//  </div>
-
-      
-
-//     )
-//   }
-//   else if(getItemCart.error){
-//     return (
-        
-//       <div style={{alignItems:"center"}} className='container'>
  
-//       <h2  className="h2">Something went wrong.....</h2>
-//     </div>
-   
-//     )
-  
-//   }
   return (
     <div> 
    
-        {cartflag?<Cartdraw cartflag={cartflag} setcartflag={setcartflag} setdata={setdata} />:""}
+        {cartflag?<Cartdraw cartflag={cartflag} setcartflag={setcartflag} />:""}
         {/* <Checkoutpage data={data} setdata={setdata} totalp={totalp} settotalp={settotalp}/> */}
     </div>
   )

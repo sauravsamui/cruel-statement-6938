@@ -7,14 +7,7 @@ export const signupApi = ()=>(dispatch)=>{
   
 }
 
-// export const loginApi = (value)=>(dispatch)=>{
-//    dispatch({type:LOGIN_LOADING,})
-//    axios.post("https://enigmatic-woodland-19583.herokuapp.com/auth/login",{
-//       ...value
-//    })
-//    .then((res)=>dispatch({type:LOGIN_SUCCESS,payload:res.data}))
-//    .catch((err)=>dispatch({type:LOGIN_ERROR}))
-// }
+
 
 export let logout =()=>(
    {type:LOGOUT}

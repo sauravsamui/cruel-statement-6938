@@ -14,8 +14,7 @@ import MenuPage from './Pages/Products&details/MenuPage';
 import Order from './Pages/OrderPage/Order';
 import RequireAuth from './RequireAuth/RequireAuth';
 import { useSelector } from 'react-redux';
-import Navbar from './Component/Navbar';
-import Footer from './Component/Footer';
+
 
 
 function App() {
