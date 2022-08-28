@@ -7,6 +7,7 @@ const ProductItem = (props) => {
   const [addedToCart, setAddedToCart] = useState(false);
   const [loader, setLoader] = useState(false);
   const {isAuth} = useSelector((state)=>state.auth);
+ 
   const dispatch = useDispatch();
   let handleAddtocart=(id)=>{
     if(isAuth){

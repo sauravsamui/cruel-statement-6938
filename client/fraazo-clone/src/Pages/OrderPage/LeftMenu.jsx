@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch} from "react-redux";
 import { logout } from "../../Store/auth/auth.action";
+import { removeItemLocalCart } from "../../Store/Cart/cart.actions";
 import styles from "./order.module.css";
 
 const LeftMenu = () => {
@@ -31,7 +32,9 @@ const LeftMenu = () => {
         <div className="container-sm"><p className="h6">My Credits</p></div>
         <div className="container-sm"><p className="h6">Invite a Friend</p></div>
         <div className="container-sm"><p className="h6">Help & Support</p></div>
-        <div className="container-sm"><p className="h6"  onClick={() => dispatch(logout())}>Logout</p></div>
+        <div className="container-sm"><p className="h6"  onClick={() =>{ dispatch(logout())
+        removeItemLocalCart()
+        }}>Logout</p></div>
       </div>
     </div>
   );

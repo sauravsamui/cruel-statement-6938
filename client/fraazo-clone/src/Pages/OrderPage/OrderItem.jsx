@@ -2,7 +2,7 @@
 import styles from "./cart.module.css";
 
 const OrderItem = ({ item }) => {
-  console.log(item)
+
     return (
       <>
         

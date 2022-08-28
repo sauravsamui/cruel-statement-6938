@@ -5,24 +5,27 @@ import Cartdraw from './components/cartdraw'
 import Checkoutpage from './components/Checkoutpage'
 
 export const Cart = ({cartflag,setcartflag}) => {
-  let UserStoredDataFraazo = JSON.parse(localStorage.getItem('UserStoredDataFraazo')) || {}
-  let loggedInAlready = Object.keys(UserStoredDataFraazo).length;
-  let user = 123456789123;
-  if(loggedInAlready){
-      user = UserStoredDataFraazo.newSavedNo._id
-  }
+  
     const dispatch = useDispatch();
    const {cartData} = useSelector((state)=>state.cart);
+   const { isAuth} = useSelector((state) => state.auth);
  
- 
-  
-useEffect(() => {
-  dispatch(getCartItemApi(user));
+   useEffect(() => {
+    if(isAuth){
+      let UserStoredDataFraazo = JSON.parse(localStorage.getItem('UserStoredDataFraazo')) || {}
+      let loggedInAlready = Object.keys(UserStoredDataFraazo).length;
+      let user = 123456789123;
+      if(loggedInAlready){
+          user = UserStoredDataFraazo.newSavedNo._id
+      }
+        dispatch(getCartItemApi(user));
+    }
 
-  return () => {
-    
-  }
-}, [user])
+  
+    return () => {
+      
+    }
+  }, [isAuth])
 
 
   let sum=0;

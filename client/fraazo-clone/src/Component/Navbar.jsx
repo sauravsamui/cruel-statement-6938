@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import HomeLogo from "../assets/homeLogo.svg";
 import {
@@ -10,10 +10,11 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import SearchBox from "./SearchBox";
 import { Cart } from "../Pages/Cart/cart";
+import { getCartItemApi } from "../Store/Cart/cart.actions";
 
 const InnerDivFlex = styled.div`
   color: #333333;
@@ -29,40 +30,40 @@ const InnerDivFlex = styled.div`
     fill: #343940;
   }
 `;
-const SearchBar = styled.div`
-  position: relative;
-  border: 1px solid;
-  height: 50px;
-  display: flex;
-  align-items: center;
+// const SearchBar = styled.div`
+//   position: relative;
+//   border: 1px solid;
+//   height: 50px;
+//   display: flex;
+//   align-items: center;
 
-  border-radius: 24px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  outline: 0;
-  font-size: 13px;
-  line-height: 18px;
-  padding: 14px;
-  color: #333333;
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 18px;
-  width: 50%;
-  & input {
-    display: block;
-    background-color: #f9f9f9;
-    border: none;
-    width: 100%;
-  }
-  & input:focus {
-    outline: none;
-  }
-  & svg {
-    position: absolute;
-    right: 22px;
-    cursor: pointer;
-  }
-`;
+//   border-radius: 24px;
+//   background-color: #f9f9f9;
+//   border: 1px solid #ddd;
+//   outline: 0;
+//   font-size: 13px;
+//   line-height: 18px;
+//   padding: 14px;
+//   color: #333333;
+//   font-size: 13px;
+//   font-weight: 500;
+//   line-height: 18px;
+//   width: 50%;
+//   & input {
+//     display: block;
+//     background-color: #f9f9f9;
+//     border: none;
+//     width: 100%;
+//   }
+//   & input:focus {
+//     outline: none;
+//   }
+//   & svg {
+//     position: absolute;
+//     right: 22px;
+//     cursor: pointer;
+//   }
+// `;
 const cartIcon = (
   <svg
     aria-hidden="true"
@@ -134,11 +135,11 @@ const locationSvg = (
 );
 const Navbar = () => {
   const navigate = useNavigate();
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const { isAuth: loggedIn, userData } = useSelector((state) => state.auth);
+  const { onOpen} = useDisclosure();
+  const { isAuth: loggedIn} = useSelector((state) => state.auth);
   const [cartflag, setcartflag] = useState(false)
   const {cartData} = useSelector((state)=>state.cart);
-  
+  const dispatch = useDispatch()
 
   var UserStoredDataFraazo = JSON.parse(localStorage.getItem('UserStoredDataFraazo')) || {};
   var toggleLogin = Object.keys(UserStoredDataFraazo).length;
@@ -147,7 +148,22 @@ const Navbar = () => {
     userName=UserStoredDataFraazo.newSavedNo.firstname
   }
 
+  useEffect(() => {
+    if(loggedIn){
+      let UserStoredDataFraazo = JSON.parse(localStorage.getItem('UserStoredDataFraazo')) || {}
+      let loggedInAlready = Object.keys(UserStoredDataFraazo).length;
+      let user = 123456789123;
+      if(loggedInAlready){
+          user = UserStoredDataFraazo.newSavedNo._id
+      }
+        dispatch(getCartItemApi(user));
+    }
 
+  
+    return () => {
+      
+    }
+  }, [loggedIn])
 
   const handleLoginAccount = () => {
    let loginStatus = "true";

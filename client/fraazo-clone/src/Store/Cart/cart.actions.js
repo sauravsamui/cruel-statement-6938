@@ -55,3 +55,7 @@ export const removeAllCartApi=(id)=>(dispatch)=>{
    .then((res)=>(dispatch({type:REMOVE_ALL_FROM_CART_SUCCESS})))
    .catch((r)=>(dispatch({type:REMOVE_ALL_FROM_CART_ERROR})))
 }
+
+export const removeItemLocalCart=()=>(
+      {type:REMOVE_ALL_FROM_CART_SUCCESS}
+)

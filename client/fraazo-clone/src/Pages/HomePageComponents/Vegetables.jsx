@@ -1,12 +1,12 @@
 import React from 'react'
 import styles from "./Vegetables.module.css"
-import { BsFillCartPlusFill } from "react-icons/bs"
 import { useState, useEffect } from "react"
 import axios from "axios"
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import {NavLink, Link} from "react-router-dom"
+import {NavLink} from "react-router-dom"
+import Item from './Item'
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -95,32 +95,9 @@ const Vegetables = () => {
       <div style={{ width: "90%", margin: "auto", marginTop: "25px" }}>
         <Slider {...settings}>
           {dailyveggies.map((item) => (
-            <Link to={`/productsdetails/${item._id}`}>
-            <div key={item._id} className={styles.card}>
-              <div className={styles.cardTop}>
-                <img style={{ backgroundColor: "rgb(249,249,249)" }} src={item.src} alt={item.name} />
-              </div>
-              <div className={styles.cardBottom}>
-                <p style={{ marginLeft: "5px", fontSize:"14px",color:"#1a201e" }}>{item.name}</p>
-                <div style={{ marginTop: "10px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                  <div>
-                    <div style={{ display: "flex", marginLeft: "5px" }}>
-                      <p style={{ color: "#222", fontSize: "13px" }}>{item.quantity} qty</p>
-                    </div>
-                    <p style={{ marginLeft: "5px", fontWeight: "500", color: "#000" }}>₹ {item.price}</p>
-                  </div>
-                  <div className={styles.btnContainer} style={{ width: "120px", display: "flex" }}>
-                    <div className={styles.btnAdd}>
-                      <div className={styles.cartBtn}>
-                        <BsFillCartPlusFill />
-                      </div>
-                      <p> ADD</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            </Link>
+           
+            <Item key={item._id} item={item} styles={styles}/>
+           
           ))}
         </Slider>
       </div>

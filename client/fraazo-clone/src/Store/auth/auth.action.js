@@ -1,11 +1,11 @@
 
 import { LOGOUT, SIGNUP_SUCCESS } from "./auth.types";
 
-export const signupApi = ()=>(dispatch)=>{
+export const signupApi =()=>(
    
-      dispatch({type:SIGNUP_SUCCESS});
+{type:SIGNUP_SUCCESS}
   
-}
+)
 
 
 

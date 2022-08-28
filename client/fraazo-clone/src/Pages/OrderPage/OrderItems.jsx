@@ -6,27 +6,27 @@ import styles from "./order.module.css"
 import style from "./cart.module.css";
 import {Link} from "react-router-dom"
 const OrderItems = () => {
-    let id =2; //need to get from local storage;
+    
     const dispatch = useDispatch()
     const {getOrder:{loading,error},data} = useSelector((state)=>state.order)
     const {isAuth} = useSelector((state)=>state.auth);
     
-  //   useEffect(() => {
-  //     if(isAuth){
-  //       let UserStoredDataFraazo = JSON.parse(localStorage.getItem('UserStoredDataFraazo')) || {}
-  //       let loggedInAlready = Object.keys(UserStoredDataFraazo).length;
-  //       let user = 123456789123;
-  //       if(loggedInAlready){
-  //           user = UserStoredDataFraazo.newSavedNo._id
-  //       }
-  //   dispatch(getOrderApi(user))
-  // }
-  //     return () => {
+    useEffect(() => {
+      if(isAuth){
+        let UserStoredDataFraazo = JSON.parse(localStorage.getItem('UserStoredDataFraazo')) || {}
+        let loggedInAlready = Object.keys(UserStoredDataFraazo).length;
+        let user = 123456789123;  //need to get from local storage;
+        if(loggedInAlready){
+            user = UserStoredDataFraazo.newSavedNo._id
+        }
+    dispatch(getOrderApi(user))
+  }
+      return () => {
        
-  //     }
-  //   }, [])//id of user
+      }
+    }, [isAuth])//id of user
     
-    let  total1 = data.reduce((acu,el)=>(Number(acu)+(Number(el.price) * Number(el.quantity))),0)
+    let  total1 = data.reduce((acu,el)=>(Number(acu)+(Number(el.payload.price) * Number(el.payload.quantity))),0)
     
   if(loading){
     return (

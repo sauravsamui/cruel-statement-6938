@@ -10,11 +10,7 @@ let initialState ={
     error:false,
     sucess:false
     },
-    login: {
-        loading: false,
-        error: false,
-        wrongCred: false
-    },
+  
     isAuth: !!loggedInAlready
 }
 

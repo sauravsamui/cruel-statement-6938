@@ -4,7 +4,7 @@ import "./App.css";
 import Navbar from "./Component/Navbar"
 import Footer from "./Component/Footer"
 
-import DownloadApp from './Component/DownloadApp';
+
 import Login from './Pages/Auth/Login';
 import { Routes, Route } from "react-router-dom";
 import { ProductDetails } from './Pages/Products&details/ProductDetails';
@@ -38,7 +38,7 @@ function App() {
           </RequireAuth>
         } />
       </Routes>
-      <DownloadApp />
+      
       <Footer />
 
     </div>

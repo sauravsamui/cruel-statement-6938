@@ -15,6 +15,7 @@ import sideOne from "../../HomePageAssets/sideOne.png"
 import sideTwo from "../../HomePageAssets/sideTwo.png";
 import sideThree from "../../HomePageAssets/sideThree.png";
 import ImageSlider from "./ImageSlider";
+import DownloadApp from "../../Component/DownloadApp";
 const sliderImg = [
   { img: "https://imageprod.fraazo.com/fraazo-prod/web_ban/4923.png", id: 3763 },
   { img: "https://imageprod.fraazo.com/fraazo-prod/web_ban/4820.png", id: 3765 },
@@ -26,7 +27,7 @@ const sliderImg = [
 function SamHome() {
   return (
     <div style={{marginTop:'120px'}}>
-      <Box>
+      <Box mt={"120px"}>
         <Box p={"0 60px"}>
           <Flex gap={7}>
             <Box w="65%" color="white">
@@ -53,7 +54,7 @@ function SamHome() {
       <CenterImages />
       <Fruits />
       <Vegetables />
-
+      <DownloadApp />
     </div>
   );
 }
