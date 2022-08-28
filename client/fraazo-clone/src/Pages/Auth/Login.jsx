@@ -50,7 +50,7 @@ const InputBarOTP = styled.input`
 
 const Login = () => {
 
-  var UserStoredDataFraazo = JSON.parse(localStorage.getItem('UserStoredDataFraazo')) || {};
+ 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const navigate = useNavigate();
   const toast = useToast();
@@ -67,8 +67,7 @@ const Login = () => {
   const l_name = useRef(null);
   const email = useRef(null);
   const [isAuth, setisAuth] = useState(false)
-  const [title, setTitle] = useState();
-
+ 
   var MobileN = ''
   const dispatch = useDispatch();
 
@@ -83,6 +82,7 @@ const Login = () => {
       setOTP(e.data.otp);
       alert(`Your OTP is ${e.data.otp}`)
       if (e.data.message == 'OTP Verified Successfully !!') {
+        dispatch(signupApi());
         setvalue(false);
         setisAuth(true)
       } else {
@@ -93,7 +93,7 @@ const Login = () => {
   };
 
   const submitOTP = () => {
-    console.log("current:", OTP.current.value, otps);
+    // console.log("current:", OTP.current.value, otps);
 
     if (OTP.current.value == otps) {
       let flag = localStorage.getItem("flag") || false;
@@ -114,7 +114,7 @@ const Login = () => {
         duration: 2000,
         isClosable: true,
       });
-      // toast.closeAll();
+     
     }
   };
 
@@ -128,13 +128,14 @@ const Login = () => {
       confirmPassword: conpassword.current.value,
       mobile: mNumber,
       token: ''
+      
     }
     var PostNewUserData = await axios.post('https://serene-hollows-15248.herokuapp.com/signup',dataObj);
     let tempObj = {newSavedNo:PostNewUserData.data.result, message:PostNewUserData.data.message}
     localStorage.setItem('UserStoredDataFraazo', JSON.stringify(tempObj))
     alert(PostNewUserData.data.message)
     setisAuth(true);
-
+    dispatch(signupApi());
 };
 const handleChange = () => {}
 

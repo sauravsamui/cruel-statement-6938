@@ -57,43 +57,8 @@ let getData =()=>{
   let vegetableCombo = data.filter((el) => {
     return el.category === "ComboVeges";
   });
-  if(loading){
-    return (
-        <div id={styles.loading} className='container'>
-     <div className="spinner-grow text-primary" role="status">
-   <span className="sr-only">Loading...</span>
- </div>
- <div className="spinner-grow text-secondary" role="status">
-   <span className="sr-only">Loading...</span>
- </div>
- <div className="spinner-grow text-success" role="status">
-   <span className="sr-only">Loading...</span>
- </div>
- <div className="spinner-grow text-danger" role="status">
-   <span className="sr-only">Loading...</span>
- </div>
- <div className="spinner-grow text-warning" role="status">
-   <span className="sr-only">Loading...</span>
- </div>
- <div className="spinner-grow text-info" role="status">
-   <span className="sr-only">Loading...</span>
- </div>
- <div className="spinner-grow text-light" role="status">
-   <span className="sr-only">Loading...</span>
- </div>
- <div className="spinner-grow text-dark" role="status">
-   <span className="sr-only">Loading...</span>
- </div>
- </div>
-    )
-  }
-  else if(error){
-    return (
-  <div className='container'>
+  
  
-   <h2  className="h2">Something went wrong.....</h2>
-    </div>
-    )}
   return (
     <div className={styles.menu_page_container}>
       <div className={styles.menu_page_left_container}>
@@ -193,6 +158,7 @@ let getData =()=>{
         </Accordion>
       </div>
       <div className={styles.menu_page_right_container}>
+
         {type === "exoticfruits" ? (
           <div>
             <h2 style={{ paddingBottom: "20px" }}>Exotic Fruits</h2>
@@ -207,6 +173,7 @@ let getData =()=>{
           <div>
             <h2 style={{ paddingBottom: "20px" }}>Fresh Fruits</h2>
             <div className={styles.product_page_container}>
+              
               {freshfruits.map((el) => (
                 <ProductItem key={el._id} {...el} />
                 //console.log(el.category)

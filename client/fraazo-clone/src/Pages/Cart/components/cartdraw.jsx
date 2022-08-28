@@ -1,18 +1,18 @@
 import Item from "./item.jsx";
 import style from "./cartdraw.module.css";
 import { useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Cartdraw = ({ cartflag, setcartflag }) => {
-  const { getItemCart, cartData: data } = useSelector((state) => state.cart);
-const usenavigate =useNavigate();
+  const { removeItemCart,getItemCart, cartData: data } = useSelector((state) => state.cart);
+const navigate =useNavigate();
   let sum = 0;
   for (let i = 0; i < data.length; i++) {
     sum = sum + +data[i].payload.price * data[i].payload.quantity;
   }
 
 let goCheckout=()=>{
-   usenavigate("/checkoutpage");
+   navigate("/checkoutpage");
 }
 
   return (
@@ -51,7 +51,34 @@ let goCheckout=()=>{
               </div>
             </div>
           )}
-
+           {removeItemCart.loading && (
+            <div className="container">
+              <div className="spinner-grow text-primary" role="status">
+                <span className="sr-only"></span>
+              </div>
+              <div className="spinner-grow text-secondary" role="status">
+                <span className="sr-only"></span>
+              </div>
+              <div className="spinner-grow text-success" role="status">
+                <span className="sr-only"></span>
+              </div>
+              <div className="spinner-grow text-danger" role="status">
+                <span className="sr-only"></span>
+              </div>
+              <div className="spinner-grow text-warning" role="status">
+                <span className="sr-only"></span>
+              </div>
+              <div className="spinner-grow text-info" role="status">
+                <span className="sr-only"></span>
+              </div>
+              <div className="spinner-grow text-light" role="status">
+                <span className="sr-only"></span>
+              </div>
+              <div className="spinner-grow text-dark" role="status">
+                <span className="sr-only"></span>
+              </div>
+            </div>
+          )}
           {getItemCart.error && (
             <div style={{ alignItems: "center" }} className="container">
               <h2 className="h2">Something went wrong.....</h2>
