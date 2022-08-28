@@ -21,9 +21,7 @@ const SearchBar = styled.div`
   height: 50px;
   display: flex;
   align-items: center;
-  min-width: 575px;
-  margin-left: 20px;
-
+  ${'' /* min-width: 575px; */}
   border-radius: 24px;
   background-color: #f9f9f9;
   border: 1px solid #ddd;
@@ -35,7 +33,7 @@ const SearchBar = styled.div`
   font-size: 13px;
   font-weight: 500;
   line-height: 18px;
-  width: 50%;
+  width: 50vw;
   & input {
     display: block;
     background-color: #f9f9f9;
@@ -49,6 +47,9 @@ const SearchBar = styled.div`
     position: absolute;
     right: 22px;
     cursor: pointer;
+  }
+  @media all and (min-width:0px) and (max-width:1100px) {
+    ${'' /* min-width: 405px; */}
   }
 `;
 const SearchIcon = (
@@ -131,6 +132,9 @@ const SearchBox = () => {
           type="search"
           variant="unstyled"
           value={query}
+          fontSize={'12px'}
+          letterSpacing={'1.1px'}
+          fontWeight={'100'}
           placeholder="Find fresh vegetables, fruits and dairy..."
           //   onClick={() => onOpen()}
           onChange={handleOnChangeOpen}

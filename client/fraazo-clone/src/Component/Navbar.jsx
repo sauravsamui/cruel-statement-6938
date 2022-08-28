@@ -30,40 +30,7 @@ const InnerDivFlex = styled.div`
     fill: #343940;
   }
 `;
-// const SearchBar = styled.div`
-//   position: relative;
-//   border: 1px solid;
-//   height: 50px;
-//   display: flex;
-//   align-items: center;
 
-//   border-radius: 24px;
-//   background-color: #f9f9f9;
-//   border: 1px solid #ddd;
-//   outline: 0;
-//   font-size: 13px;
-//   line-height: 18px;
-//   padding: 14px;
-//   color: #333333;
-//   font-size: 13px;
-//   font-weight: 500;
-//   line-height: 18px;
-//   width: 50%;
-//   & input {
-//     display: block;
-//     background-color: #f9f9f9;
-//     border: none;
-//     width: 100%;
-//   }
-//   & input:focus {
-//     outline: none;
-//   }
-//   & svg {
-//     position: absolute;
-//     right: 22px;
-//     cursor: pointer;
-//   }
-// `;
 const cartIcon = (
   <svg
     aria-hidden="true"
@@ -133,7 +100,31 @@ const locationSvg = (
     ></path>
   </svg>
 );
-const Navbar = () => {
+const MainNavContainer = styled.div`
+  .mainContainerForNav{
+    padding:0px 35px 0px 35px;
+  }
+  .navPart3{
+    gap:40px;
+  }
+  @media all and (max-width:1200px) {
+    .navPart3{
+      gap:20px;
+    }
+    .mainContainerForNav{
+      padding:0px 25px 0px 25px;
+    }
+  }
+  @media all and (max-width:1150px) {
+    .navPart3{
+      gap:10px;
+    }
+    .mainContainerForNav{
+      padding:0px 15px 0px 15px;
+    }
+  }
+`
+const Navbar = ({keys}) => {
   const navigate = useNavigate();
   const { onOpen} = useDisclosure();
   const { isAuth: loggedIn} = useSelector((state) => state.auth);
@@ -175,63 +166,64 @@ const Navbar = () => {
   };
 
   return (
-    <>
+    <MainNavContainer>
     {cartflag?<Cart cartflag={cartflag} setcartflag={setcartflag}/>:""}
     <Box
-      boxShadow={"base"}
-      zIndex={"sticky"}
-      bg={"white"}
-      w={"100%"}
-      position={"fixed"}
-      top={0}
-      left={0}
-      right={0}
-    >
-      <Flex
-        justifyContent={"space-between"}
-        alignItems={"center"}
-        height={"88px"}
-        maxW="container.xl"
-        m={"auto"}
-        p={"0 35px"}
+        boxShadow={"base"}
+        zIndex={"sticky"}
+        bg={"white"}
+        w={"100vw"}
+        position={"fixed"}
+        top={0}
+        left={0}
+        right={0}
       >
-        <Flex gap={10}>
-          <InnerDivFlex>
-            <Link to="/">
-              <Image src={HomeLogo} alt="logo" w={"120px"} />
-            </Link>
-          </InnerDivFlex>
-          <Flex
-            alignItems={"center"}
-            gap={2}
-            color={"#999"}
-            _hover={{ color: "black" }}
-          >
-            <Box w={"12px"} h={"12px"} mt="-5px">
-              {" "}
-              {locationSvg}
-            </Box>
-
-            <Text fontSize={"13px"} fontWeight={500}>
-              Powai
-            </Text>
-          </Flex>
-        </Flex>
-
-        <SearchBox />
-
-        <Flex justifyContent={"space-evenly"} gap={8}>
-          <Button
-            position={"relative"}
-            variant="unstyled"
-            onClick={() => onOpen()}
-          >
+        <Flex
+          justifyContent={"space-between"}
+          alignItems={"center"}
+          height={"88px"}
+          width={'100vw'}
+          m={"auto"}
+          className='mainContainerForNav'
+        >
+          <Flex gap={10}>
+            <InnerDivFlex>
+              <Link to="/">
+                <Image src={HomeLogo} alt="logo" w={"150px"} />
+              </Link>
+            </InnerDivFlex>
             <Flex
               alignItems={"center"}
               gap={2}
               color={"#999"}
               _hover={{ color: "black" }}
+              onClick={keys}
+              style={{ cursor: 'pointer' }}
             >
+              <Box w={"12px"} h={"12px"} mt="-5px">
+                {" "}
+                {locationSvg}
+              </Box>
+              <Text fontSize={"13px"} fontWeight={500}>
+                Powai
+              </Text>
+            </Flex>
+          </Flex>
+
+          <SearchBox />
+
+          <Flex justifyContent={"space-between"} className='navPart3' pr={'20px'}>
+            <Button
+              position={"relative"}
+              variant="unstyled"
+              onClick={() => onOpen()}
+            >
+              <Flex
+                alignItems={"center"}
+                gap={2}
+                color={"#999"}
+                _hover={{ color: "black" }}
+              >
               <Box w={"15px"} onClick={()=>setcartflag(!cartflag)}> {cartIcon}</Box>
 
               <Text fontSize={"13px"} onClick={()=>setcartflag(!cartflag)}>Cart</Text>
@@ -289,7 +281,7 @@ const Navbar = () => {
         </Flex>
       </Flex>
     </Box>
-    </>
+    </MainNavContainer>
   );
 };
 

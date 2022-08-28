@@ -21,8 +21,10 @@ import styled from "styled-components";
 const DownloadAppStyling = styled.div`
 display:grid;
 grid-template-columns:1fr 1fr;
+height:fit-content;
 .MobileAppDownloadImage{
-    height:80vh
+    height:80vh;
+    width:70%;
 }
 .Part2ofDownload{
   margin-top:100px;
@@ -30,7 +32,8 @@ grid-template-columns:1fr 1fr;
   ${'' /* border:10px solid red; */}
   
 }
-@media (max-width: 1050px) {
+@media all and (max-width:1050px) {
+${'' /* @media (max-width: 1050px) { */}
   grid-template-columns:1fr;
   .Part2ofDownload{
     margin-top:0px;
@@ -41,6 +44,7 @@ grid-template-columns:1fr 1fr;
   }
 }
 @media (max-width: 700px) {
+  grid-template-columns:1fr;
   .MobileAppDownloadImage{
     margin-bottom:40px;
     height:60vh
@@ -196,18 +200,12 @@ const DownloadApp = () => {
               Available on
             </Box>
             <Box>
-              <a
-                href="https://play.google.com/store/apps/details?id=com.fraazo.app"
-                target="_blank"
-              >
+              <a href="https://play.google.com/store/apps/details?id=com.fraazo.app" target="_blank" >
                 <Image src={googlePlay}></Image>
               </a>
             </Box>
             <Box>
-              <a
-                href="https://apps.apple.com/us/app/fraazo/id1243998420"
-                target="_blank"
-              >
+              <a href="https://apps.apple.com/us/app/fraazo/id1243998420" target="_blank" >
                 <Image src={appleStore}></Image>
               </a>
             </Box>

@@ -6,7 +6,7 @@ import Checkoutpage from './components/Checkoutpage'
 
 export const Cart = ({cartflag,setcartflag}) => {
   
-    const dispatch = useDispatch();
+   const dispatch = useDispatch();
    const {cartData} = useSelector((state)=>state.cart);
 
    const { isAuth} = useSelector((state) => state.auth);
@@ -21,20 +21,7 @@ export const Cart = ({cartflag,setcartflag}) => {
       }
         dispatch(getCartItemApi(user));
     }
-
-  
-  const [data, setdata] = useState();
-  
-useEffect(() => {
-  dispatch(getCartItemApi(user));
-
-
-  
-    return () => {
-      
-    }
-  }, [isAuth])
-
+  })
 
   let sum=0;
   for(let i=0;i<cartData.length;i++){

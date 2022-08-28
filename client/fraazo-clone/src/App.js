@@ -14,15 +14,21 @@ import MenuPage from './Pages/Products&details/MenuPage';
 import Order from './Pages/OrderPage/Order';
 import RequireAuth from './RequireAuth/RequireAuth';
 import { useSelector } from 'react-redux';
-
-
+import { useState } from "react";
+import FindLocation from './Pages/FindLocation/FindLocation';
 
 function App() {
   const { isAuth } = useSelector((state) => state.auth)
+  const [liveLoc, setLiveLoc] = useState(false)
 
+  // console.log(process.env.REACT_APP_SERVER_URL)
+  const togglerFun = () => {
+    liveLoc ? setLiveLoc(false) : setLiveLoc(true)
+  }
   return (
     <div className="App">
-      <Navbar />
+      <Navbar keys={togglerFun} />
+      { liveLoc && <FindLocation keys={togglerFun}/> }
      { !isAuth && <Login />}
       <Routes>
 
