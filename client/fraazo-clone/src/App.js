@@ -14,6 +14,7 @@ import RequireAuth from './RequireAuth/RequireAuth';
 import { useSelector } from 'react-redux';
 import { useState } from "react";
 import FindLocation from './Pages/FindLocation/FindLocation';
+import Dropdown from "./Component/dropdown/Dropdown";
 
 function App() {
   const { isAuth } = useSelector((state) => state.auth)
@@ -26,6 +27,7 @@ function App() {
   return (
     <div className="App">
       <Navbar keys={togglerFun} />
+      <Dropdown/>
       { liveLoc && <FindLocation keys={togglerFun}/> }
      { !isAuth && <Login />}
       <Routes>

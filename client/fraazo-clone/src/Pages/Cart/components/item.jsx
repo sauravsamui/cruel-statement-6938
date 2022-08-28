@@ -15,7 +15,7 @@ const {updateItemCart} = useSelector((state)=>state.cart);
 
   return (
     <div>
-      {
+      
         <div key={e._id} className={style.itemmain}>
           <div className={style.smainitem}>
             <img src={e.payload.src} alt="" />
@@ -59,7 +59,7 @@ const {updateItemCart} = useSelector((state)=>state.cart);
             </div>
           </div>
         </div>
-      }
+      
     </div>
   );
 };

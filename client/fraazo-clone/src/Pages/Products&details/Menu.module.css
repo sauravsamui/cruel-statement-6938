@@ -1,5 +1,5 @@
 .menu_page_container{
-    padding-top: 120px;
+    margin-top: 50px;
     display: grid;
     grid-template-columns: 20% 80%;
     font-weight: 100;

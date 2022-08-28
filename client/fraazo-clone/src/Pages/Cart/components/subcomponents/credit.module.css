@@ -49,3 +49,9 @@ input{
     text-align: center;
     
 }
+
+@media all and (min-width:401px) and (max-width:760px){
+    .expcvv{
+        flex-direction: column;
+    }
+}
