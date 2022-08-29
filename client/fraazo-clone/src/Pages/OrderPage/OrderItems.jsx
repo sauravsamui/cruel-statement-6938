@@ -77,8 +77,8 @@ const OrderItems = () => {
            class="img-fluid img-thumbnail"
          />
  
-      <p className='h3'>Empty cart</p>
-      <Link to={"/"} class="btn btn-primary btn-lg " role="button" aria-disabled="true">Go to Home</Link>
+      <p className='h5'>Place your first order</p>
+      <Link to={"/"} class="btn btn-primary btn-md " role="button" aria-disabled="true">Go to Home</Link>
       
        </div>
     )

@@ -147,7 +147,7 @@ if(loading){
                            />
                        </svg>
                    ) : (
-                       <div
+                       <div style ={{cursor:"pointer"}}
                            onClick={()=>{handleAddtocart()}}
                            className="group w-20 h-[32px] cursor-pointer rounded-3xl flex justify-center items-center gap-1 text-[13px] text-[#4FBB90] border border-[#4FBB90] hover:bg-[#4FBB90] hover:text-white"
                        >

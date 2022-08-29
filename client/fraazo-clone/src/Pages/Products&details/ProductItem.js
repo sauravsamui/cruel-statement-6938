@@ -79,7 +79,7 @@ const ProductItem = (props) => {
               />
             </svg>
           ) : (
-            <div
+            <div style ={{cursor:"pointer"}}
               onClick={() => {
                 handleAddtocart(props._id)
               }}

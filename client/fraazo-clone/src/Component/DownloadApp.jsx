@@ -47,11 +47,37 @@ height:fit-content;
   .MobileAppDownloadImage{
     height:60vh;
     width:50%;
+    margin-left:-120px;
   }
   .Part2ofDownload{
     margin:0px;
     padding:50px;
     margin-top:50vh;
+  }
+}
+@media all and (min-width:350px) and (max-width: 450px) {
+  .Part2ofDownload{
+    margin-top:320px;
+    font-size:14px;
+    padding:50px;
+    margin-left:-1px;
+
+  }
+  .available{
+    height:80px;
+    width:75%;
+    font-size:14px;
+    
+  }
+  .availableOn{
+    font-size:16px;
+    width:120px;
+  }
+  .googleplay{
+    width:130px;
+  }
+  .downloadApp{
+    font-size:35px;
   }
 }
 `
@@ -92,7 +118,7 @@ const DownloadApp = () => {
           margin={"auto"}
           className='Part2ofDownload'
         >
-          <Container
+          <Container className = {"downloadApp"}
             fontSize={"40px"}
             lineHeight={"48px"}
             fontWeight={600}
@@ -194,18 +220,18 @@ const DownloadApp = () => {
               </Box>
             </Button>
           </Flex>
-          <Flex p={"54px 0 20px 0"} alignItems={"center"} gap={3}>
-            <Box fontSize={"18px"} opacity={"0.6"}>
+          <Flex className = {"available"} p={"54px 0 20px 0"} alignItems={"center"} gap={3}>
+            <Box className = {"availableOn"} fontSize={"18px"} opacity={"0.6"}>
               Available on
             </Box>
             <Box>
               <a href="https://play.google.com/store/apps/details?id=com.fraazo.app" target="_blank" >
-                <Image src={googlePlay}></Image>
+                <Image className ={"googleplay"} src={googlePlay}></Image>
               </a>
             </Box>
             <Box>
               <a href="https://apps.apple.com/us/app/fraazo/id1243998420" target="_blank" >
-                <Image src={appleStore}></Image>
+                <Image className ={"googleplay"} src={appleStore}></Image>
               </a>
             </Box>
           </Flex>

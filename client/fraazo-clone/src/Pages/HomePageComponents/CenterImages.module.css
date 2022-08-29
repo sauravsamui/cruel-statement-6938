@@ -18,7 +18,7 @@
     height:100%;
 }
 
-@media only screen and (max-width:600px)and (min-width:400px){
+@media only screen and (min-width:350px)and (max-width:450px){
     .centerImagesContainer{
         width:95%;
         margin:none;
