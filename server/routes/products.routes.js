@@ -12,7 +12,7 @@ productsRoute.get("/all",async(req,res)=>{
 
 productsRoute.get("/one/:id",async(req,res)=>{
  let {id} = req.params;
-    let data = await ProductModel.findById({_id:id});
+    let data = await ProductModel.findOne({_id:id});
     res.status(200).send({message:"item",data});
 });
 

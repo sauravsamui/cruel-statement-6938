@@ -1,12 +1,12 @@
 import React from 'react'
 import styles from "./Vegetables.module.css"
-import { useState, useEffect } from "react"
-import axios from "axios"
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {NavLink} from "react-router-dom"
 import Item from './Item'
+import { useSelector } from 'react-redux'
+import { Spinner } from '@chakra-ui/react';
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -31,14 +31,9 @@ function SamplePrevArrow(props) {
 }
 
 const Vegetables = () => {
-  const [products, setProducts] = useState([])
+  const {data:products,loading} = useSelector((state)=>state.product)
 
-  useEffect(() => {
-    axios.get(`https://serene-hollows-15248.herokuapp.com/products/all`)
-      .then(res => { setProducts(res.data.data) })
-      .catch(err => { console.log(err) })
-  }, [])
-  // console.log(products)
+
   const settings = {
     dots: false,
     infinite: false,
@@ -96,7 +91,7 @@ const Vegetables = () => {
         <Slider {...settings}>
           {dailyveggies.map((item) => (
            
-            <Item key={item._id} item={item} styles={styles}/>
+            <Item key={item._id} item={item} styles={styles} loading={loading}/>
            
           ))}
         </Slider>

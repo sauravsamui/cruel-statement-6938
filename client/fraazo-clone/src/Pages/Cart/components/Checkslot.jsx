@@ -12,8 +12,7 @@ const Checkslot = () => {
         }
        
     }
-    console.log(date)
-    const [col, setcol] = useState(false)
+  
 
     let arr=["8.00 AM - 10:00 AM","11.00 AM - 1:00 PM","1.30 PM - 3:00 PM","3.30 AM - 5:00 PM","6.00 PM - 8:00 PM","9.00 PM - 11:00 PM",]
 

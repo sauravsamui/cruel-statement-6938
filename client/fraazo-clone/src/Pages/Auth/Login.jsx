@@ -17,7 +17,7 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { signupApi } from "../../Store/auth/auth.action";
@@ -68,9 +68,9 @@ const Login = () => {
   const email = useRef(null);
   const [isAuth, setisAuth] = useState(false)
  
-  var MobileN = ''
+ 
   const dispatch = useDispatch();
-
+   let MobileN ="";
   const handleOTP = async () => {
     let x = Number(initialRef.current.value);
     var obj = { mobile: x }

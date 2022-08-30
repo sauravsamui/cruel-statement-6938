@@ -2,14 +2,13 @@ const {Schema,model} = require("mongoose");
 
 
 const CartSchema = Schema({
-    name:String,
+    payload:{name:String,
     src:String,
     price:Number,
     quantity:Number,
-    user:{
-       required:true,
-       type:String,
-    }
+    },
+    user:{required:true,type:String}
+
 },{
     versionKey:false
 }

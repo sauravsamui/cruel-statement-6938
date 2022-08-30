@@ -10,13 +10,15 @@ const cartRoute = Router();
 // to add item to cart
 cartRoute.post("/post",async(req,res)=>{
     let {user,id}=req.query;
-   console.log(user,id);
-    let payload = await ProductModel.findbyId({_id:id},{_id:0,benefits:0,description:0,category:0})
-    
-        payload = {
-            ...payload,
+   
+    let payload = await ProductModel.findOne({_id:id},{_id:0,benefits:0,description:0,info:0})
+    console.log("payload",payload);
+         payload = {
+            payload,
             user
         }
+        // let item =
+        console.log("item",payload);
         let data = await CartModel.create(payload);
      return res.send({message:"got it ",data});
    
@@ -27,8 +29,8 @@ cartRoute.post("/post",async(req,res)=>{
 // to get the cart items of user based on user id
 cartRoute.get("/get/:id", async (req, res) => {
     const user = req.params.id;
-    let data = [];
-    data = await CartModel.find({user})
+   
+   let data = await CartModel.find({user:user},{user:0})
     if(data){
        return res.send({message:"cart items",data})
     }
@@ -57,8 +59,8 @@ cartRoute.delete("/deletemany/:id", async (req, res) => {
 cartRoute.patch("/patch/:id", async (req, res) => {
     const id = req.params.id
      const {quantity} = req.body;
-    const data = await CartModel.updateOne({_id:id},{$set:{quantity:quantity}})
-    res.send({message:"item updated"});
+    const data = await CartModel.updateOne({_id:id},{$set:{"payload.quantity":quantity}})
+    res.send({message:"item updated",data});
 
 })
 module.exports = cartRoute

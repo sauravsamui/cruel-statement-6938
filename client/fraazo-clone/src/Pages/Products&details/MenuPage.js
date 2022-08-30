@@ -16,7 +16,7 @@ const MenuPage = () => {
   const [type, setType] = useState("exoticfruits");
 
   const dispatch = useDispatch();
-  const {data,loading,error} = useSelector((state)=>state.product);
+  const {data,loading} = useSelector((state)=>state.product);
 
 let getData =()=>{
   dispatch(showProducts());
@@ -164,7 +164,7 @@ let getData =()=>{
             <h2 style={{ paddingBottom: "20px" }}>Exotic Fruits</h2>
             <div className={styles.product_page_container}>
               {exoticfruits.map((el) => (
-                <ProductItem key={el._id} {...el} />
+                <ProductItem key={el._id} el={el} loading={loading} />
                 //console.log(el.category)
               ))}
             </div>
@@ -175,7 +175,7 @@ let getData =()=>{
             <div className={styles.product_page_container}>
               
               {freshfruits.map((el) => (
-                <ProductItem key={el._id} {...el} />
+                <ProductItem key={el._id} el={el}  loading={loading} />
                 //console.log(el.category)
               ))}
             </div>
@@ -185,7 +185,7 @@ let getData =()=>{
             <h2 style={{ paddingBottom: "20px" }}>Fruit Combos</h2>
             <div className={styles.product_page_container}>
               {fruitscombos.map((el) => (
-                <ProductItem key={el._id} {...el} />
+                <ProductItem key={el._id} el={el}  loading={loading} />
                 //console.log(el.category)
               ))}
             </div>
@@ -195,7 +195,7 @@ let getData =()=>{
             <h2 style={{ paddingBottom: "20px" }}>Daily Veggies</h2>
             <div className={styles.product_page_container}>
               {dailyveggies.map((el) => (
-                 <ProductItem key={el._id} {...el} />
+                 <ProductItem key={el._id} el={el}  loading={loading} />
                 //console.log(el.category)
               ))}
             </div>
@@ -205,7 +205,7 @@ let getData =()=>{
             <h2 style={{ paddingBottom: "20px" }}>Herbs & Leafies</h2>
             <div className={styles.product_page_container}>
               {herbsLeafes.map((el) => (
-                 <ProductItem key={el._id} {...el} />
+                 <ProductItem key={el._id} el={el}  loading={loading} />
                 //console.log(el.category)
               ))}
             </div>
@@ -215,7 +215,7 @@ let getData =()=>{
             <h2 style={{ paddingBottom: "20px" }}>Exotic Vegetables</h2>
             <div className={styles.product_page_container}>
               {exoticVegetables.map((el) => (
-                 <ProductItem key={el._id} {...el} />
+                 <ProductItem key={el._id} el={el}  loading={loading} />
                 //console.log(el.category)
               ))}
             </div>
@@ -225,7 +225,7 @@ let getData =()=>{
             <h2 style={{ paddingBottom: "20px" }}>Cuts, Peeled & Sprouts</h2>
             <div className={styles.product_page_container}>
               {cutpeeledsprouts.map((el) => (
-                 <ProductItem key={el._id} {...el} />
+                 <ProductItem key={el._id} el={el}  loading={loading} />
                 //console.log(el.category)
               ))}
             </div>
@@ -235,7 +235,7 @@ let getData =()=>{
             <h2 style={{ paddingBottom: "20px" }}>Vegetable Combos</h2>
             <div className={styles.product_page_container}>
               {vegetableCombo.map((el) => (
-                 <ProductItem key={el._id} {...el} />
+                 <ProductItem key={el._id} el={el}  loading={loading} />
                 //console.log(el.category)
               ))}
             </div>

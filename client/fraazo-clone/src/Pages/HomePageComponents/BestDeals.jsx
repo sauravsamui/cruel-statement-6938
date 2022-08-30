@@ -1,12 +1,14 @@
-import React from 'react'
-import styles from "./BestDeals.module.css"
-import { useState, useEffect } from "react"
-import axios from "axios"
+import React from 'react';
+import styles from "./BestDeals.module.css";
+import { useEffect } from "react";
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import Item from './Item'
+import { useDispatch, useSelector } from 'react-redux'
+import { showProducts } from '../../Store/Products/products.action'
+import { Spinner } from '@chakra-ui/react';
 function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (
@@ -17,6 +19,7 @@ function SampleNextArrow(props) {
         />
     );
 }
+
 
 function SamplePrevArrow(props) {
     const { className, style, onClick } = props;
@@ -31,12 +34,11 @@ function SamplePrevArrow(props) {
 
 
 const BestDeals = () => {
-    const [products, setProducts] = useState([])
+const dispatch = useDispatch();   
+const {data:products,loading} = useSelector((state)=>state.product)
 
     useEffect(() => {
-        axios.get(`https://serene-hollows-15248.herokuapp.com/products/all`)
-            .then(res => { setProducts(res.data.data) })
-            .catch(err => { console.log(err) })
+         dispatch(showProducts())
     }, [])
     let comboVeggies = products.filter((el) => { return el.category === "ComboVeges" })
     const settings = {
@@ -91,7 +93,7 @@ const BestDeals = () => {
             <div  style={{ width: "90%", margin: "auto", marginTop: "25px" }}>
                 <Slider {...settings}>
                     {comboVeggies.map((item) => (
-                         <Item key={item._id} item={item} styles={styles}/>
+                         <Item key={item._id} item={item} styles={styles} loading={loading}/>
                     ))}
                 </Slider>
             </div>

@@ -1,0 +1,47 @@
+.itemmain{
+    display: flex;
+    padding: 5px;
+    height:80px;
+    justify-content: space-between;
+   
+}
+.smainitem{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 70%;
+}
+.smainitem>Img{
+  
+    height: 70px;
+    width: 70px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+}
+.quantcarr{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.txtname{
+    font-size: 15px;
+}
+.txtquant{
+    color: gray;
+    font-size: 13px;
+}
+.txtprice{
+    font-weight: 400;
+    font-size: 13px;
+}
+.itmnqp{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+.qcar{
+    line-height: 30px;
+    text-align: center;
+}

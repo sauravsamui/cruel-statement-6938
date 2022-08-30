@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import styled from "styled-components";
 
 import {
@@ -8,12 +8,14 @@ import {
   ModalBody,
   ModalContent,
   ModalOverlay,
+  Spinner,
   useDisclosure,
 } from "@chakra-ui/react";
-import axios from "axios";
+
 
 import { useRef } from "react";
-import SingleProduct from "./SingleProduct";
+import { useSelector } from "react-redux";
+import Item from "./item";
 
 const SearchBar = styled.div`
   position: relative;
@@ -81,29 +83,27 @@ const SearchBox = () => {
 
   const [searchData, setSearchData] = useState([]);
   const { isOpen, onOpen, onClose } = useDisclosure();
-
-  // const [countValue, setCountValue] = useState(0);
-  const [isSkeleten, setIsSkeleten] = useState(true);
+  const {data,loading} = useSelector((state)=>state.product);
 
   const handleOnChangeOpen = (e) => {
-    const { name, value } = e.target;
+    const { value } = e.target;
     setQuery(value);
     // console.log("query", value);
 
     if (value.length >= 3) {
       onOpen();
-      //   fetchResult(value);
+     fetchResult(value);
     } else {
       setSearchData([]);
     }
   };
   const id = useRef(null);
   const debounce = (e, fetchResult, delay) => {
-    // console.log("value", e.target.value);
+     console.log("value", e.target.value);
 
-    const { name, value } = e.target;
+    const { value } = e.target;
     setQuery(value);
-    // console.log("query", value);
+     console.log("query", value);
 
     if (value.length < 3) {
       onClose();
@@ -117,17 +117,15 @@ const SearchBox = () => {
       }, delay);
     }
   };
-  const fetchResult = (query) => {
-    axios
-      .get(`/fraazo/products/search?q=${query}`)
-      .then((r) => {
-        // console.log("fetch Result", r.data);
-
-        setSearchData(r.data);
-      })
-      .catch((e) => console.log("error", e.data));
-  };
-  //   console.log(searchData);
+   const fetchResult = (query) => {
+   console.log(data);
+    let condition = new RegExp(query);
+    let result = data.filter(function (el) {
+      return condition.test(el.name);
+    });
+    setSearchData(result)
+   };
+ 
 
   return (
     <div>
@@ -165,6 +163,7 @@ const SearchBox = () => {
             overflowX={"hidden"}
             overflowY={"auto"}
           >
+           
             {searchData?.length == 0 ? (
               <Box fontSize={"14px"} textAlign={"center"} p={"10px 0"}>
                 No Results Found
@@ -172,11 +171,12 @@ const SearchBox = () => {
             ) : (
               <Box>
                 {searchData?.map((item) => (
-                  <SingleProduct
+                  <Item
                     key={item._id}
-                    item={item}
+                    e={item}
                     onClose={onClose}
                     setQuery={setQuery}
+                    loading={loading}
                   />
                 ))}
               </Box>

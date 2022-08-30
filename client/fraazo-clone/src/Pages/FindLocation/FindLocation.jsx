@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import search from "../../assets/svg/search.svg"
-import setting from "../../assets/svg/setting.svg"
 import data from "./restaurant.json"
 import RestaurantCard from './RestaurantCard'
 
@@ -101,17 +100,16 @@ const FindSearchPartStyled = styled.div`
 `
 const FindLocation = ({ keys }) => {
     const [textL, setTextL] = useState("Pune")
-    const [location, setLocation] = useState([])
     const [address, setAddress] = useState("")
     localStorage.setItem('fraazoUserLoc',  JSON.stringify(address));
     //Geological Location Code for co-ordinates
     const out = (lat, lng) => {
         fetch(`https://us1.locationiq.com/v1/reverse.php?key=pk.456518217705258731c8c7089e3a45d0&lat=${lat}&lon=${lng}&format=json`)
             .then((e) => e.json())
-            .then((d) => (
-                setAddress(d.display_name),
+            .then((d) => {
+                setAddress(d.display_name)
                 setTextL(d)
-            ))
+             })
     }
     
     const handleLocation = (el) => (setTextL(el), setAddress(el));

@@ -25,53 +25,7 @@ const userMobileVerify = async (req, res) => {
 
 //SIGNUP
 
-///////////////////   POST request sample for SIGNUP   ///////////////// 
-// {
-//     "firstname": "Arshad",
-//     "lastname": "Khan",
-//     "email": "arsh@gmail.com",
-//     "password":"arsh",
-//     "confirmPassword":"arsh"
-// }
-
-/////////////////////////////////////////////   METHOD-1    //////////////////////////////////////////
-
-// userAuthRouter.post('/signup', async (req, res) => {
-//     const { email, firstname, lastname, password, confirmPassword } = req.body;
-//     // console.log(email,firstname,lastname,password,confirmPassword)
-//     if(!firstname || !lastname || !email || !password || !confirmPassword){
-//         return res.status(422).send("Please Add all fields")
-//     }
-//     await userDetails.findOne({email}).then((savedUser) => {
-//         // console.log(savedUser)
-//         if(savedUser){
-//             return res.status(422).send("User already exists with that email")
-//         }
-//         if(password!==confirmPassword){
-//             return res.status(422).send("Password didn't matched")
-//         }
-//         bcrypt.hash(password, 12).then((hashedPassword)=>{
-//             // console.log(hashedPassword)
-//             const result = new userDetails({
-//                 email, 
-//                 firstname, 
-//                 lastname, 
-//                 password : hashedPassword
-//             })
-//             result.save()
-//             .then(user => {
-//                 //here user will give all entered data that are name,email,hashed password and object id that have been posted on mongo atlas cluster
-//                 // console.log(user)
-//                 const token = jwt.sign({id: result._id }, "arshad", { expiresIn: "1h" });
-//                 res.json({user,message: "Saved Successfully"})
-//             })
-//             .catch(err => res.status(500).send( "user.save() part error => " + err))
-//         })
-//         .catch(err => res.status(500).send( "User.findOne savedUser part error => " + err))
-//     })
-// })
-
-/////////////////////////////////////////////   METHOD-2    //////////////////////////////////////////
+/////////////////////////////////////////////   METHOD    //////////////////////////////////////////
 
 const userRegistration = async (req, res) => {
     const { email, firstname, password, confirmPassword, mobile } = req.body;

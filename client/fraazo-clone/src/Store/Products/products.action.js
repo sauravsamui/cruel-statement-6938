@@ -14,7 +14,6 @@ export const showProducts = (value)=>(dispatch) => {
       dispatch({ type: PRODUCTS_SUCESS, payload: r.data.data });
     })
     .catch(() => {
-      console.log("error")
       dispatch({ type: PRODUCTS_ERROR });
     });
 };
