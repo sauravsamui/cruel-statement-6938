@@ -8,7 +8,6 @@ import "slick-carousel/slick/slick-theme.css";
 import Item from './Item'
 import { useDispatch, useSelector } from 'react-redux'
 import { showProducts } from '../../Store/Products/products.action'
-import { Spinner } from '@chakra-ui/react';
 function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (

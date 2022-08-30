@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import {NavLink} from "react-router-dom"
 import Item from './Item'
 import { useSelector } from 'react-redux'
-import { Spinner } from '@chakra-ui/react';
+
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
