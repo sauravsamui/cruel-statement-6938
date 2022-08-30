@@ -22,7 +22,7 @@ Fraazo- It is an online platform that allows customer to get farm fresh produce 
 - Login / Sign-Up page with user authentication.
 - Users can add items to cart.
 - Users can toggle quantity of items.
-- Google map availble to select current location.
+- Google map available to select current location.
 - Every user has their own cart and order products.
 
 
