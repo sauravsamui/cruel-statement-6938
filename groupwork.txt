@@ -1,0 +1,14 @@
+
+Assigned Work -
+ 
+Saurav Samui -> Backened = Made products( schema,model & api route), orders( schema,model & api route) and carts( schema,model & api route)
+                Frontend = Applied redux in whole app, designed orders page and added search functionality
+
+Md Arshad Khan ->  Backened = Made Authentication( schema,model & api route)
+                   Frontend = Login functionality its page,signup funtionality and its page, navbar, footer and landing page except products showing 
+
+Ahmad Noor -> Frontend = Made products page and Product details page , integrated all the products and filtering functionality
+
+Samrat Bandalakunta -> Frontend = Shown products in landing page and made landing page responsive
+
+Prakarsh Prasar -> Frontend = Made carts page , Payment page, Address page.
