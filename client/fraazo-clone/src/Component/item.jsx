@@ -1,6 +1,8 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import style from "./item.module.css";
+
+//use props here , set their properties and get it here. Try not to pass state varaible in components
 const Item = ({ e,onClose,setQuery}) => {
 
 

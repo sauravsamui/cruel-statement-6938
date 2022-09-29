@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import style from "./checkoutbill.module.css"
 
+// remove constants from here
 const Checkoutbill = ({cart,txt,showadd,showslot,showpay}) => {
   const { cartData: data } = useSelector((state) => state.cart);
   let sum=0;

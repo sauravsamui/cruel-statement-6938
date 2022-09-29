@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import style from "./checkslot.module.css"
+
+// Distribute into constants and utils
 const Checkslot = () => {
     // const [date, setdate] = useState(new Date())
     let x=new Date().toString().trim().split(" ");

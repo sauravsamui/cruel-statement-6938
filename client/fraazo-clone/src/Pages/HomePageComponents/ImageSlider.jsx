@@ -18,6 +18,8 @@ const sliderImg = [
   { img: "https://imageprod.fraazo.com/fraazo-prod/web_ban/4985.png", id: 3767 },
   { img: "https://imageprod.fraazo.com/fraazo-prod/web_ban/2562.png", id: 3768 },
 ];
+
+// use common sliders
 const ImageSlider = () => {
   const [images, setImages] = useState(sliderImg);
 

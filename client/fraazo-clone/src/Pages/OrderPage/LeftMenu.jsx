@@ -4,6 +4,7 @@ import { logout } from "../../Store/auth/auth.action";
 import { removeItemLocalCart } from "../../Store/Cart/cart.actions";
 import styles from "./order.module.css";
 
+// use relative paths and put them in separate file
 const LeftMenu = () => {
   
   var UserStoredDataFraazo = JSON.parse(localStorage.getItem('UserStoredDataFraazo')) || {};

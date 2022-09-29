@@ -1,5 +1,7 @@
 import React from 'react'
 import style from "./netbank.module.css"
+
+// Get Bank from API , or possibly a list
 const Netbank = () => {
   return (
     <div>

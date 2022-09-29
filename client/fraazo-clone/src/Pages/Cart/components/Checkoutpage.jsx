@@ -7,7 +7,7 @@ import Checkslot from './Checkslot'
 import style from "./checkoutpage.module.css"
 import { useDispatch, useSelector } from 'react-redux'
 
-
+// Place all condtionals in separate  functions
 const Checkoutpage = () => {
     const {cartData: data } = useSelector((state) => state.cart);
     const [cart, setcart] = useState(true)

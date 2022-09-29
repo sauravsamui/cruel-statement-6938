@@ -15,6 +15,8 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { removeAllCartApi } from "../../../../Store/Cart/cart.actions";
 
+// We can have a common modal and it should be customised as per different components
+// remove constants from here
 const Cash = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const dispatch = useDispatch();

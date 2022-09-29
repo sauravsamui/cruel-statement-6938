@@ -16,6 +16,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import loginSuccess from "../../assets/loginSuccess.png";
+// Never include styling value in js file
+// try and use constants and css file to get constant value and styles respectively
 const GetOTP = styled.div`
     background-color: #43c6ac;
     color: white;
@@ -35,6 +37,7 @@ const InputBar = styled.input`
     padding: 8px 0px;
   `;
 
+// Some states are not used remove them .
 const NumberVerify = () => {
 
     const { isOpen, onOpen, onClose } = useDisclosure();

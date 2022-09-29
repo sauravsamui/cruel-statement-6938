@@ -8,6 +8,9 @@ import "slick-carousel/slick/slick-theme.css";
 import Item from './Item'
 import { useDispatch, useSelector } from 'react-redux'
 import { showProducts } from '../../Store/Products/products.action'
+
+
+// Slider can imported form a common components
 function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (

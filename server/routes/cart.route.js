@@ -1,16 +1,22 @@
+// We should always follow DRY principle while formulating our code structure.
+// Each we need to import express module in each controller but this can be part of middleware and these redundant imports can be avoided.
+// https://codezup.com/create-separate-route-file-node-js-mean-stack/#:~:text=Create%20Employee%20Route%20File%20in%20Node&text=So%20first%20we%20need%20to,an%20argument%20to%20the%20function.
 const {Router} = require("express");
 const CartModel = require("../model/cart.model");
 const OrderModel = require("../model/orders.model");
 const ProductModel = require("../model/products.model");
 
 
-
+// MVC should always be driven through some factory patterns as per framework
+// You can use repository pattern here 
+// https://iperiago.medium.com/node-js-app-in-the-real-world-what-they-never-really-tell-you-part-2-of-a-5-part-series-8e9d41d1824
+// We should always have our controlle as skinnny as possible.
 const cartRoute = Router();
 //http://localhost:8080/cart/post?user=5443664636&id=3545345345
 // to add item to cart
 cartRoute.post("/post",async(req,res)=>{
     let {user,id}=req.query;
-   
+    //Whatever is coming in request(req.body.email) you should always validate before processing in your logic.
     let payload = await ProductModel.findOne({_id:id},{_id:0,benefits:0,description:0,info:0})
     console.log("payload",payload);
          payload = {

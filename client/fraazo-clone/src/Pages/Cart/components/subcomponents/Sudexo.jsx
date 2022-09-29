@@ -1,5 +1,7 @@
 import React from 'react'
 import style from "./sudexo.module.css"
+
+// get relative path frmo constants
 const Sudexo = () => {
   return (
     <div className={style.sudexo}>

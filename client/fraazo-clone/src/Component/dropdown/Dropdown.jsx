@@ -5,6 +5,7 @@ import style from "./dropdown.module.css"
 
 const Dropdown = () => {
     const navigate=useNavigate()
+    // If variable name is not too long , always try with naming showing complete meaning
     const [ft, setft] = useState(false)
     const [vt, setvt] = useState(false)
     let gotoprod=()=>{

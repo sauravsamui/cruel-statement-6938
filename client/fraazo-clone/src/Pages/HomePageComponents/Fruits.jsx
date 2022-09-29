@@ -8,6 +8,7 @@ import Item from './Item';
 import { useSelector } from 'react-redux';
 import { Spinner } from '@chakra-ui/react';
 
+// Common code present in othere component also
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (

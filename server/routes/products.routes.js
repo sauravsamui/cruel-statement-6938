@@ -1,3 +1,4 @@
+// Follow cart route comments
 const {Router} = require("express");
 const ProductModel = require("../model/products.model");
 

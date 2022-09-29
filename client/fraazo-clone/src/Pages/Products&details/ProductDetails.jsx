@@ -4,6 +4,9 @@ import { useParams } from "react-router-dom";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 import { useDispatch, useSelector } from "react-redux";
 import { addCartApi, getproductdetailsApi } from "../../Store/Cart/cart.actions";
+
+
+// Follow prev mentioned comments
 export const ProductDetails = () => {
   const {id} = useParams();
 

@@ -4,6 +4,7 @@ import search from "../../assets/svg/search.svg"
 import data from "./restaurant.json"
 import RestaurantCard from './RestaurantCard'
 
+// Reomove styles from component js
 const FindSearchPartStyled = styled.div`
  text-align: center;
  opacity:1;

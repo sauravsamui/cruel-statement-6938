@@ -5,6 +5,9 @@ import { getOrderApi } from '../../Store/order/order.action';
 import styles from "./order.module.css"
 import style from "./cart.module.css";
 import {Link} from "react-router-dom"
+
+
+// Distribute into small components
 const OrderItems = () => {
     
     const dispatch = useDispatch()

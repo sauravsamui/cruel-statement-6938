@@ -12,6 +12,7 @@ import { useEffect } from "react";
 import ProductItem from "./ProductItem";
 import {useDispatch, useSelector} from "react-redux"
 import { showProducts } from "../../Store/Products/products.action";
+// Distribute into small components
 const MenuPage = () => {
   const [type, setType] = useState("exoticfruits");
 

@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { BsFillCartPlusFill } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { addCartApi } from "../../Store/Cart/cart.actions";
+
+// remove conditionals
 const Item = ({ item, styles, loading }) => {
   const { isAuth } = useSelector((state) => state.auth);
   const dispatch = useDispatch();

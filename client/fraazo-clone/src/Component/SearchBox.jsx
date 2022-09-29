@@ -12,7 +12,8 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 
-
+// Never include styling value in js file
+// try and use constants and css file to get constant value and styles respectively
 import { useRef } from "react";
 import { useSelector } from "react-redux";
 import Item from "./item";
@@ -126,7 +127,7 @@ const SearchBox = () => {
     setSearchData(result)
    };
  
-
+// remove conditonals from parent component
   return (
     <div>
       <SearchBar>

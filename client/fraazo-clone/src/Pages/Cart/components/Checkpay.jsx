@@ -7,6 +7,7 @@ import Sudexo from './subcomponents/Sudexo'
 import Upi from './subcomponents/Upi'
 import Wallet from './subcomponents/Wallet'
 
+// separate condtionals
 const Checkpay = () => {
   const [credit, setcredit] = useState(true)
   const [sudexo, setsudexo] = useState(false)

@@ -3,6 +3,7 @@ import style from "./cartdraw.module.css";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
+// remove repeative code and push all calculations to util
 const Cartdraw = ({ cartflag, setcartflag }) => {
   const { removeItemCart,getItemCart, cartData: data } = useSelector((state) => state.cart);
 const navigate =useNavigate();

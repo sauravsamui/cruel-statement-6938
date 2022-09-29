@@ -16,6 +16,8 @@ import SearchBox from "./SearchBox";
 import { Cart } from "../Pages/Cart/cart";
 import { getCartItemApi } from "../Store/Cart/cart.actions";
 
+// Never include styling value in js file
+// try and use constants and css file to get constant value and styles respectively
 const InnerDivFlex = styled.div`
   color: #333333;
   font-size: 13px;

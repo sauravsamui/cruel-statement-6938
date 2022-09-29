@@ -7,7 +7,7 @@ import {NavLink} from "react-router-dom"
 import Item from './Item'
 import { useSelector } from 'react-redux'
 
-
+// Take reference from common components
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (

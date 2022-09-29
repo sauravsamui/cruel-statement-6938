@@ -22,6 +22,8 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { signupApi } from "../../Store/auth/auth.action";
 import loginSuccess from "../../assets/loginSuccess.png";
+// Never include styling value in js file
+// try and use constants and css file to get constant value and styles respectively
 const GetOTP = styled.div`
   background-color: #43c6ac;
   color: white;
@@ -70,6 +72,7 @@ const Login = () => {
  
  
   const dispatch = useDispatch();
+  //name varaibles properly
    let MobileN ="";
   const handleOTP = async () => {
     let x = Number(initialRef.current.value);

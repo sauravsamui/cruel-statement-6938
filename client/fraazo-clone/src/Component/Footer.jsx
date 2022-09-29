@@ -17,6 +17,9 @@ import appleStoreFooter from "../assets/appleStoreFooter.png";
 import footerbar from "../assets/homepage/footerbar.svg";
 import styled from "styled-components";
 
+// Never include styling value in js file
+// try and use constants and css file to get constant value and styles respectively
+
 const FooterMid = styled.div`
 display:grid;
 grid-template-columns:1fr 1fr 1fr 1fr;

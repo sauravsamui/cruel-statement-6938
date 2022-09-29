@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 import { removeAllCartApi } from "../../../../Store/Cart/cart.actions";
 import style from "./credit.module.css";
 
+// We can have a common modal and it should be customised as per different components
 const Credit = () => {
   const [cn, setcn] = useState("");
   const [mm, setmm] = useState("");

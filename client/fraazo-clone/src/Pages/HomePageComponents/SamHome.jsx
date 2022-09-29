@@ -16,6 +16,8 @@ import sideTwo from "../../HomePageAssets/sideTwo.png";
 import sideThree from "../../HomePageAssets/sideThree.png";
 import ImageSlider from "./ImageSlider";
 import DownloadApp from "../../Component/DownloadApp";
+
+// reomve constants from here
 const sliderImg = [
   { img: "https://imageprod.fraazo.com/fraazo-prod/web_ban/4923.png", id: 3763 },
   { img: "https://imageprod.fraazo.com/fraazo-prod/web_ban/4820.png", id: 3765 },

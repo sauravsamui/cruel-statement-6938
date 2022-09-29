@@ -17,6 +17,8 @@ import { useRef } from "react";
 import { useState } from "react";
 import styled from "styled-components";
 
+// Never include styling value in js file
+// try and use constants and css file to get constant value and styles respectively
 const DownloadAppStyling = styled.div`
 display:grid;
 grid-template-columns:1fr 1fr;

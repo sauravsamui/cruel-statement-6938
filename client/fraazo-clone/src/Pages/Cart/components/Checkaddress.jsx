@@ -2,6 +2,7 @@ import React from 'react'
 import style from "./checkaddress.module.css"
 
 const Checkaddress = () => {
+  // Make some util to formulate locations 
   let loc=JSON.parse(localStorage.getItem("fraazoUserLoc"))||"Powder Galli,Goregaon East, Mumbai, Maharashtra, 400063.";
   const obj={des:"Home",fd:"C-210",ad:loc,bld:"GokulDham Society",htr:"Call",pc:"560064",ct:"Bangalore"}
   return (

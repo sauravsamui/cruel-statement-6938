@@ -1,5 +1,6 @@
 import React from 'react'
 import style from "./wallet.module.css"
+// Remove constants mapping from here
 const Wallet = () => {
     let arr=[
         {src:"https://cdn.razorpay.com/wallet-sq/mobikwik.png",txt:"Mobikwik"},
