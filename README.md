@@ -9,7 +9,7 @@ Fraazo- It is an online platform that allows customer to get farm fresh produce 
 
 ## Deployed Site
 
-[Fraazo - Clone](https://fraazo-website-clone.netlify.app/)
+[Fraazo - Clone](https://fraazo-clone-gy5opwb6b-sauravsamuis-projects.vercel.app/)
 
 
 
